@@ -1,0 +1,7 @@
+{
+  "name": "rumriver-components",
+  "buildCommand": "npm run build",
+  "outputDirectory": ".histoire-dist",
+  "framework": null,
+  "public": false
+}
