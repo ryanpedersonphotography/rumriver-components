@@ -1,0 +1,2151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Component Library - 44 Components</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Georgia', serif; background: #FAF6F2; }
+        
+        /* Navigation Sidebar */
+        .nav-sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 300px;
+            height: 100vh;
+            background: #2C2416;
+            overflow-y: auto;
+            z-index: 1000;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+        }
+        
+        .nav-header {
+            background: #8B6337;
+            color: white;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        
+        .nav-header h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .component-count {
+            background: #D4A574;
+            color: #2C2416;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            display: inline-block;
+        }
+        
+        /* Accordion Styles */
+        .accordion-item {
+            border-bottom: 1px solid #4A3426;
+        }
+        
+        .accordion-header {
+            padding: 15px 20px;
+            background: #3A2F2A;
+            color: #D4A574;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+        
+        .accordion-header:hover {
+            background: #4A3426;
+            color: #FAF6F2;
+        }
+        
+        .accordion-header.active {
+            background: #8B6337;
+            color: white;
+        }
+        
+        .accordion-arrow {
+            transition: transform 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .accordion-header.active .accordion-arrow {
+            transform: rotate(180deg);
+        }
+        
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: #1F1A14;
+        }
+        
+        .accordion-content.active {
+            max-height: 600px;
+            overflow-y: auto;
+        }
+        
+        .category-count {
+            background: rgba(212, 165, 116, 0.3);
+            color: #D4A574;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 10px;
+            margin-left: 10px;
+        }
+        
+        .nav-item {
+            display: block;
+            padding: 10px 20px 10px 35px;
+            color: #FAF6F2;
+            text-decoration: none;
+            font-size: 13px;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+        
+        .nav-item:hover {
+            background: #4A3426;
+            color: #D4A574;
+            padding-left: 40px;
+            border-left-color: #D4A574;
+        }
+        
+        .nav-item.active {
+            background: #8B6337;
+            color: white;
+            border-left-color: #D4A574;
+        }
+        
+        /* Search Bar */
+        .search-container {
+            padding: 15px;
+            background: #4A3426;
+            border-bottom: 1px solid #8B6337;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 25px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            font-size: 14px;
+        }
+        
+        .search-input::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+        
+        /* Main Content */
+        .main-content {
+            margin-left: 300px;
+            padding: 40px;
+        }
+        
+        .library-header {
+            background: linear-gradient(135deg, #8B6337 0%, #4A3426 100%);
+            color: white;
+            padding: 60px 40px;
+            margin: -40px -40px 40px;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+        }
+        
+        /* Component Cards */
+        .component-card {
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+        
+        .component-header {
+            background: linear-gradient(135deg, #8B6337 0%, #D4A574 100%);
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .component-title {
+            font-size: 22px;
+            margin: 0;
+        }
+        
+        .component-meta {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .component-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+        }
+        
+        .component-body {
+            padding: 25px;
+        }
+        
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #1e1e1e;
+            padding: 10px 20px;
+            border-radius: 8px 8px 0 0;
+        }
+        
+        .code-label {
+            color: #D4A574;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .copy-btn {
+            background: #8B6337;
+            color: white;
+            border: none;
+            padding: 6px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .copy-btn:hover {
+            background: #D4A574;
+        }
+        
+        .code-block {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: 0 0 8px 8px;
+            overflow-x: auto;
+            max-height: 400px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s;
+            }
+            .nav-sidebar.open {
+                transform: translateX(0);
+            }
+            .main-content {
+                margin-left: 0;
+            }
+            .menu-toggle {
+                display: block !important;
+            }
+        }
+        
+        .menu-toggle {
+            display: none;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1001;
+            background: #2C2416;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<button class="menu-toggle" onclick="toggleMenu()">☰ Components</button>
+
+<nav class="nav-sidebar" id="navSidebar">
+    <div class="nav-header">
+        <h2>📚 Component Library</h2>
+        <span class="component-count">44 Components</span>
+    </div>
+    
+    <div class="search-container">
+        <input type="text" class="search-input" placeholder="Search components..." oninput="searchComponents(this.value)">
+    </div>
+    
+    
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion('cards')">
+            <span>CARDS <span class="category-count">3</span></span>
+            <span class="accordion-arrow">▼</span>
+        </div>
+        <div class="accordion-content" id="accordion-cards">            <a href="#comp-42" class="nav-item" onclick="scrollToComponent('comp-42')">Card</a>            <a href="#comp-43" class="nav-item" onclick="scrollToComponent('comp-43')">Card</a>            <a href="#comp-44" class="nav-item" onclick="scrollToComponent('comp-44')">Card</a>        </div>
+    </div>
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion('footers')">
+            <span>FOOTERS <span class="category-count">4</span></span>
+            <span class="accordion-arrow">▼</span>
+        </div>
+        <div class="accordion-content" id="accordion-footers">            <a href="#comp-11" class="nav-item" onclick="scrollToComponent('comp-11')">Footer</a>            <a href="#comp-22" class="nav-item" onclick="scrollToComponent('comp-22')">Footer</a>            <a href="#comp-29" class="nav-item" onclick="scrollToComponent('comp-29')">Footer</a>            <a href="#comp-38" class="nav-item" onclick="scrollToComponent('comp-38')">Divider Tilt Left</a>        </div>
+    </div>
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion('forms')">
+            <span>FORMS <span class="category-count">4</span></span>
+            <span class="accordion-arrow">▼</span>
+        </div>
+        <div class="accordion-content" id="accordion-forms">            <a href="#comp-4" class="nav-item" onclick="scrollToComponent('comp-4')">Contact</a>            <a href="#comp-8" class="nav-item" onclick="scrollToComponent('comp-8')">Contact</a>            <a href="#comp-21" class="nav-item" onclick="scrollToComponent('comp-21')">Contact</a>            <a href="#comp-28" class="nav-item" onclick="scrollToComponent('comp-28')">Contact</a>        </div>
+    </div>
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion('galleries')">
+            <span>GALLERIES <span class="category-count">2</span></span>
+            <span class="accordion-arrow">▼</span>
+        </div>
+        <div class="accordion-content" id="accordion-galleries">            <a href="#comp-3" class="nav-item" onclick="scrollToComponent('comp-3')">Gallery</a>            <a href="#comp-7" class="nav-item" onclick="scrollToComponent('comp-7')">Gallery</a>        </div>
+    </div>
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion('headers')">
+            <span>HEADERS <span class="category-count">5</span></span>
+            <span class="accordion-arrow">▼</span>
+        </div>
+        <div class="accordion-content" id="accordion-headers">            <a href="#comp-9" class="nav-item" onclick="scrollToComponent('comp-9')">Header</a>            <a href="#comp-12" class="nav-item" onclick="scrollToComponent('comp-12')">Header</a>            <a href="#comp-15" class="nav-item" onclick="scrollToComponent('comp-15')">Header</a>            <a href="#comp-23" class="nav-item" onclick="scrollToComponent('comp-23')">Header</a>            <a href="#comp-32" class="nav-item" onclick="scrollToComponent('comp-32')">Header</a>        </div>
+    </div>
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion('heroes')">
+            <span>HEROES <span class="category-count">6</span></span>
+            <span class="accordion-arrow">▼</span>
+        </div>
+        <div class="accordion-content" id="accordion-heroes">            <a href="#comp-2" class="nav-item" onclick="scrollToComponent('comp-2')">Home</a>            <a href="#comp-6" class="nav-item" onclick="scrollToComponent('comp-6')">Home</a>            <a href="#comp-14" class="nav-item" onclick="scrollToComponent('comp-14')">Home</a>            <a href="#comp-17" class="nav-item" onclick="scrollToComponent('comp-17')">Hero</a>            <a href="#comp-25" class="nav-item" onclick="scrollToComponent('comp-25')">Home</a>            <a href="#comp-34" class="nav-item" onclick="scrollToComponent('comp-34')">Home</a>        </div>
+    </div>
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion('navigation')">
+            <span>NAVIGATION <span class="category-count">7</span></span>
+            <span class="accordion-arrow">▼</span>
+        </div>
+        <div class="accordion-content" id="accordion-navigation">            <a href="#comp-1" class="nav-item" onclick="scrollToComponent('comp-1')">Navbar</a>            <a href="#comp-5" class="nav-item" onclick="scrollToComponent('comp-5')">Navbar</a>            <a href="#comp-10" class="nav-item" onclick="scrollToComponent('comp-10')">Nav</a>            <a href="#comp-13" class="nav-item" onclick="scrollToComponent('comp-13')">Nav</a>            <a href="#comp-16" class="nav-item" onclick="scrollToComponent('comp-16')">Nav</a>            <a href="#comp-24" class="nav-item" onclick="scrollToComponent('comp-24')">Nav</a>            <a href="#comp-33" class="nav-item" onclick="scrollToComponent('comp-33')">Nav</a>        </div>
+    </div>
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion('pricing')">
+            <span>PRICING <span class="category-count">1</span></span>
+            <span class="accordion-arrow">▼</span>
+        </div>
+        <div class="accordion-content" id="accordion-pricing">            <a href="#comp-27" class="nav-item" onclick="scrollToComponent('comp-27')">Packages</a>        </div>
+    </div>
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion('sections')">
+            <span>SECTIONS <span class="category-count">5</span></span>
+            <span class="accordion-arrow">▼</span>
+        </div>
+        <div class="accordion-content" id="accordion-sections">            <a href="#comp-30" class="nav-item" onclick="scrollToComponent('comp-30')">About</a>            <a href="#comp-31" class="nav-item" onclick="scrollToComponent('comp-31')">Gallery</a>            <a href="#comp-39" class="nav-item" onclick="scrollToComponent('comp-39')">About</a>            <a href="#comp-40" class="nav-item" onclick="scrollToComponent('comp-40')">Services</a>            <a href="#comp-41" class="nav-item" onclick="scrollToComponent('comp-41')">Gallery</a>        </div>
+    </div>
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion('services')">
+            <span>SERVICES <span class="category-count">1</span></span>
+            <span class="accordion-arrow">▼</span>
+        </div>
+        <div class="accordion-content" id="accordion-services">            <a href="#comp-26" class="nav-item" onclick="scrollToComponent('comp-26')">Services</a>        </div>
+    </div>
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion('testimonials')">
+            <span>TESTIMONIALS <span class="category-count">6</span></span>
+            <span class="accordion-arrow">▼</span>
+        </div>
+        <div class="accordion-content" id="accordion-testimonials">            <a href="#comp-18" class="nav-item" onclick="scrollToComponent('comp-18')">Testimonial</a>            <a href="#comp-19" class="nav-item" onclick="scrollToComponent('comp-19')">Testimonial</a>            <a href="#comp-20" class="nav-item" onclick="scrollToComponent('comp-20')">Testimonial</a>            <a href="#comp-35" class="nav-item" onclick="scrollToComponent('comp-35')">Testimonial</a>            <a href="#comp-36" class="nav-item" onclick="scrollToComponent('comp-36')">Testimonial</a>            <a href="#comp-37" class="nav-item" onclick="scrollToComponent('comp-37')">Testimonial</a>        </div>
+    </div>
+</nav>
+
+<div class="main-content">
+    <div class="library-header">
+        <h1>Component Library with Accordion Navigation</h1>
+        <p>Extracted 44 components from 11 categories</p>
+    </div>
+    
+    
+    <div class="component-card" id="comp-1">
+        <div class="component-header">
+            <h2 class="component-title">Navbar</h2>
+            <div class="component-meta">
+                <span class="component-badge">NAVIGATION</span>
+                <span class="component-badge">asdfdasfrum-river-wedding-venue.html</span>
+            </div>
+        </div>
+        <div class="component-body">
+            <div class="code-section">
+                <div class="code-header">
+                    <span class="code-label">HTML CODE</span>
+                    <button class="copy-btn" onclick="copyCode('comp-1-code')">Copy Code</button>
+                </div>
+                <pre class="code-block" id="comp-1-code">&lt;nav id="navbar"&gt;
+&lt;div class="nav-container"&gt;
+&lt;div class="logo"&gt;RUM RIVER&lt;/div&gt;
+&lt;ul class="nav-links"&gt;
+&lt;li&gt;&lt;a href="#home"&gt;Home&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#about"&gt;About&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#features"&gt;Amenities&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#gallery"&gt;Gallery&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#contact"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/nav&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <div class="component-card" id="comp-2">
+        <div class="component-header">
+            <h2 class="component-title">Home</h2>
+            <div class="component-meta">
+                <span class="component-badge">HEROES</span>
+                <span class="component-badge">asdfdasfrum-river-wedding-venue.html</span>
+            </div>
+        </div>
+        <div class="component-body">
+            <div class="code-section">
+                <div class="code-header">
+                    <span class="code-label">HTML CODE</span>
+                    <button class="copy-btn" onclick="copyCode('comp-2-code')">Copy Code</button>
+                </div>
+                <pre class="code-block" id="comp-2-code">&lt;section class="hero" id="home"&gt;
+&lt;div class="hero-content"&gt;
+&lt;div class="hero-subtitle"&gt;WELCOME TO&lt;/div&gt;
+&lt;h1 class="hero-title"&gt;Rum River&lt;br/&gt;Barn &amp; Vineyard&lt;/h1&gt;
+&lt;p class="hero-description"&gt;Where Rustic Charm Meets Timeless Romance&lt;/p&gt;
+&lt;a class="cta-button" href="#contact"&gt;START YOUR JOURNEY&lt;/a&gt;
+&lt;/div&gt;
+&lt;/section&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <div class="component-card" id="comp-3">
+        <div class="component-header">
+            <h2 class="component-title">Gallery</h2>
+            <div class="component-meta">
+                <span class="component-badge">GALLERIES</span>
+                <span class="component-badge">asdfdasfrum-river-wedding-venue.html</span>
+            </div>
+        </div>
+        <div class="component-body">
+            <div class="code-section">
+                <div class="code-header">
+                    <span class="code-label">HTML CODE</span>
+                    <button class="copy-btn" onclick="copyCode('comp-3-code')">Copy Code</button>
+                </div>
+                <pre class="code-block" id="comp-3-code">&lt;section class="gallery" id="gallery"&gt;
+&lt;h2&gt;Capture the &lt;span class="accent-text"&gt;Magic&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="gallery-grid"&gt;
+&lt;div class="gallery-item" data-caption="Barn Reception Hall"&gt;&lt;/div&gt;
+&lt;div class="gallery-item" data-caption="Vineyard Ceremony"&gt;&lt;/div&gt;
+&lt;div class="gallery-item" data-caption="Garden Pavilion"&gt;&lt;/div&gt;
+&lt;div class="gallery-item" data-caption="Sunset Views"&gt;&lt;/div&gt;
+&lt;div class="gallery-item" data-caption="Bridal Suite"&gt;&lt;/div&gt;
+&lt;div class="gallery-item" data-caption="Riverside Grove"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <div class="component-card" id="comp-4">
+        <div class="component-header">
+            <h2 class="component-title">Contact</h2>
+            <div class="component-meta">
+                <span class="component-badge">FORMS</span>
+                <span class="component-badge">asdfdasfrum-river-wedding-venue.html</span>
+            </div>
+        </div>
+        <div class="component-body">
+            <div class="code-section">
+                <div class="code-header">
+                    <span class="code-label">HTML CODE</span>
+                    <button class="copy-btn" onclick="copyCode('comp-4-code')">Copy Code</button>
+                </div>
+                <pre class="code-block" id="comp-4-code">&lt;section class="contact" id="contact"&gt;
+&lt;h2&gt;Begin Your Love Story&lt;/h2&gt;
+&lt;p class="contact-info"&gt;
+            Let us help you create the wedding of your dreams&lt;br/&gt;
+            at Rum River Barn &amp; Vineyard
+        &lt;/p&gt;
+&lt;a class="contact-button" href="#"&gt;SCHEDULE A TOUR&lt;/a&gt;
+&lt;a class="contact-button" href="#"&gt;REQUEST PRICING&lt;/a&gt;
+&lt;p style="margin-top: 40px; opacity: 0.8;"&gt;
+            📍 123 River Valley Road, Countryside, MN 55555&lt;br/&gt;
+            📞 (555) 123-4567 | ✉️ weddings@rumriverbarn.com
+        &lt;/p&gt;
+&lt;/section&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <div class="component-card" id="comp-5">
+        <div class="component-header">
+            <h2 class="component-title">Navbar</h2>
+            <div class="component-meta">
+                <span class="component-badge">NAVIGATION</span>
+                <span class="component-badge">asdfrum-river-wedding-venue.html</span>
+            </div>
+        </div>
+        <div class="component-body">
+            <div class="code-section">
+                <div class="code-header">
+                    <span class="code-label">HTML CODE</span>
+                    <button class="copy-btn" onclick="copyCode('comp-5-code')">Copy Code</button>
+                </div>
+                <pre class="code-block" id="comp-5-code">&lt;nav id="navbar"&gt;
+&lt;div class="nav-container"&gt;
+&lt;div class="logo"&gt;RUM RIVER&lt;/div&gt;
+&lt;ul class="nav-links"&gt;
+&lt;li&gt;&lt;a href="#home"&gt;Home&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#about"&gt;About&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#features"&gt;Amenities&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#gallery"&gt;Gallery&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#contact"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/nav&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <div class="component-card" id="comp-6">
+        <div class="component-header">
+            <h2 class="component-title">Home</h2>
+            <div class="component-meta">
+                <span class="component-badge">HEROES</span>
+                <span class="component-badge">asdfrum-river-wedding-venue.html</span>
+            </div>
+        </div>
+        <div class="component-body">
+            <div class="code-section">
+                <div class="code-header">
+                    <span class="code-label">HTML CODE</span>
+                    <button class="copy-btn" onclick="copyCode('comp-6-code')">Copy Code</button>
+                </div>
+                <pre class="code-block" id="comp-6-code">&lt;section class="hero" id="home"&gt;
+&lt;div class="hero-background"&gt;
+&lt;div class="hero-image-layer"&gt;&lt;/div&gt;
+&lt;div class="hero-pattern"&gt;&lt;/div&gt;
+&lt;div class="barn-silhouette"&gt;&lt;/div&gt;
+&lt;div class="light-rays"&gt;&lt;/div&gt;
+&lt;div class="particles"&gt;
+&lt;span class="particle"&gt;&lt;/span&gt;
+&lt;span class="particle"&gt;&lt;/span&gt;
+&lt;span class="particle"&gt;&lt;/span&gt;
+&lt;span class="particle"&gt;&lt;/span&gt;
+&lt;span class="particle"&gt;&lt;/span&gt;
+&lt;span class="particle"&gt;&lt;/span&gt;
+&lt;span class="particle"&gt;&lt;/span&gt;
+&lt;span class="particle"&gt;&lt;/span&gt;
+&lt;span class="particle"&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="decorative-frame"&gt;
+&lt;div class="vine-left"&gt;&lt;/div&gt;
+&lt;div class="vine-right"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="hero-content"&gt;
+&lt;div class="hero-subtitle"&gt;WELCOME TO&lt;/div&gt;
+&lt;h1 class="hero-title"&gt;Rum River&lt;br/&gt;Barn &amp; Vineyard&lt;/h1&gt;
+&lt;p class="hero-description"&gt;Where Rustic Charm Meets Timeless Romance&lt;/p&gt;
+&lt;a class="cta-button" href="#contact"&gt;START YOUR JOURNEY&lt;/a&gt;
+&lt;/div&gt;
+&lt;/section&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <div class="component-card" id="comp-7">
+        <div class="component-header">
+            <h2 class="component-title">Gallery</h2>
+            <div class="component-meta">
+                <span class="component-badge">GALLERIES</span>
+                <span class="component-badge">asdfrum-river-wedding-venue.html</span>
+            </div>
+        </div>
+        <div class="component-body">
+            <div class="code-section">
+                <div class="code-header">
+                    <span class="code-label">HTML CODE</span>
+                    <button class="copy-btn" onclick="copyCode('comp-7-code')">Copy Code</button>
+                </div>
+                <pre class="code-block" id="comp-7-code">&lt;section class="gallery" id="gallery"&gt;
+&lt;h2&gt;Capture the &lt;span class="accent-text"&gt;Magic&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="gallery-grid"&gt;
+&lt;div class="gallery-item" data-caption="Barn Reception Hall"&gt;&lt;/div&gt;
+&lt;div class="gallery-item" data-caption="Vineyard Ceremony"&gt;&lt;/div&gt;
+&lt;div class="gallery-item" data-caption="Garden Pavilion"&gt;&lt;/div&gt;
+&lt;div class="gallery-item" data-caption="Sunset Views"&gt;&lt;/div&gt;
+&lt;div class="gallery-item" data-caption="Bridal Suite"&gt;&lt;/div&gt;
+&lt;div class="gallery-item" data-caption="Riverside Grove"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <div class="component-card" id="comp-8">
+        <div class="component-header">
+            <h2 class="component-title">Contact</h2>
+            <div class="component-meta">
+                <span class="component-badge">FORMS</span>
+                <span class="component-badge">asdfrum-river-wedding-venue.html</span>
+            </div>
+        </div>
+        <div class="component-body">
+            <div class="code-section">
+                <div class="code-header">
+                    <span class="code-label">HTML CODE</span>
+                    <button class="copy-btn" onclick="copyCode('comp-8-code')">Copy Code</button>
+                </div>
+                <pre class="code-block" id="comp-8-code">&lt;section class="contact" id="contact"&gt;
+&lt;h2&gt;Begin Your Love Story&lt;/h2&gt;
+&lt;p class="contact-info"&gt;
+            Let us help you create the wedding of your dreams&lt;br/&gt;
+            at Rum River Barn &amp; Vineyard
+        &lt;/p&gt;
+&lt;a class="contact-button" href="#"&gt;SCHEDULE A TOUR&lt;/a&gt;
+&lt;a class="contact-button" href="#"&gt;REQUEST PRICING&lt;/a&gt;
+&lt;p style="margin-top: 40px; opacity: 0.8;"&gt;
+            📍 123 River Valley Road, Countryside, MN 55555&lt;br/&gt;
+            📞 (555) 123-4567 | ✉️ weddings@rumriverbarn.com
+        &lt;/p&gt;
+&lt;/section&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <div class="component-card" id="comp-9">
+        <div class="component-header">
+            <h2 class="component-title">Header</h2>
+            <div class="component-meta">
+                <span class="component-badge">HEADERS</span>
+                <span class="component-badge">barn-venue-gallery-redesign.html</span>
+            </div>
+        </div>
+        <div class="component-body">
+            <div class="code-section">
+                <div class="code-header">
+                    <span class="code-label">HTML CODE</span>
+                    <button class="copy-btn" onclick="copyCode('comp-9-code')">Copy Code</button>
+                </div>
+                <pre class="code-block" id="comp-9-code">&lt;header id="header"&gt;
+&lt;div class="container"&gt;
+&lt;div class="header-content"&gt;
+&lt;div class="logo-wrapper"&gt;
+&lt;div class="logo-circle"&gt;R&lt;/div&gt;
+&lt;div class="logo-text"&gt;RUM RIVER BARN&lt;/div&gt;
+&lt;/div&gt;
+&lt;nav&gt;
+&lt;ul class="nav-menu"&gt;
+&lt;li&gt;&lt;a class="active" href="#hero"&gt;HOME&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#about"&gt;ABOUT&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#services"&gt;SERVICES&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#spaces"&gt;SPACES&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#weddings"&gt;GALLERY&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#contact"&gt;CONTACT&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/nav&gt;
+&lt;div class="menu-toggle"&gt;
+&lt;span&gt;&lt;/span&gt;
+&lt;span&gt;&lt;/span&gt;
+&lt;span&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/header&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <div class="component-card" id="comp-10">
+        <div class="component-header">
+            <h2 class="component-title">Nav</h2>
+            <div class="component-meta">
+                <span class="component-badge">NAVIGATION</span>
+                <span class="component-badge">barn-venue-gallery-redesign.html</span>
+            </div>
+        </div>
+        <div class="component-body">
+            <div class="code-section">
+                <div class="code-header">
+                    <span class="code-label">HTML CODE</span>
+                    <button class="copy-btn" onclick="copyCode('comp-10-code')">Copy Code</button>
+                </div>
+                <pre class="code-block" id="comp-10-code">&lt;nav&gt;
+&lt;ul class="nav-menu"&gt;
+&lt;li&gt;&lt;a class="active" href="#hero"&gt;HOME&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#about"&gt;ABOUT&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#services"&gt;SERVICES&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#spaces"&gt;SPACES&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#weddings"&gt;GALLERY&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#contact"&gt;CONTACT&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/nav&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <div class="component-card" id="comp-11">
+        <div class="component-header">
+            <h2 class="component-title">Footer</h2>
+            <div class="component-meta">
+                <span class="component-badge">FOOTERS</span>
+                <span class="component-badge">barn-venue-gallery-redesign.html</span>
+            </div>
+        </div>
+        <div class="component-body">
+            <div class="code-section">
+                <div class="code-header">
+                    <span class="code-label">HTML CODE</span>
+                    <button class="copy-btn" onclick="copyCode('comp-11-code')">Copy Code</button>
+                </div>
+                <pre class="code-block" id="comp-11-code">&lt;footer&gt;
+&lt;div class="container"&gt;
+&lt;div class="footer-content"&gt;
+&lt;div class="footer-logo"&gt;RUM RIVER BARN&lt;/div&gt;
+&lt;div class="footer-nav"&gt;
+&lt;a href="#about"&gt;About&lt;/a&gt;
+&lt;a href="#services"&gt;Services&lt;/a&gt;
+&lt;a href="#spaces"&gt;Spaces&lt;/a&gt;
+&lt;a href="#weddings"&gt;Gallery&lt;/a&gt;
+&lt;a href="#contact"&gt;Contact&lt;/a&gt;
+&lt;/div&gt;
+&lt;div class="social-links"&gt;
+&lt;a href="#"&gt;Facebook&lt;/a&gt;
+&lt;a href="#"&gt;Instagram&lt;/a&gt;
+&lt;a href="#"&gt;Pinterest&lt;/a&gt;
+&lt;a href="#"&gt;The Knot&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="copyright"&gt;
+                © 2024 Rum River Barn. All rights reserved. | Princeton, Minnesota
+            &lt;/div&gt;
+&lt;/div&gt;
+&lt;/footer&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <div class="component-card" id="comp-12">
+        <div class="component-header">
+            <h2 class="component-title">Header</h2>
+            <div class="component-meta">
+                <span class="component-badge">HEADERS</span>
+                <span class="component-badge">barn-venue-sitevbb.html</span>
+            </div>
+        </div>
+        <div class="component-body">
+            <div class="code-section">
+                <div class="code-header">
+                    <span class="code-label">HTML CODE</span>
+                    <button class="copy-btn" onclick="copyCode('comp-12-code')">Copy Code</button>
+                </div>
+                <pre class="code-block" id="comp-12-code">&lt;header id="header"&gt;
+&lt;div class="container"&gt;
+&lt;div class="header-content"&gt;
+&lt;div class="logo-wrapper"&gt;
+&lt;div class="logo-circle"&gt;R&lt;/div&gt;
+&lt;/div&gt;
+&lt;nav&gt;
+&lt;ul class="nav-menu"&gt;
+&lt;li&gt;&lt;a class="active" href="#home"&gt;HOME&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#about"&gt;ABOUT&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#services"&gt;SERVICES&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#gallery"&gt;GALLERY&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#contact"&gt;CONTACT&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/nav&gt;
+&lt;div class="menu-toggle"&gt;
+&lt;span&gt;&lt;/span&gt;
+&lt;span&gt;&lt;/span&gt;
+&lt;span&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/header&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <div class="component-card" id="comp-13">
+        <div class="component-header">
+            <h2 class="component-title">Nav</h2>
+            <div class="component-meta">
+                <span class="component-badge">NAVIGATION</span>
+                <span class="component-badge">barn-venue-sitevbb.html</span>
+            </div>
+        </div>
+        <div class="component-body">
+            <div class="code-section">
+                <div class="code-header">
+                    <span class="code-label">HTML CODE</span>
+                    <button class="copy-btn" onclick="copyCode('comp-13-code')">Copy Code</button>
+                </div>
+                <pre class="code-block" id="comp-13-code">&lt;nav&gt;
+&lt;ul class="nav-menu"&gt;
+&lt;li&gt;&lt;a class="active" href="#home"&gt;HOME&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#about"&gt;ABOUT&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#services"&gt;SERVICES&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#gallery"&gt;GALLERY&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#contact"&gt;CONTACT&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/nav&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <div class="component-card" id="comp-14">
+        <div class="component-header">
+            <h2 class="component-title">Home</h2>
+            <div class="component-meta">
+                <span class="component-badge">HEROES</span>
+                <span class="component-badge">barn-venue-sitevbb.html</span>
+            </div>
+        </div>
+        <div class="component-body">
+            <div class="code-section">
+                <div class="code-header">
+                    <span class="code-label">HTML CODE</span>
+                    <button class="copy-btn" onclick="copyCode('comp-14-code')">Copy Code</button>
+                </div>
+                <pre class="code-block" id="comp-14-code">&lt;section class="hero" id="home"&gt;
+&lt;div class="container"&gt;
+&lt;div class="hero-content"&gt;
+&lt;div class="hero-year"&gt;EST. 2005&lt;/div&gt;
+&lt;div class="hero-subtitle"&gt;Minnesota's Premier Venue&lt;/div&gt;
+&lt;h1&gt;Rum River&lt;br/&gt;Barn&lt;/h1&gt;
+&lt;p class="lead-text"&gt;
+                    Where rustic charm meets&lt;br/&gt;modern elegance
+                &lt;/p&gt;
+&lt;div class="hero-buttons"&gt;
+&lt;a class="btn btn-light" href="#about"&gt;Discover Our Story&lt;/a&gt;
+&lt;a class="btn btn-outline" href="#contact"&gt;Schedule Your Visit&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <div class="component-card" id="comp-15">
+        <div class="component-header">
+            <h2 class="component-title">Header</h2>
+            <div class="component-meta">
+                <span class="component-badge">HEADERS</span>
+                <span class="component-badge">barn-venue-website.html</span>
+            </div>
+        </div>
+        <div class="component-body">
+            <div class="code-section">
+                <div class="code-header">
+                    <span class="code-label">HTML CODE</span>
+                    <button class="copy-btn" onclick="copyCode('comp-15-code')">Copy Code</button>
+                </div>
+                <pre class="code-block" id="comp-15-code">&lt;header&gt;
+&lt;nav&gt;
+&lt;a class="logo" href="#"&gt;The Meadowlark Barn&lt;/a&gt;
+&lt;ul class="nav-links"&gt;
+&lt;li&gt;&lt;a href="#venue"&gt;Venue&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#spaces"&gt;Spaces&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#packages"&gt;Packages&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#gallery"&gt;Gallery&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#contact"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;a class="cta-button" href="#contact"&gt;Schedule Tour&lt;/a&gt;
+&lt;/nav&gt;
+&lt;/header&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <div class="component-card" id="comp-16">
+        <div class="component-header">
+            <h2 class="component-title">Nav</h2>
+            <div class="component-meta">
+                <span class="component-badge">NAVIGATION</span>
+                <span class="component-badge">barn-venue-website.html</span>
+            </div>
+        </div>
+        <div class="component-body">
+            <div class="code-section">
+                <div class="code-header">
+                    <span class="code-label">HTML CODE</span>
+                    <button class="copy-btn" onclick="copyCode('comp-16-code')">Copy Code</button>
+                </div>
+                <pre class="code-block" id="comp-16-code">&lt;nav&gt;
+&lt;a class="logo" href="#"&gt;The Meadowlark Barn&lt;/a&gt;
+&lt;ul class="nav-links"&gt;
+&lt;li&gt;&lt;a href="#venue"&gt;Venue&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#spaces"&gt;Spaces&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#packages"&gt;Packages&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#gallery"&gt;Gallery&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#contact"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;a class="cta-button" href="#contact"&gt;Schedule Tour&lt;/a&gt;
+&lt;/nav&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <div class="component-card" id="comp-17">
+        <div class="component-header">
+            <h2 class="component-title">Hero</h2>
+            <div class="component-meta">
+                <span class="component-badge">HEROES</span>
+                <span class="component-badge">barn-venue-website.html</span>
+            </div>
+        </div>
+        <div class="component-body">
+            <div class="code-section">
+                <div class="code-header">
+                    <span class="code-label">HTML CODE</span>
+                    <button class="copy-btn" onclick="copyCode('comp-17-code')">Copy Code</button>
+                </div>
+                <pre class="code-block" id="comp-17-code">&lt;section class="hero"&gt;
+&lt;div class="hero-content"&gt;
+&lt;div class="hero-divider"&gt;&lt;/div&gt;
+&lt;h1&gt;Where Rustic Charm Meets Timeless Elegance&lt;/h1&gt;
+&lt;p&gt;Create unforgettable memories in our beautifully restored 1890s barn venue&lt;/p&gt;
+&lt;p style="font-size: 1rem; font-family: 'Montserrat', sans-serif; margin-bottom: 2rem;"&gt;Nestled in the Heart of the Hudson Valley&lt;/p&gt;
+&lt;a class="cta-button" href="#contact"&gt;Start Planning Your Day&lt;/a&gt;
+&lt;/div&gt;
+&lt;/section&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <div class="component-card" id="comp-18">
+        <div class="component-header">
+            <h2 class="component-title">Testimonial</h2>
+            <div class="component-meta">
+                <span class="component-badge">TESTIMONIALS</span>
+                <span class="component-badge">barn-venue-website.html</span>
+            </div>
+        </div>
+        <div class="component-body">
+            <div class="code-section">
+                <div class="code-header">
+                    <span class="code-label">HTML CODE</span>
+                    <button class="copy-btn" onclick="copyCode('comp-18-code')">Copy Code</button>
+                </div>
+                <pre class="code-block" id="comp-18-code">&lt;div class="testimonial"&gt;
+&lt;div class="testimonial-image"&gt;💑&lt;/div&gt;
+&lt;p class="testimonial-text"&gt;The Meadowlark Barn exceeded every expectation. The venue is absolutely breathtaking, and the staff went above and beyond to make our day perfect.&lt;/p&gt;
+&lt;p class="testimonial-author"&gt;Sarah &amp; Michael&lt;/p&gt;
+&lt;/div&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <div class="component-card" id="comp-19">
+        <div class="component-header">
+            <h2 class="component-title">Testimonial</h2>
+            <div class="component-meta">
+                <span class="component-badge">TESTIMONIALS</span>
+                <span class="component-badge">barn-venue-website.html</span>
+            </div>
+        </div>
+        <div class="component-body">
+            <div class="code-section">
+                <div class="code-header">
+                    <span class="code-label">HTML CODE</span>
+                    <button class="copy-btn" onclick="copyCode('comp-19-code')">Copy Code</button>
+                </div>
+                <pre class="code-block" id="comp-19-code">&lt;div class="testimonial"&gt;
+&lt;div class="testimonial-image"&gt;💕&lt;/div&gt;
+&lt;p class="testimonial-text"&gt;From our first tour to our last dance, everything was magical. The barn's ambiance is unmatched, and our photos are stunning!&lt;/p&gt;
+&lt;p class="testimonial-author"&gt;Emily &amp; James&lt;/p&gt;
+&lt;/div&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <div class="component-card" id="comp-20">
+        <div class="component-header">
+            <h2 class="component-title">Testimonial</h2>
+            <div class="component-meta">
+                <span class="component-badge">TESTIMONIALS</span>
+                <span class="component-badge">barn-venue-website.html</span>
+            </div>
+        </div>
+        <div class="component-body">
+            <div class="code-section">
+                <div class="code-header">
+                    <span class="code-label">HTML CODE</span>
+                    <button class="copy-btn" onclick="copyCode('comp-20-code')">Copy Code</button>
+                </div>
+                <pre class="code-block" id="comp-20-code">&lt;div class="testimonial"&gt;
+&lt;div class="testimonial-image"&gt;💗&lt;/div&gt;
+&lt;p class="testimonial-text"&gt;We couldn't have asked for a more perfect venue. The flexibility and attention to detail made planning stress-free and enjoyable.&lt;/p&gt;
+&lt;p class="testimonial-author"&gt;Amanda &amp; David&lt;/p&gt;
+&lt;/div&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <div class="component-card" id="comp-21">
+        <div class="component-header">
+            <h2 class="component-title">Contact</h2>
+            <div class="component-meta">
+                <span class="component-badge">FORMS</span>
+                <span class="component-badge">barn-venue-website.html</span>
+            </div>
+        </div>
+        <div class="component-body">
+            <div class="code-section">
+                <div class="code-header">
+                    <span class="code-label">HTML CODE</span>
+                    <button class="copy-btn" onclick="copyCode('comp-21-code')">Copy Code</button>
+                </div>
+                <pre class="code-block" id="comp-21-code">&lt;section class="contact" id="contact"&gt;
+&lt;h2&gt;Start Planning Your Perfect Day&lt;/h2&gt;
+&lt;p&gt;We'd love to show you around and discuss how The Meadowlark Barn can bring your vision to life&lt;/p&gt;
+&lt;a class="cta-button" href="#" style="margin-top: 2rem;"&gt;Schedule Your Private Tour&lt;/a&gt;
+&lt;div class="contact-info"&gt;
+&lt;div class="contact-item"&gt;
+&lt;h4&gt;Location&lt;/h4&gt;
+&lt;p&gt;1847 Meadowlark Lane&lt;br/&gt;Hudson Valley, NY 12534&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="contact-item"&gt;
+&lt;h4&gt;Contact&lt;/h4&gt;
+&lt;p&gt;(845) 555-BARN&lt;br/&gt;weddings@meadowlarkbarn.com&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="contact-item"&gt;
+&lt;h4&gt;Tours&lt;/h4&gt;
+&lt;p&gt;By Appointment&lt;br/&gt;Tuesday - Sunday&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <div class="component-card" id="comp-22">
+        <div class="component-header">
+            <h2 class="component-title">Footer</h2>
+            <div class="component-meta">
+                <span class="component-badge">FOOTERS</span>
+                <span class="component-badge">barn-venue-website.html</span>
+            </div>
+        </div>
+        <div class="component-body">
+            <div class="code-section">
+                <div class="code-header">
+                    <span class="code-label">HTML CODE</span>
+                    <button class="copy-btn" onclick="copyCode('comp-22-code')">Copy Code</button>
+                </div>
+                <pre class="code-block" id="comp-22-code">&lt;footer&gt;
+&lt;p&gt;© 2025 The Meadowlark Barn. All rights reserved. | &lt;a href="#"&gt;Privacy Policy&lt;/a&gt; | &lt;a href="#"&gt;Terms of Service&lt;/a&gt;&lt;/p&gt;
+&lt;p style="margin-top: 1rem; font-size: 0.85rem;"&gt;Website crafted with love for couples in love&lt;/p&gt;
+&lt;/footer&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <div class="component-card" id="comp-23">
+        <div class="component-header">
+            <h2 class="component-title">Header</h2>
+            <div class="component-meta">
+                <span class="component-badge">HEADERS</span>
+                <span class="component-badge">barn-wedding-venue.html</span>
+            </div>
+        </div>
+        <div class="component-body">
+            <div class="code-section">
+                <div class="code-header">
+                    <span class="code-label">HTML CODE</span>
+                    <button class="copy-btn" onclick="copyCode('comp-23-code')">Copy Code</button>
+                </div>
+                <pre class="code-block" id="comp-23-code">&lt;header id="header"&gt;
+&lt;div class="container"&gt;
+&lt;div class="header-content"&gt;
+&lt;div class="logo"&gt;Willow Creek Barn&lt;/div&gt;
+&lt;nav id="nav"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class="active" href="#home"&gt;Home&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#about"&gt;About&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#services"&gt;Services&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#gallery"&gt;Gallery&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#packages"&gt;Packages&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#testimonials"&gt;Reviews&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#contact"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/nav&gt;
+&lt;div class="menu-toggle" onclick="toggleMenu()"&gt;
+&lt;span&gt;&lt;/span&gt;
+&lt;span&gt;&lt;/span&gt;
+&lt;span&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/header&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <div class="component-card" id="comp-24">
+        <div class="component-header">
+            <h2 class="component-title">Nav</h2>
+            <div class="component-meta">
+                <span class="component-badge">NAVIGATION</span>
+                <span class="component-badge">barn-wedding-venue.html</span>
+            </div>
+        </div>
+        <div class="component-body">
+            <div class="code-section">
+                <div class="code-header">
+                    <span class="code-label">HTML CODE</span>
+                    <button class="copy-btn" onclick="copyCode('comp-24-code')">Copy Code</button>
+                </div>
+                <pre class="code-block" id="comp-24-code">&lt;nav id="nav"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class="active" href="#home"&gt;Home&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#about"&gt;About&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#services"&gt;Services&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#gallery"&gt;Gallery&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#packages"&gt;Packages&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#testimonials"&gt;Reviews&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#contact"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/nav&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <div class="component-card" id="comp-25">
+        <div class="component-header">
+            <h2 class="component-title">Home</h2>
+            <div class="component-meta">
+                <span class="component-badge">HEROES</span>
+                <span class="component-badge">barn-wedding-venue.html</span>
+            </div>
+        </div>
+        <div class="component-body">
+            <div class="code-section">
+                <div class="code-header">
+                    <span class="code-label">HTML CODE</span>
+                    <button class="copy-btn" onclick="copyCode('comp-25-code')">Copy Code</button>
+                </div>
+                <pre class="code-block" id="comp-25-code">&lt;section class="hero" id="home"&gt;
+&lt;div class="hero-content"&gt;
+&lt;div class="hero-subtitle"&gt;Where Love Stories Begin&lt;/div&gt;
+&lt;h1&gt;Willow Creek Barn&lt;/h1&gt;
+&lt;p class="hero-description"&gt;
+                A breathtaking rustic wedding venue nestled in the rolling countryside, 
+                where timeless elegance meets natural beauty
+            &lt;/p&gt;
+&lt;div class="hero-buttons"&gt;
+&lt;a class="btn btn-light" href="#contact"&gt;Schedule a Tour&lt;/a&gt;
+&lt;a class="btn btn-outline" href="#gallery" style="margin-left: 1rem;"&gt;View Gallery&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <div class="component-card" id="comp-26">
+        <div class="component-header">
+            <h2 class="component-title">Services</h2>
+            <div class="component-meta">
+                <span class="component-badge">SERVICES</span>
+                <span class="component-badge">barn-wedding-venue.html</span>
+            </div>
+        </div>
+        <div class="component-body">
+            <div class="code-section">
+                <div class="code-header">
+                    <span class="code-label">HTML CODE</span>
+                    <button class="copy-btn" onclick="copyCode('comp-26-code')">Copy Code</button>
+                </div>
+                <pre class="code-block" id="comp-26-code">&lt;section class="section services" id="services"&gt;
+&lt;div class="container"&gt;
+&lt;h2 class="text-center"&gt;Complete Wedding Services&lt;/h2&gt;
+&lt;p class="text-center" style="max-width: 600px; margin: 0 auto;"&gt;
+                Everything you need for your perfect day, all in one stunning location
+            &lt;/p&gt;
+&lt;div class="services-grid"&gt;
+&lt;div class="service-card"&gt;
+&lt;div class="service-icon"&gt;🏛️&lt;/div&gt;
+&lt;h3&gt;Ceremony Spaces&lt;/h3&gt;
+&lt;p&gt;Choose from our restored barn interior, garden gazebo, or meadow setting for your ceremony&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="service-card"&gt;
+&lt;div class="service-icon"&gt;🎉&lt;/div&gt;
+&lt;h3&gt;Reception Hall&lt;/h3&gt;
+&lt;p&gt;Our spacious barn features exposed beams, chandeliers, and a dance floor for up to 250 guests&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="service-card"&gt;
+&lt;div class="service-icon"&gt;📸&lt;/div&gt;
+&lt;h3&gt;Photo Locations&lt;/h3&gt;
+&lt;p&gt;Stunning backdrops including rustic doors, wildflower fields, and a romantic willow grove&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="service-card"&gt;
+&lt;div class="service-icon"&gt;🍽️&lt;/div&gt;
+&lt;h3&gt;Catering Kitchen&lt;/h3&gt;
+&lt;p&gt;Full commercial kitchen available for your catering team with modern equipment&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="service-card"&gt;
+&lt;div class="service-icon"&gt;💐&lt;/div&gt;
+&lt;h3&gt;Bridal Suite&lt;/h3&gt;
+&lt;p&gt;Private getting-ready suite with comfortable seating, mirrors, and natural light&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="service-card"&gt;
+&lt;div class="service-icon"&gt;🎵&lt;/div&gt;
+&lt;h3&gt;Event Coordination&lt;/h3&gt;
+&lt;p&gt;Experienced coordinators to help plan and execute your perfect wedding day&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <div class="component-card" id="comp-27">
+        <div class="component-header">
+            <h2 class="component-title">Packages</h2>
+            <div class="component-meta">
+                <span class="component-badge">PRICING</span>
+                <span class="component-badge">barn-wedding-venue.html</span>
+            </div>
+        </div>
+        <div class="component-body">
+            <div class="code-section">
+                <div class="code-header">
+                    <span class="code-label">HTML CODE</span>
+                    <button class="copy-btn" onclick="copyCode('comp-27-code')">Copy Code</button>
+                </div>
+                <pre class="code-block" id="comp-27-code">&lt;section class="section pricing" id="packages"&gt;
+&lt;div class="container"&gt;
+&lt;h2 class="text-center"&gt;Wedding Packages&lt;/h2&gt;
+&lt;p class="text-center" style="max-width: 600px; margin: 0 auto;"&gt;
+                Flexible packages designed to make your dream wedding a reality
+            &lt;/p&gt;
+&lt;div class="pricing-grid"&gt;
+&lt;div class="pricing-card"&gt;
+&lt;h3&gt;Essentials&lt;/h3&gt;
+&lt;div class="price"&gt;$3,500&lt;/div&gt;
+&lt;p&gt;Perfect for intimate celebrations&lt;/p&gt;
+&lt;ul class="price-details"&gt;
+&lt;li&gt;Up to 75 guests&lt;/li&gt;
+&lt;li&gt;6-hour venue rental&lt;/li&gt;
+&lt;li&gt;Ceremony &amp; reception spaces&lt;/li&gt;
+&lt;li&gt;Tables and chairs&lt;/li&gt;
+&lt;li&gt;Basic lighting package&lt;/li&gt;
+&lt;li&gt;Parking attendant&lt;/li&gt;
+&lt;/ul&gt;
+&lt;a class="btn btn-outline" href="#contact"&gt;Get Started&lt;/a&gt;
+&lt;/div&gt;
+&lt;div class="pricing-card featured"&gt;
+&lt;h3&gt;Signature&lt;/h3&gt;
+&lt;div class="price"&gt;$5,500&lt;/div&gt;
+&lt;p&gt;Our most popular package&lt;/p&gt;
+&lt;ul class="price-details"&gt;
+&lt;li&gt;Up to 150 guests&lt;/li&gt;
+&lt;li&gt;10-hour venue rental&lt;/li&gt;
+&lt;li&gt;All venue spaces included&lt;/li&gt;
+&lt;li&gt;Premium decor package&lt;/li&gt;
+&lt;li&gt;Bridal suite access&lt;/li&gt;
+&lt;li&gt;Day-of coordinator&lt;/li&gt;
+&lt;li&gt;Setup and cleanup crew&lt;/li&gt;
+&lt;/ul&gt;
+&lt;a class="btn btn-light" href="#contact"&gt;Most Popular&lt;/a&gt;
+&lt;/div&gt;
+&lt;div class="pricing-card"&gt;
+&lt;h3&gt;Luxe&lt;/h3&gt;
+&lt;div class="price"&gt;$7,500&lt;/div&gt;
+&lt;p&gt;The ultimate wedding experience&lt;/p&gt;
+&lt;ul class="price-details"&gt;
+&lt;li&gt;Up to 250 guests&lt;/li&gt;
+&lt;li&gt;Full weekend access&lt;/li&gt;
+&lt;li&gt;All premium amenities&lt;/li&gt;
+&lt;li&gt;Custom lighting design&lt;/li&gt;
+&lt;li&gt;Full planning assistance&lt;/li&gt;
+&lt;li&gt;Rehearsal dinner space&lt;/li&gt;
+&lt;li&gt;Complimentary extras&lt;/li&gt;
+&lt;/ul&gt;
+&lt;a class="btn btn-outline" href="#contact"&gt;Contact Us&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <div class="component-card" id="comp-28">
+        <div class="component-header">
+            <h2 class="component-title">Contact</h2>
+            <div class="component-meta">
+                <span class="component-badge">FORMS</span>
+                <span class="component-badge">barn-wedding-venue.html</span>
+            </div>
+        </div>
+        <div class="component-body">
+            <div class="code-section">
+                <div class="code-header">
+                    <span class="code-label">HTML CODE</span>
+                    <button class="copy-btn" onclick="copyCode('comp-28-code')">Copy Code</button>
+                </div>
+                <pre class="code-block" id="comp-28-code">&lt;section class="section contact" id="contact"&gt;
+&lt;div class="container"&gt;
+&lt;h2 class="text-center"&gt;Start Planning Your Perfect Day&lt;/h2&gt;
+&lt;p class="text-center" style="max-width: 600px; margin: 0 auto;"&gt;
+                We'd love to show you around and discuss how we can make your wedding dreams come true
+            &lt;/p&gt;
+&lt;div class="contact-grid"&gt;
+&lt;form class="contact-form"&gt;
+&lt;div class="form-group"&gt;
+&lt;label for="name"&gt;Your Names&lt;/label&gt;
+&lt;input id="name" name="name" required="" type="text"/&gt;
+&lt;/div&gt;
+&lt;div class="form-group"&gt;
+&lt;label for="email"&gt;Email Address&lt;/label&gt;
+&lt;input id="email" name="email" required="" type="email"/&gt;
+&lt;/div&gt;
+&lt;div class="form-group"&gt;
+&lt;label for="phone"&gt;Phone Number&lt;/label&gt;
+&lt;input id="phone" name="phone" type="tel"/&gt;
+&lt;/div&gt;
+&lt;div class="form-group"&gt;
+&lt;label for="date"&gt;Preferred Wedding Date&lt;/label&gt;
+&lt;input id="date" name="date" type="date"/&gt;
+&lt;/div&gt;
+&lt;div class="form-group"&gt;
+&lt;label for="guests"&gt;Estimated Guest Count&lt;/label&gt;
+&lt;select id="guests" name="guests"&gt;
+&lt;option value=""&gt;Select guest count&lt;/option&gt;
+&lt;option value="50"&gt;Under 50&lt;/option&gt;
+&lt;option value="75"&gt;50-75&lt;/option&gt;
+&lt;option value="100"&gt;75-100&lt;/option&gt;
+&lt;option value="150"&gt;100-150&lt;/option&gt;
+&lt;option value="200"&gt;150-200&lt;/option&gt;
+&lt;option value="250"&gt;200-250&lt;/option&gt;
+&lt;/select&gt;
+&lt;/div&gt;
+&lt;div class="form-group"&gt;
+&lt;label for="message"&gt;Tell Us About Your Vision&lt;/label&gt;
+&lt;textarea id="message" name="message" rows="4"&gt;&lt;/textarea&gt;
+&lt;/div&gt;
+&lt;button class="btn" type="submit"&gt;Schedule a Tour&lt;/button&gt;
+&lt;/form&gt;
+&lt;div class="contact-info"&gt;
+&lt;div class="info-item"&gt;
+&lt;h4&gt;Visit Our Venue&lt;/h4&gt;
+&lt;p&gt;1847 Willow Creek Road&lt;br/&gt;
+                        Meadowbrook Valley, CA 95460&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="info-item"&gt;
+&lt;h4&gt;Get in Touch&lt;/h4&gt;
+&lt;p&gt;Phone: (555) 123-4567&lt;br/&gt;
+                        Email: hello@willowcreekbarn.com&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="info-item"&gt;
+&lt;h4&gt;Tour Hours&lt;/h4&gt;
+&lt;p&gt;Tuesday - Friday: 10am - 5pm&lt;br/&gt;
+                        Saturday - Sunday: 11am - 4pm&lt;br/&gt;
+                        Closed Mondays&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="info-item"&gt;
+</pre>
+            </div>
+        </div>
+    </div>
+    <div class="component-card" id="comp-29">
+        <div class="component-header">
+            <h2 class="component-title">Footer</h2>
+            <div class="component-meta">
+                <span class="component-badge">FOOTERS</span>
+                <span class="component-badge">barn-wedding-venue.html</span>
+            </div>
+        </div>
+        <div class="component-body">
+            <div class="code-section">
+                <div class="code-header">
+                    <span class="code-label">HTML CODE</span>
+                    <button class="copy-btn" onclick="copyCode('comp-29-code')">Copy Code</button>
+                </div>
+                <pre class="code-block" id="comp-29-code">&lt;footer&gt;
+&lt;div class="container"&gt;
+&lt;div class="footer-content"&gt;
+&lt;div class="footer-section"&gt;
+&lt;h4&gt;Willow Creek Barn&lt;/h4&gt;
+&lt;p style="color: rgba(255,255,255,0.8); margin-top: 1rem;"&gt;
+                        Creating unforgettable wedding experiences in the heart of California's countryside since 2010.
+                    &lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="footer-section"&gt;
+&lt;h4&gt;Quick Links&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#about"&gt;About Us&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#services"&gt;Services&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#gallery"&gt;Gallery&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#packages"&gt;Packages&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#testimonials"&gt;Reviews&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="footer-section"&gt;
+&lt;h4&gt;Resources&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#"&gt;Virtual Tour&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#"&gt;Preferred Vendors&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#"&gt;Floor Plans&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#"&gt;FAQ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#"&gt;Blog&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="footer-section"&gt;
+&lt;h4&gt;Contact&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="tel:5551234567"&gt;(555) 123-4567&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="mailto:hello@willowcreekbarn.com"&gt;hello@willowcreekbarn.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#"&gt;1847 Willow Creek Road&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#"&gt;Meadowbrook Valley, CA&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="footer-bottom"&gt;
+&lt;p&gt;© 2024 Willow Creek Barn. All rights reserved. | Privacy Policy | Terms of Service&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/footer&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <div class="component-card" id="comp-30">
+        <div class="component-header">
+            <h2 class="component-title">About</h2>
+            <div class="component-meta">
+                <span class="component-badge">SECTIONS</span>
+                <span class="component-badge">barn-wedding-venue.html</span>
+            </div>
+        </div>
+        <div class="component-body">
+            <div class="code-section">
+                <div class="code-header">
+                    <span class="code-label">HTML CODE</span>
+                    <button class="copy-btn" onclick="copyCode('comp-30-code')">Copy Code</button>
+                </div>
+                <pre class="code-block" id="comp-30-code">&lt;section class="section" id="about"&gt;
+&lt;div class="container"&gt;
+&lt;div class="about-grid"&gt;
+&lt;div class="about-image fade-in"&gt;&lt;/div&gt;
+&lt;div class="about-content"&gt;
+&lt;h2&gt;Your Dream Barn Wedding Awaits&lt;/h2&gt;
+&lt;p&gt;
+                        Willow Creek Barn is a restored 1890s barn that combines rustic charm with modern amenities. 
+                        Set on 40 acres of pristine countryside, our venue offers the perfect backdrop for your special day.
+                    &lt;/p&gt;
+&lt;p&gt;
+                        From intimate ceremonies to grand celebrations, we provide an enchanting setting where 
+                        memories are made and love stories unfold against the backdrop of weathered wood, 
+                        twinkling lights, and natural beauty.
+                    &lt;/p&gt;
+&lt;ul class="feature-list"&gt;
+&lt;li&gt;Historic barn with original architecture&lt;/li&gt;
+&lt;li&gt;Accommodates up to 250 guests&lt;/li&gt;
+&lt;li&gt;Climate-controlled comfort year-round&lt;/li&gt;
+&lt;li&gt;Stunning outdoor ceremony sites&lt;/li&gt;
+&lt;li&gt;Professional wedding coordination&lt;/li&gt;
+&lt;li&gt;Ample parking and accessibility&lt;/li&gt;
+&lt;/ul&gt;
+&lt;a class="btn" href="#packages" style="margin-top: 2rem;"&gt;View Packages&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <div class="component-card" id="comp-31">
+        <div class="component-header">
+            <h2 class="component-title">Gallery</h2>
+            <div class="component-meta">
+                <span class="component-badge">SECTIONS</span>
+                <span class="component-badge">barn-wedding-venue.html</span>
+            </div>
+        </div>
+        <div class="component-body">
+            <div class="code-section">
+                <div class="code-header">
+                    <span class="code-label">HTML CODE</span>
+                    <button class="copy-btn" onclick="copyCode('comp-31-code')">Copy Code</button>
+                </div>
+                <pre class="code-block" id="comp-31-code">&lt;section class="section" id="gallery"&gt;
+&lt;div class="container"&gt;
+&lt;h2 class="text-center"&gt;Wedding Gallery&lt;/h2&gt;
+&lt;p class="text-center" style="max-width: 600px; margin: 0 auto;"&gt;
+                Explore the magic of real weddings at Willow Creek Barn
+            &lt;/p&gt;
+&lt;div class="gallery-grid"&gt;
+&lt;div class="gallery-item"&gt;
+&lt;div class="gallery-caption"&gt;
+&lt;h4&gt;Sarah &amp; Michael&lt;/h4&gt;
+&lt;p&gt;Summer Garden Wedding&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="gallery-item"&gt;
+&lt;div class="gallery-caption"&gt;
+&lt;h4&gt;Emily &amp; James&lt;/h4&gt;
+&lt;p&gt;Autumn Barn Ceremony&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="gallery-item"&gt;
+&lt;div class="gallery-caption"&gt;
+&lt;h4&gt;Jessica &amp; David&lt;/h4&gt;
+&lt;p&gt;Spring Outdoor Reception&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="gallery-item"&gt;
+&lt;div class="gallery-caption"&gt;
+&lt;h4&gt;Amanda &amp; Robert&lt;/h4&gt;
+&lt;p&gt;Winter Wonderland Wedding&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="gallery-item"&gt;
+&lt;div class="gallery-caption"&gt;
+&lt;h4&gt;Lauren &amp; Christopher&lt;/h4&gt;
+&lt;p&gt;Rustic Chic Celebration&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="gallery-item"&gt;
+&lt;div class="gallery-caption"&gt;
+&lt;h4&gt;Rachel &amp; Matthew&lt;/h4&gt;
+&lt;p&gt;Sunset Ceremony&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <div class="component-card" id="comp-32">
+        <div class="component-header">
+            <h2 class="component-title">Header</h2>
+            <div class="component-meta">
+                <span class="component-badge">HEADERS</span>
+                <span class="component-badge">barn-wedding-venue33333.html</span>
+            </div>
+        </div>
+        <div class="component-body">
+            <div class="code-section">
+                <div class="code-header">
+                    <span class="code-label">HTML CODE</span>
+                    <button class="copy-btn" onclick="copyCode('comp-32-code')">Copy Code</button>
+                </div>
+                <pre class="code-block" id="comp-32-code">&lt;header id="header"&gt;
+&lt;div class="container"&gt;
+&lt;div class="header-content"&gt;
+&lt;div class="logo-wrapper"&gt;
+&lt;div class="logo-circle"&gt;W&lt;/div&gt;
+&lt;/div&gt;
+&lt;nav&gt;
+&lt;ul class="nav-menu"&gt;
+&lt;li&gt;&lt;a class="active" href="#home"&gt;HOME&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#about"&gt;ABOUT&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#services"&gt;SERVICES&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#gallery"&gt;GALLERY&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#contact"&gt;CONTACT&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="lang-switch"&gt;
+&lt;a class="active" href="#"&gt;ENG&lt;/a&gt;
+&lt;a href="#"&gt;FRA&lt;/a&gt;
+&lt;/div&gt;
+&lt;/nav&gt;
+&lt;div class="menu-toggle"&gt;
+&lt;span&gt;&lt;/span&gt;
+&lt;span&gt;&lt;/span&gt;
+&lt;span&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/header&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <div class="component-card" id="comp-33">
+        <div class="component-header">
+            <h2 class="component-title">Nav</h2>
+            <div class="component-meta">
+                <span class="component-badge">NAVIGATION</span>
+                <span class="component-badge">barn-wedding-venue33333.html</span>
+            </div>
+        </div>
+        <div class="component-body">
+            <div class="code-section">
+                <div class="code-header">
+                    <span class="code-label">HTML CODE</span>
+                    <button class="copy-btn" onclick="copyCode('comp-33-code')">Copy Code</button>
+                </div>
+                <pre class="code-block" id="comp-33-code">&lt;nav&gt;
+&lt;ul class="nav-menu"&gt;
+&lt;li&gt;&lt;a class="active" href="#home"&gt;HOME&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#about"&gt;ABOUT&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#services"&gt;SERVICES&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#gallery"&gt;GALLERY&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#contact"&gt;CONTACT&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="lang-switch"&gt;
+&lt;a class="active" href="#"&gt;ENG&lt;/a&gt;
+&lt;a href="#"&gt;FRA&lt;/a&gt;
+&lt;/div&gt;
+&lt;/nav&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <div class="component-card" id="comp-34">
+        <div class="component-header">
+            <h2 class="component-title">Home</h2>
+            <div class="component-meta">
+                <span class="component-badge">HEROES</span>
+                <span class="component-badge">barn-wedding-venue33333.html</span>
+            </div>
+        </div>
+        <div class="component-body">
+            <div class="code-section">
+                <div class="code-header">
+                    <span class="code-label">HTML CODE</span>
+                    <button class="copy-btn" onclick="copyCode('comp-34-code')">Copy Code</button>
+                </div>
+                <pre class="code-block" id="comp-34-code">&lt;section class="hero" id="home"&gt;
+&lt;div class="container"&gt;
+&lt;div class="hero-content"&gt;
+&lt;div class="hero-year"&gt;EST. 2010&lt;/div&gt;
+&lt;div class="hero-subtitle"&gt;Rustic Elegance&lt;/div&gt;
+&lt;h1&gt;Willow Creek&lt;br/&gt;Barn&lt;/h1&gt;
+&lt;p class="lead-text" style="color: var(--cream); opacity: 0.9; margin-bottom: var(--spacing-lg);"&gt;
+                    Where timeless romance meets&lt;br/&gt;countryside charm
+                &lt;/p&gt;
+&lt;div class="hero-buttons"&gt;
+&lt;a class="btn btn-light" href="#about"&gt;Discover Our Story&lt;/a&gt;
+&lt;a class="btn btn-outline" href="#contact"&gt;Schedule Your Visit&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <div class="component-card" id="comp-35">
+        <div class="component-header">
+            <h2 class="component-title">Testimonial</h2>
+            <div class="component-meta">
+                <span class="component-badge">TESTIMONIALS</span>
+                <span class="component-badge">barn-wedding-venue33333.html</span>
+            </div>
+        </div>
+        <div class="component-body">
+            <div class="code-section">
+                <div class="code-header">
+                    <span class="code-label">HTML CODE</span>
+                    <button class="copy-btn" onclick="copyCode('comp-35-code')">Copy Code</button>
+                </div>
+                <pre class="code-block" id="comp-35-code">&lt;div class="testimonial"&gt;
+&lt;p class="testimonial-quote"&gt;
+                        "Willow Creek Barn exceeded every expectation. The venue's natural beauty combined 
+                        with the team's attention to detail made our wedding absolutely magical."
+                    &lt;/p&gt;
+&lt;div class="testimonial-author"&gt;
+&lt;div class="testimonial-avatar"&gt;&lt;/div&gt;
+&lt;div class="testimonial-info"&gt;
+&lt;h4&gt;Sarah &amp; Michael&lt;/h4&gt;
+&lt;p&gt;June 2024 Wedding&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <div class="component-card" id="comp-36">
+        <div class="component-header">
+            <h2 class="component-title">Testimonial</h2>
+            <div class="component-meta">
+                <span class="component-badge">TESTIMONIALS</span>
+                <span class="component-badge">barn-wedding-venue33333.html</span>
+            </div>
+        </div>
+        <div class="component-body">
+            <div class="code-section">
+                <div class="code-header">
+                    <span class="code-label">HTML CODE</span>
+                    <button class="copy-btn" onclick="copyCode('comp-36-code')">Copy Code</button>
+                </div>
+                <pre class="code-block" id="comp-36-code">&lt;div class="testimonial"&gt;
+&lt;p class="testimonial-quote"&gt;
+                        "From the first tour to our last dance, everything was flawless. The barn's charm 
+                        meant we needed minimal decorations - it's naturally stunning!"
+                    &lt;/p&gt;
+&lt;div class="testimonial-author"&gt;
+&lt;div class="testimonial-avatar"&gt;&lt;/div&gt;
+&lt;div class="testimonial-info"&gt;
+&lt;h4&gt;Emily &amp; James&lt;/h4&gt;
+&lt;p&gt;September 2024 Wedding&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <div class="component-card" id="comp-37">
+        <div class="component-header">
+            <h2 class="component-title">Testimonial</h2>
+            <div class="component-meta">
+                <span class="component-badge">TESTIMONIALS</span>
+                <span class="component-badge">barn-wedding-venue33333.html</span>
+            </div>
+        </div>
+        <div class="component-body">
+            <div class="code-section">
+                <div class="code-header">
+                    <span class="code-label">HTML CODE</span>
+                    <button class="copy-btn" onclick="copyCode('comp-37-code')">Copy Code</button>
+                </div>
+                <pre class="code-block" id="comp-37-code">&lt;div class="testimonial"&gt;
+&lt;p class="testimonial-quote"&gt;
+                        "The flexibility to customize every aspect of our day was incredible. The team 
+                        helped bring our vision to life in ways we never imagined possible."
+                    &lt;/p&gt;
+&lt;div class="testimonial-author"&gt;
+&lt;div class="testimonial-avatar"&gt;&lt;/div&gt;
+&lt;div class="testimonial-info"&gt;
+&lt;h4&gt;Jessica &amp; David&lt;/h4&gt;
+&lt;p&gt;April 2024 Wedding&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <div class="component-card" id="comp-38">
+        <div class="component-header">
+            <h2 class="component-title">Divider Tilt Left</h2>
+            <div class="component-meta">
+                <span class="component-badge">FOOTERS</span>
+                <span class="component-badge">barn-wedding-venue33333.html</span>
+            </div>
+        </div>
+        <div class="component-body">
+            <div class="code-section">
+                <div class="code-header">
+                    <span class="code-label">HTML CODE</span>
+                    <button class="copy-btn" onclick="copyCode('comp-38-code')">Copy Code</button>
+                </div>
+                <pre class="code-block" id="comp-38-code">&lt;footer class="divider-tilt-left"&gt;
+&lt;div class="container"&gt;
+&lt;div class="footer-content"&gt;
+&lt;div class="footer-section"&gt;
+&lt;h4&gt;Willow Creek Barn&lt;/h4&gt;
+&lt;p style="margin-top: 1rem; opacity: 0.8;"&gt;
+                        Creating unforgettable wedding experiences in California's countryside since 2010.
+                    &lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="footer-section"&gt;
+&lt;h4&gt;Quick Links&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#about"&gt;About&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#services"&gt;Services&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#gallery"&gt;Gallery&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#contact"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="footer-section"&gt;
+&lt;h4&gt;Resources&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#"&gt;Virtual Tour&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#"&gt;Preferred Vendors&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#"&gt;Floor Plans&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#"&gt;FAQ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="footer-section"&gt;
+&lt;h4&gt;Connect&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#"&gt;Instagram&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#"&gt;Facebook&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#"&gt;Pinterest&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#"&gt;YouTube&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style="text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 3rem; opacity: 0.6;"&gt;
+&lt;p&gt;© 2024 Willow Creek Barn. All rights reserved.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/footer&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <div class="component-card" id="comp-39">
+        <div class="component-header">
+            <h2 class="component-title">About</h2>
+            <div class="component-meta">
+                <span class="component-badge">SECTIONS</span>
+                <span class="component-badge">barn-wedding-venue33333.html</span>
+            </div>
+        </div>
+        <div class="component-body">
+            <div class="code-section">
+                <div class="code-header">
+                    <span class="code-label">HTML CODE</span>
+                    <button class="copy-btn" onclick="copyCode('comp-39-code')">Copy Code</button>
+                </div>
+                <pre class="code-block" id="comp-39-code">&lt;section class="section section-gradient-1 divider-slant-down" id="about"&gt;
+&lt;div class="container"&gt;
+&lt;div class="grid-2" style="gap: var(--spacing-xxl);"&gt;
+&lt;div class="content-block"&gt;
+&lt;div class="content-block-title"&gt;Our Heritage&lt;/div&gt;
+&lt;h2&gt;A Love Story in Every Detail&lt;/h2&gt;
+&lt;p class="lead-text"&gt;
+                        Nestled among rolling hills and ancient oak groves, Willow Creek Barn stands as a 
+                        testament to enduring romance and timeless beauty.
+                    &lt;/p&gt;
+&lt;p&gt;
+                        This meticulously restored 1890s barn combines the warmth of rustic heritage with 
+                        refined modern comforts, creating an enchanting backdrop for your celebration. Every 
+                        weathered beam tells a story, every carefully placed detail speaks of our commitment 
+                        to making your day extraordinary.
+                    &lt;/p&gt;
+&lt;ul class="feature-list"&gt;
+&lt;li&gt;
+&lt;span class="icon"&gt;✓&lt;/span&gt;
+&lt;span&gt;Original exposed beams &amp; architectural details from 1890&lt;/span&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="icon"&gt;✓&lt;/span&gt;
+&lt;span&gt;40 acres of pristine countryside with manicured gardens&lt;/span&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="icon"&gt;✓&lt;/span&gt;
+&lt;span&gt;Climate-controlled comfort in all seasons&lt;/span&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="icon"&gt;✓&lt;/span&gt;
+&lt;span&gt;Exclusive use of entire property on your wedding day&lt;/span&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="icon"&gt;✓&lt;/span&gt;
+&lt;span&gt;Award-winning venue with 200+ five-star reviews&lt;/span&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;a class="btn btn-primary mt-lg" href="#services"&gt;Explore Our Offerings&lt;/a&gt;
+&lt;/div&gt;
+&lt;div class="image-wrapper"&gt;
+&lt;div style="height: 600px; background: linear-gradient(135deg, var(--secondary-color), var(--primary-color)); border-radius: 0;"&gt;&lt;/div&gt;
+&lt;div class="image-overlay"&gt;
+&lt;div class="image-overlay-content"&gt;
+&lt;h3&gt;California's Premier Barn Venue&lt;/h3&gt;
+&lt;p&gt;Celebrating love since 2010&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <div class="component-card" id="comp-40">
+        <div class="component-header">
+            <h2 class="component-title">Services</h2>
+            <div class="component-meta">
+                <span class="component-badge">SECTIONS</span>
+                <span class="component-badge">barn-wedding-venue33333.html</span>
+            </div>
+        </div>
+        <div class="component-body">
+            <div class="code-section">
+                <div class="code-header">
+                    <span class="code-label">HTML CODE</span>
+                    <button class="copy-btn" onclick="copyCode('comp-40-code')">Copy Code</button>
+                </div>
+                <pre class="code-block" id="comp-40-code">&lt;section class="section section-cream divider-slant-up" id="services"&gt;
+&lt;div class="container"&gt;
+&lt;div class="section-header"&gt;
+&lt;div class="content-block-title"&gt;What We Offer&lt;/div&gt;
+&lt;h2&gt;Crafted for Your Perfect Day&lt;/h2&gt;
+&lt;p&gt;Every element thoughtfully designed to create unforgettable moments&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="grid-3"&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-icon"&gt;🌿&lt;/div&gt;
+&lt;h3 class="card-title"&gt;Garden Ceremony&lt;/h3&gt;
+&lt;p class="card-description"&gt;
+                        Exchange vows beneath our century-old willow tree or in our rose garden pavilion, 
+                        surrounded by nature's beauty
+                    &lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-icon"&gt;🏛️&lt;/div&gt;
+&lt;h3 class="card-title"&gt;The Grand Barn&lt;/h3&gt;
+&lt;p class="card-description"&gt;
+                        Our magnificently restored barn features soaring ceilings, crystal chandeliers, 
+                        and space for up to 250 guests
+                    &lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-icon"&gt;📸&lt;/div&gt;
+&lt;h3 class="card-title"&gt;Picture Perfect&lt;/h3&gt;
+&lt;p class="card-description"&gt;
+                        Countless stunning backdrops including wildflower meadows, rustic doors, 
+                        and our signature oak grove
+                    &lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-icon"&gt;🍾&lt;/div&gt;
+&lt;h3 class="card-title"&gt;Cocktail Terrace&lt;/h3&gt;
+&lt;p class="card-description"&gt;
+                        An elegant outdoor space with string lights and garden views, perfect for 
+                        sunset cocktail hours
+                    &lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-icon"&gt;💐&lt;/div&gt;
+&lt;h3 class="card-title"&gt;Bridal Suite&lt;/h3&gt;
+&lt;p class="card-description"&gt;
+                        A luxurious private retreat with natural light, comfortable seating, 
+                        and everything needed for preparation
+                    &lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-icon"&gt;✨&lt;/div&gt;
+&lt;h3 class="card-title"&gt;Full Service&lt;/h3&gt;
+&lt;p class="card-description"&gt;
+                 </pre>
+            </div>
+        </div>
+    </div>
+    <div class="component-card" id="comp-41">
+        <div class="component-header">
+            <h2 class="component-title">Gallery</h2>
+            <div class="component-meta">
+                <span class="component-badge">SECTIONS</span>
+                <span class="component-badge">barn-wedding-venue33333.html</span>
+            </div>
+        </div>
+        <div class="component-body">
+            <div class="code-section">
+                <div class="code-header">
+                    <span class="code-label">HTML CODE</span>
+                    <button class="copy-btn" onclick="copyCode('comp-41-code')">Copy Code</button>
+                </div>
+                <pre class="code-block" id="comp-41-code">&lt;section class="section section-gradient-3 divider-arrow-down" id="gallery"&gt;
+&lt;div class="container"&gt;
+&lt;div class="section-header"&gt;
+&lt;div class="content-block-title"&gt;Our Portfolio&lt;/div&gt;
+&lt;h2&gt;Moments of Magic&lt;/h2&gt;
+&lt;p&gt;Every wedding tells a unique story of love and celebration&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="grid-4"&gt;
+&lt;div class="image-wrapper" style="height: 350px;"&gt;
+&lt;div style="height: 100%; background: linear-gradient(135deg, var(--blush), var(--secondary-color));"&gt;&lt;/div&gt;
+&lt;div class="image-overlay"&gt;
+&lt;div class="image-overlay-content"&gt;
+&lt;h3&gt;Sarah &amp; Michael&lt;/h3&gt;
+&lt;p&gt;Garden ceremony at sunset&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="image-wrapper" style="height: 350px;"&gt;
+&lt;div style="height: 100%; background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));"&gt;&lt;/div&gt;
+&lt;div class="image-overlay"&gt;
+&lt;div class="image-overlay-content"&gt;
+&lt;h3&gt;Emily &amp; James&lt;/h3&gt;
+&lt;p&gt;Autumn barn celebration&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="image-wrapper" style="height: 350px;"&gt;
+&lt;div style="height: 100%; background: linear-gradient(135deg, var(--sage), #B5C99A);"&gt;&lt;/div&gt;
+&lt;div class="image-overlay"&gt;
+&lt;div class="image-overlay-content"&gt;
+&lt;h3&gt;Jessica &amp; David&lt;/h3&gt;
+&lt;p&gt;Spring meadow romance&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="image-wrapper" style="height: 350px;"&gt;
+&lt;div style="height: 100%; background: linear-gradient(135deg, var(--primary-color), var(--charcoal));"&gt;&lt;/div&gt;
+&lt;div class="image-overlay"&gt;
+&lt;div class="image-overlay-content"&gt;
+&lt;h3&gt;Amanda &amp; Robert&lt;/h3&gt;
+&lt;p&gt;Candlelit winter wedding&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="image-wrapper" style="height: 350px;"&gt;
+&lt;div style="height: 100%; background: linear-gradient(135deg, var(--accent-color), var(--blush));"&gt;&lt;/div&gt;
+&lt;div class="image-overlay"&gt;
+&lt;div class="image-overlay-content"&gt;
+&lt;h3&gt;Lauren &amp; Christopher&lt;/h3&gt;
+&lt;p&gt;Rustic chic elegance&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="image-wrapper" style="height: 350px;"&gt;
+&lt;div style="height: 100%; background: linear-gradient(135deg, var(--charcoal), var(--primary-color));"&gt;&lt;/div&gt;
+&lt;div class="image-ov</pre>
+            </div>
+        </div>
+    </div>
+    <div class="component-card" id="comp-42">
+        <div class="component-header">
+            <h2 class="component-title">Card</h2>
+            <div class="component-meta">
+                <span class="component-badge">CARDS</span>
+                <span class="component-badge">barn-wedding-venue33333.html</span>
+            </div>
+        </div>
+        <div class="component-body">
+            <div class="code-section">
+                <div class="code-header">
+                    <span class="code-label">HTML CODE</span>
+                    <button class="copy-btn" onclick="copyCode('comp-42-code')">Copy Code</button>
+                </div>
+                <pre class="code-block" id="comp-42-code">&lt;div class="card"&gt;
+&lt;div class="card-icon"&gt;🌿&lt;/div&gt;
+&lt;h3 class="card-title"&gt;Garden Ceremony&lt;/h3&gt;
+&lt;p class="card-description"&gt;
+                        Exchange vows beneath our century-old willow tree or in our rose garden pavilion, 
+                        surrounded by nature's beauty
+                    &lt;/p&gt;
+&lt;/div&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <div class="component-card" id="comp-43">
+        <div class="component-header">
+            <h2 class="component-title">Card</h2>
+            <div class="component-meta">
+                <span class="component-badge">CARDS</span>
+                <span class="component-badge">barn-wedding-venue33333.html</span>
+            </div>
+        </div>
+        <div class="component-body">
+            <div class="code-section">
+                <div class="code-header">
+                    <span class="code-label">HTML CODE</span>
+                    <button class="copy-btn" onclick="copyCode('comp-43-code')">Copy Code</button>
+                </div>
+                <pre class="code-block" id="comp-43-code">&lt;div class="card"&gt;
+&lt;div class="card-icon"&gt;🏛️&lt;/div&gt;
+&lt;h3 class="card-title"&gt;The Grand Barn&lt;/h3&gt;
+&lt;p class="card-description"&gt;
+                        Our magnificently restored barn features soaring ceilings, crystal chandeliers, 
+                        and space for up to 250 guests
+                    &lt;/p&gt;
+&lt;/div&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <div class="component-card" id="comp-44">
+        <div class="component-header">
+            <h2 class="component-title">Card</h2>
+            <div class="component-meta">
+                <span class="component-badge">CARDS</span>
+                <span class="component-badge">barn-wedding-venue33333.html</span>
+            </div>
+        </div>
+        <div class="component-body">
+            <div class="code-section">
+                <div class="code-header">
+                    <span class="code-label">HTML CODE</span>
+                    <button class="copy-btn" onclick="copyCode('comp-44-code')">Copy Code</button>
+                </div>
+                <pre class="code-block" id="comp-44-code">&lt;div class="card"&gt;
+&lt;div class="card-icon"&gt;📸&lt;/div&gt;
+&lt;h3 class="card-title"&gt;Picture Perfect&lt;/h3&gt;
+&lt;p class="card-description"&gt;
+                        Countless stunning backdrops including wildflower meadows, rustic doors, 
+                        and our signature oak grove
+                    &lt;/p&gt;
+&lt;/div&gt;</pre>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function toggleMenu() {
+    document.getElementById('navSidebar').classList.toggle('open');
+}
+
+function toggleAccordion(categoryId) {
+    const content = document.getElementById('accordion-' + categoryId);
+    const header = event.currentTarget;
+    
+    // Toggle current accordion
+    content.classList.toggle('active');
+    header.classList.toggle('active');
+}
+
+function scrollToComponent(componentId) {
+    const element = document.getElementById(componentId);
+    if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        
+        // Highlight the component briefly
+        element.style.border = '3px solid #8B6337';
+        setTimeout(() => {
+            element.style.border = '';
+        }, 2000);
+    }
+}
+
+function copyCode(elementId) {
+    const codeBlock = document.getElementById(elementId);
+    const text = codeBlock.textContent;
+    
+    navigator.clipboard.writeText(text).then(() => {
+        const btn = event.target;
+        const originalText = btn.textContent;
+        btn.textContent = '✓ Copied!';
+        btn.style.background = '#4CAF50';
+        
+        setTimeout(() => {
+            btn.textContent = originalText;
+            btn.style.background = '#8B6337';
+        }, 2000);
+    }).catch(err => {
+        console.error('Failed to copy:', err);
+    });
+}
+
+function searchComponents(query) {
+    const components = document.querySelectorAll('.component-card');
+    const navItems = document.querySelectorAll('.nav-item');
+    
+    query = query.toLowerCase();
+    
+    // Show/hide components and nav items
+    components.forEach(comp => {
+        const text = comp.textContent.toLowerCase();
+        comp.style.display = text.includes(query) ? 'block' : 'none';
+    });
+    
+    navItems.forEach(item => {
+        const text = item.textContent.toLowerCase();
+        item.style.display = text.includes(query) ? 'block' : 'none';
+    });
+    
+    // Auto-expand accordions with matches
+    if (query) {
+        document.querySelectorAll('.accordion-content').forEach(acc => {
+            const hasVisibleItems = Array.from(acc.querySelectorAll('.nav-item'))
+                .some(item => item.style.display !== 'none');
+            
+            if (hasVisibleItems) {
+                acc.classList.add('active');
+                acc.previousElementSibling.classList.add('active');
+            }
+        });
+    }
+}
+
+// Initialize - open first accordion
+document.addEventListener('DOMContentLoaded', () => {
+    const firstAccordion = document.querySelector('.accordion-content');
+    const firstHeader = document.querySelector('.accordion-header');
+    if (firstAccordion && firstHeader) {
+        firstAccordion.classList.add('active');
+        firstHeader.classList.add('active');
+    }
+});
+</script>
+
+</body>
+</html>

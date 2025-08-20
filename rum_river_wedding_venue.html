@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rum River Barn & Vineyard - Rustic Wedding Venue in Minnesota</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-brown: #8B6337;
+            --accent-gold: #D4A574;
+            --warm-cream: #FAF6F2;
+            --deep-brown: #4A3426;
+            --sage-green: #7A8B7F;
+            --text-dark: #2C2416;
+            --text-light: #6B5D54;
+            --overlay-dark: rgba(44, 36, 22, 0.7);
+            --overlay-light: rgba(250, 246, 242, 0.95);
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            color: var(--text-dark);
+            background: var(--warm-cream);
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 400;
+            line-height: 1.2;
+        }
+
+        .script-font {
+            font-family: 'Brush Script MT', cursive;
+            font-weight: 300;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: linear-gradient(180deg, rgba(250, 246, 242, 0.98) 0%, rgba(250, 246, 242, 0.9) 100%);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 20px 40px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+        }
+
+        nav.scrolled {
+            padding: 15px 40px;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            color: var(--primary-brown);
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-main {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 24px;
+            letter-spacing: 2px;
+        }
+
+        .logo-sub {
+            font-size: 14px;
+            color: var(--sage-green);
+            letter-spacing: 1px;
+            margin-top: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 15px;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: var(--accent-gold);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 165, 116, 0.3);
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            background: var(--primary-brown);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 165, 116, 0.4);
+        }
+
+        /* Hero Slider */
+        .hero-slider {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            margin-top: 0;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.5s ease, transform 6s ease;
+            transform: scale(1.1);
+        }
+
+        .slide.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .slide-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.7);
+        }
+
+        .slide-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            z-index: 2;
+            opacity: 0;
+            animation: fadeInUp 1.5s ease forwards;
+            animation-delay: 0.5s;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translate(-50%, -55%);
+            }
+        }
+
+        .slide-content h1 {
+            font-size: 72px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+            letter-spacing: 3px;
+        }
+
+        .slide-content .script-font {
+            font-size: 36px;
+            color: var(--accent-gold);
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+        }
+
+        .slide-content p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        .hero-cta {
+            display: inline-block;
+            background: var(--accent-gold);
+            color: white;
+            padding: 16px 40px;
+            font-size: 16px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            box-shadow: 0 6px 25px rgba(212, 165, 116, 0.4);
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-brown);
+            transition: left 0.4s ease;
+        }
+
+        .hero-cta span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-cta:hover::before {
+            left: 0;
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(212, 165, 116, 0.5);
+        }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 3;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+        }
+
+        .dot.active {
+            background: var(--accent-gold);
+            transform: scale(1.3);
+            border-color: var(--accent-gold);
+        }
+
+        .dot:hover {
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Real Weddings Section */
+        .real-weddings {
+            padding: 100px 40px;
+            background: linear-gradient(180deg, var(--warm-cream) 0%, white 50%, var(--warm-cream) 100%);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInSection 0.8s ease forwards;
+        }
+
+        @keyframes fadeInSection {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-header h2 {
+            font-size: 48px;
+            color: var(--deep-brown);
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .section-header .script-font {
+            font-size: 28px;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+        }
+
+        .section-header p {
+            font-size: 18px;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .weddings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .wedding-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            background: white;
+        }
+
+        .wedding-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .wedding-image-container {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .wedding-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .wedding-card:hover .wedding-image {
+            transform: scale(1.1);
+        }
+
+        .wedding-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(44, 36, 22, 0.8) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .wedding-card:hover .wedding-overlay {
+            opacity: 1;
+        }
+
+        .wedding-date {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--overlay-light);
+            padding: 10px 15px;
+            border-radius: 25px;
+            font-size: 14px;
+            color: var(--primary-brown);
+            backdrop-filter: blur(10px);
+            letter-spacing: 1px;
+        }
+
+        .wedding-info {
+            padding: 30px;
+            background: white;
+        }
+
+        .wedding-names {
+            font-size: 28px;
+            color: var(--deep-brown);
+            margin-bottom: 10px;
+            font-family: 'Playfair Display', Georgia, serif;
+        }
+
+        .wedding-description {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .view-wedding {
+            display: inline-block;
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 1px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .view-wedding::after {
+            content: '→';
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .view-wedding:hover {
+            color: var(--primary-brown);
+        }
+
+        .view-wedding:hover::after {
+            transform: translateX(5px);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 100px 40px;
+            background: linear-gradient(135deg, var(--deep-brown) 0%, var(--primary-brown) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 165, 116, 0.1) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .contact-header h2 {
+            font-size: 48px;
+            color: white;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .contact-header .script-font {
+            font-size: 28px;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+        }
+
+        .contact-header p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid rgba(139, 99, 55, 0.1);
+            border-radius: 10px;
+            font-size: 16px;
+            font-family: 'Georgia', serif;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-button {
+            background: var(--accent-gold);
+            color: white;
+            padding: 18px 50px;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 6px 25px rgba(212, 165, 116, 0.4);
+            display: block;
+            margin: 40px auto 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: var(--primary-brown);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .submit-button span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .submit-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(212, 165, 116, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--deep-brown);
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        footer p {
+            font-size: 14px;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--deep-brown);
+            transition: all 0.3s ease;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: var(--warm-cream);
+                flex-direction: column;
+                justify-content: center;
+                gap: 30px;
+                transition: right 0.3s ease;
+                box-shadow: -5px 0 20px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .mobile-menu-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .mobile-menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-menu-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+
+            .slide-content h1 {
+                font-size: 48px;
+            }
+
+            .slide-content .script-font {
+                font-size: 24px;
+            }
+
+            .slide-content p {
+                font-size: 16px;
+            }
+
+            .section-header h2 {
+                font-size: 36px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form {
+                padding: 30px;
+            }
+
+            .weddings-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-main">RUM RIVER</span>
+                <span class="logo-sub">BARN & VINEYARD</span>
+            </a>
+            <div class="mobile-menu-toggle" id="mobileMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="#home">Home</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#weddings">Weddings</a>
+                <a href="#venue">The Venue</a>
+                <a href="#contact">Contact</a>
+                <a href="#tour" class="cta-button">SCHEDULE TOUR</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Slider -->
+    <section class="hero-slider" id="home">
+        <div class="slide active">
+            <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1920" alt="Rustic barn wedding venue" class="slide-image">
+            <div class="slide-content">
+                <p class="script-font">Welcome to</p>
+                <h1>RUM RIVER</h1>
+                <p>Where Minnesota's natural beauty meets timeless romance</p>
+                <a href="#contact" class="hero-cta"><span>BEGIN YOUR JOURNEY</span></a>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1920" alt="Vineyard wedding setting" class="slide-image">
+            <div class="slide-content">
+                <p class="script-font">Celebrate Love</p>
+                <h1>IN THE VINEYARD</h1>
+                <p>Rustic elegance nestled in Minnesota's countryside</p>
+                <a href="#contact" class="hero-cta"><span>PLAN YOUR DAY</span></a>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=1920" alt="Barn interior wedding setup" class="slide-image">
+            <div class="slide-content">
+                <p class="script-font">Your Perfect Day</p>
+                <h1>STARTS HERE</h1>
+                <p>Historic barn charm with modern amenities</p>
+                <a href="#contact" class="hero-cta"><span>GET IN TOUCH</span></a>
+            </div>
+        </div>
+        <div class="slider-dots">
+            <span class="dot active" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+    </section>
+
+    <!-- Real Weddings Section -->
+    <section class="real-weddings" id="weddings">
+        <div class="section-header">
+            <p class="script-font">Love Stories</p>
+            <h2>Real Weddings at Rum River</h2>
+            <p>Every celebration is unique, every moment is cherished. Explore the beautiful weddings that have taken place in our rustic barn and vineyard.</p>
+        </div>
+        <div class="weddings-grid">
+            <div class="wedding-card">
+                <div class="wedding-image-container">
+                    <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800" alt="Sarah and Michael's Wedding" class="wedding-image">
+                    <div class="wedding-overlay"></div>
+                    <div class="wedding-date">June 2024</div>
+                </div>
+                <div class="wedding-info">
+                    <h3 class="wedding-names">Sarah & Michael</h3>
+                    <p class="wedding-description">A summer vineyard celebration with lavender accents and farm-to-table dining under the stars.</p>
+                    <a href="#" class="view-wedding">View Their Story</a>
+                </div>
+            </div>
+            <div class="wedding-card">
+                <div class="wedding-image-container">
+                    <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=800" alt="Emma and James's Wedding" class="wedding-image">
+                    <div class="wedding-overlay"></div>
+                    <div class="wedding-date">September 2024</div>
+                </div>
+                <div class="wedding-info">
+                    <h3 class="wedding-names">Emma & James</h3>
+                    <p class="wedding-description">An autumn barn wedding featuring warm candlelight, harvest decorations, and rustic charm.</p>
+                    <a href="#" class="view-wedding">View Their Story</a>
+                </div>
+            </div>
+            <div class="wedding-card">
+                <div class="wedding-image-container">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800" alt="Olivia and David's Wedding" class="wedding-image">
+                    <div class="wedding-overlay"></div>
+                    <div class="wedding-date">May 2024</div>
+                </div>
+                <div class="wedding-info">
+                    <h3 class="wedding-names">Olivia & David</h3>
+                    <p class="wedding-description">A spring garden party with wildflower bouquets and an enchanting sunset ceremony.</p>
+                    <a href="#" class="view-wedding">View Their Story</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="contact-container">
+            <div class="contact-header">
+                <p class="script-font">Let's Connect</p>
+                <h2>Start Planning Your Perfect Day</h2>
+                <p>We'd love to hear about your vision and show you around our beautiful venue.</p>
+            </div>
+            <form class="contact-form" id="contactForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="eventDate">Preferred Event Date</label>
+                        <input type="date" id="eventDate" name="eventDate">
+                    </div>
+                    <div class="form-group">
+                        <label for="guestCount">Estimated Guest Count</label>
+                        <select id="guestCount" name="guestCount">
+                            <option value="">Select Range</option>
+                            <option value="50-100">50-100 Guests</option>
+                            <option value="100-150">100-150 Guests</option>
+                            <option value="150-200">150-200 Guests</option>
+                            <option value="200+">200+ Guests</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group full-width">
+                    <label for="message">Tell Us About Your Dream Wedding</label>
+                    <textarea id="message" name="message" placeholder="Share your vision with us..."></textarea>
+                </div>
+                <button type="submit" class="submit-button">
+                    <span>SEND MESSAGE</span>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Rum River Barn & Vineyard | rumrivermn.com | Minnesota's Premier Wedding Venue</p>
+    </footer>
+
+    <script>
+        // Slider functionality
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+            
+            // Reset animation for slide content
+            const content = slides[index].querySelector('.slide-content');
+            content.style.animation = 'none';
+            setTimeout(() => {
+                content.style.animation = 'fadeInUp 1.5s ease forwards';
+            }, 100);
+        }
+
+        function nextSlide() {
+            currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+            showSlide(currentSlideIndex);
+        }
+
+        function currentSlide(n) {
+            currentSlideIndex = n - 1;
+            showSlide(currentSlideIndex);
+        }
+
+        // Auto-advance slider
+        setInterval(nextSlide, 5000);
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenu.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Here you would normally send the data to a server
+            console.log('Form submitted:', data);
+            
+            // Show success message
+            alert('Thank you for your inquiry! We\'ll be in touch within 24 hours to discuss your special day.');
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = entry.target.dataset.animation || 'fadeInSection 0.8s ease forwards';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements
+        document.querySelectorAll('.section-header, .wedding-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            observer.observe(el);
+        });
+
+        // Parallax effect on scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.hero-slider');
+            if (parallax && scrolled < window.innerHeight) {
+                parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+    </script>
+</body>
+</html>

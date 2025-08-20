@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Meadowlark Barn - Rustic Wedding Venue</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-color: #8B7355;
+            --accent-color: #D4AF37;
+            --dark-wood: #3E2723;
+            --cream: #FAF6F2;
+            --sage: #7A8B7F;
+            --rust: #C65D00;
+            --text-dark: #2C2416;
+            --text-light: #6B5D54;
+        }
+        
+        body {
+            font-family: 'Playfair Display', Georgia, serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--cream);
+        }
+        
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+            line-height: 1.2;
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            letter-spacing: -0.02em;
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: 1rem;
+        }
+        
+        p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+        
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .logo::before {
+            content: "🌾";
+            font-size: 1.5rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .cta-button {
+            background: var(--accent-color);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .cta-button:hover {
+            background: var(--rust);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(198, 93, 0, 0.3);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><rect fill="%238B7355" width="1920" height="1080"/><text x="960" y="540" fill="white" text-anchor="middle" font-size="40" opacity="0.3">Rustic Barn Interior with String Lights</text></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            padding: 0 2rem;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero h1 {
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: rgba(255,255,255,0.95);
+        }
+        
+        .hero-divider {
+            width: 150px;
+            height: 1px;
+            background: var(--accent-color);
+            margin: 0 auto 2rem;
+        }
+        
+        /* Features Bar */
+        .features-bar {
+            background: var(--dark-wood);
+            padding: 3rem 5%;
+            color: white;
+        }
+        
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+        
+        .feature {
+            padding: 1rem;
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+        
+        .feature h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* About Section */
+        .about-section {
+            padding: 5rem 5%;
+            background: white;
+        }
+        
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .about-image {
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400"><rect fill="%23FAF6F2" width="600" height="400"/><text x="300" y="200" fill="%238B7355" text-anchor="middle" font-size="20">Barn Exterior at Golden Hour</text></svg>');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            border-radius: 10px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+        
+        .about-content h2 {
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .about-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: var(--accent-color);
+        }
+        
+        /* Venue Spaces */
+        .venue-spaces {
+            padding: 5rem 5%;
+            background: var(--cream);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .spaces-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+        
+        .space-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .space-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .space-image {
+            height: 250px;
+            background: var(--sage);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .space-image::after {
+            content: attr(data-space);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        
+        .space-content {
+            padding: 2rem;
+        }
+        
+        .space-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .capacity {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-light);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            margin-top: 1rem;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 5rem 5%;
+            background: white;
+        }
+        
+        .testimonials-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .testimonial {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .testimonial-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--sage);
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        
+        .testimonial-text::before {
+            content: '"';
+            font-size: 3rem;
+            color: var(--accent-color);
+            position: absolute;
+            top: -20px;
+            left: -10px;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.9rem;
+        }
+        
+        /* Packages */
+        .packages {
+            padding: 5rem 5%;
+            background: var(--cream);
+        }
+        
+        .packages-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+        
+        .package-card {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 10px;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .package-card.featured {
+            transform: scale(1.05);
+            box-shadow: 0 20px 60px rgba(212, 175, 55, 0.3);
+        }
+        
+        .package-card.featured::before {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-color);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+        
+        .package-price {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin: 1rem 0;
+        }
+        
+        .package-features {
+            list-style: none;
+            margin: 2rem 0;
+        }
+        
+        .package-features li {
+            padding: 0.5rem 0;
+            color: var(--text-light);
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .package-features li::before {
+            content: '✓ ';
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 5rem 5%;
+            background: var(--dark-wood);
+            color: white;
+            text-align: center;
+        }
+        
+        .contact h2 {
+            color: white;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-info {
+            max-width: 600px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .contact-item {
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .contact-item h4 {
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.9rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 2rem 5%;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+        }
+        
+        footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .packages-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .package-card.featured {
+                transform: scale(1);
+            }
+        }
+    </style>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#" class="logo">The Meadowlark Barn</a>
+            <ul class="nav-links">
+                <li><a href="#venue">Venue</a></li>
+                <li><a href="#spaces">Spaces</a></li>
+                <li><a href="#packages">Packages</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#contact" class="cta-button">Schedule Tour</a>
+        </nav>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-divider"></div>
+            <h1>Where Rustic Charm Meets Timeless Elegance</h1>
+            <p>Create unforgettable memories in our beautifully restored 1890s barn venue</p>
+            <p style="font-size: 1rem; font-family: 'Montserrat', sans-serif; margin-bottom: 2rem;">Nestled in the Heart of the Hudson Valley</p>
+            <a href="#contact" class="cta-button">Start Planning Your Day</a>
+        </div>
+    </section>
+    
+    <!-- Features Bar -->
+    <section class="features-bar">
+        <div class="features-container">
+            <div class="feature">
+                <div class="feature-icon">🏛️</div>
+                <h4>Historic 1890s Barn</h4>
+                <p>Beautifully Restored & Climate Controlled</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">👥</div>
+                <h4>Up to 300 Guests</h4>
+                <p>Flexible Spaces for Any Size Celebration</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🌿</div>
+                <h4>40 Acres of Beauty</h4>
+                <p>Rolling Hills, Gardens & Photo Opportunities</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">⭐</div>
+                <h4>All-Inclusive Packages</h4>
+                <p>Stress-Free Planning & Coordination</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section class="about-section" id="venue">
+        <div class="about-container">
+            <div class="about-image"></div>
+            <div class="about-content">
+                <h2>A Venue Like No Other</h2>
+                <p>Welcome to The Meadowlark Barn, where the romance of yesteryear meets modern elegance. Our meticulously restored 1890s barn offers the perfect backdrop for your special day, combining rustic charm with contemporary amenities.</p>
+                <p>Situated on 40 acres of pristine countryside, our venue provides endless opportunities for stunning photography, intimate ceremonies, and unforgettable receptions. From the hand-hewn beams to the original stone foundation, every detail tells a story of heritage and craftsmanship.</p>
+                <p>Our dedicated team ensures that your celebration is not just an event, but an experience that you and your guests will treasure forever.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Venue Spaces -->
+    <section class="venue-spaces" id="spaces">
+        <div class="section-header">
+            <h2>Our Stunning Spaces</h2>
+            <p>Three unique settings for your perfect celebration</p>
+        </div>
+        <div class="spaces-grid">
+            <div class="space-card">
+                <div class="space-image" data-space="The Grand Barn"></div>
+                <div class="space-content">
+                    <h3>The Grand Barn</h3>
+                    <p>Our main reception space features soaring ceilings, exposed beams, and romantic string lighting. Perfect for dinner and dancing under the stars visible through our restored cupola.</p>
+                    <div class="capacity">
+                        <span>👥</span>
+                        <span>Seats up to 300 guests</span>
+                    </div>
+                </div>
+            </div>
+            <div class="space-card">
+                <div class="space-image" data-space="The Garden Pavilion"></div>
+                <div class="space-content">
+                    <h3>The Garden Pavilion</h3>
+                    <p>An enchanting outdoor ceremony space surrounded by manicured gardens and mature trees. Features a stunning arbor and comfortable seating for your guests.</p>
+                    <div class="capacity">
+                        <span>👥</span>
+                        <span>Seats up to 250 guests</span>
+                    </div>
+                </div>
+            </div>
+            <div class="space-card">
+                <div class="space-image" data-space="The Loft Lounge"></div>
+                <div class="space-content">
+                    <h3>The Loft Lounge</h3>
+                    <p>An intimate space perfect for cocktail hours, small gatherings, or as a quiet retreat. Features vintage furnishings and panoramic views of the property.</p>
+                    <div class="capacity">
+                        <span>👥</span>
+                        <span>Accommodates 75 guests</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="testimonials-container">
+            <div class="section-header">
+                <h2>Love Stories from The Meadowlark</h2>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <div class="testimonial-image">💑</div>
+                    <p class="testimonial-text">The Meadowlark Barn exceeded every expectation. The venue is absolutely breathtaking, and the staff went above and beyond to make our day perfect.</p>
+                    <p class="testimonial-author">Sarah & Michael</p>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-image">💕</div>
+                    <p class="testimonial-text">From our first tour to our last dance, everything was magical. The barn's ambiance is unmatched, and our photos are stunning!</p>
+                    <p class="testimonial-author">Emily & James</p>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-image">💗</div>
+                    <p class="testimonial-text">We couldn't have asked for a more perfect venue. The flexibility and attention to detail made planning stress-free and enjoyable.</p>
+                    <p class="testimonial-author">Amanda & David</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Packages -->
+    <section class="packages" id="packages">
+        <div class="section-header">
+            <h2>Wedding Packages</h2>
+            <p>All-inclusive options designed to make your planning effortless</p>
+        </div>
+        <div class="packages-grid">
+            <div class="package-card">
+                <h3>Intimate Gathering</h3>
+                <p class="package-price">$8,500</p>
+                <p>Perfect for smaller celebrations</p>
+                <ul class="package-features">
+                    <li>Up to 75 guests</li>
+                    <li>6-hour venue rental</li>
+                    <li>Ceremony & reception spaces</li>
+                    <li>Tables, chairs & linens</li>
+                    <li>Day-of coordination</li>
+                    <li>Bridal suite access</li>
+                </ul>
+                <a href="#contact" class="cta-button">Learn More</a>
+            </div>
+            <div class="package-card featured">
+                <h3>Classic Celebration</h3>
+                <p class="package-price">$15,000</p>
+                <p>Our most popular package</p>
+                <ul class="package-features">
+                    <li>Up to 150 guests</li>
+                    <li>8-hour venue rental</li>
+                    <li>All venue spaces included</li>
+                    <li>Premium tables & chiavari chairs</li>
+                    <li>Full planning assistance</li>
+                    <li>Bridal suite & groom's quarters</li>
+                    <li>Preferred vendor list</li>
+                    <li>Rehearsal time included</li>
+                </ul>
+                <a href="#contact" class="cta-button">Learn More</a>
+            </div>
+            <div class="package-card">
+                <h3>Grand Estate</h3>
+                <p class="package-price">$22,000</p>
+                <p>The ultimate luxury experience</p>
+                <ul class="package-features">
+                    <li>Up to 300 guests</li>
+                    <li>Full weekend access</li>
+                    <li>All venue spaces & grounds</li>
+                    <li>Premium furnishings & décor</li>
+                    <li>Dedicated planning team</li>
+                    <li>Luxury suite accommodations</li>
+                    <li>Welcome party space</li>
+                    <li>Farewell brunch setup</li>
+                </ul>
+                <a href="#contact" class="cta-button">Learn More</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2>Start Planning Your Perfect Day</h2>
+        <p>We'd love to show you around and discuss how The Meadowlark Barn can bring your vision to life</p>
+        <a href="#" class="cta-button" style="margin-top: 2rem;">Schedule Your Private Tour</a>
+        <div class="contact-info">
+            <div class="contact-item">
+                <h4>Location</h4>
+                <p>1847 Meadowlark Lane<br>Hudson Valley, NY 12534</p>
+            </div>
+            <div class="contact-item">
+                <h4>Contact</h4>
+                <p>(845) 555-BARN<br>weddings@meadowlarkbarn.com</p>
+            </div>
+            <div class="contact-item">
+                <h4>Tours</h4>
+                <p>By Appointment<br>Tuesday - Sunday</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 The Meadowlark Barn. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        <p style="margin-top: 1rem; font-size: 0.85rem;">Website crafted with love for couples in love</p>
+    </footer>
+    
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Header scroll effect
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                header.style.padding = '1rem 5%';
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.padding = '';
+                header.style.background = '';
+            }
+            
+            lastScroll = currentScroll;
+        });
+        
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease forwards';
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.space-card, .testimonial, .package-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

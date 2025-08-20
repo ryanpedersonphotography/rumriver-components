@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Proof Testimonial Variations</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 40px;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 36px;
+            color: #333;
+            background: white;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Shared Styles for All Variations */
+        .social-proof {
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .social-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .social-logos {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            opacity: 0.7;
+        }
+
+        .social-logo {
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+
+        .social-text {
+            font-size: 32px;
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.4;
+            font-family: 'Playfair Display', Georgia, serif;
+        }
+
+        .social-text .highlight {
+            font-style: italic;
+        }
+
+        /* Shape Dividers */
+        .shape-divider {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            z-index: 1;
+        }
+
+        .shape-divider.top {
+            top: 0;
+        }
+
+        .shape-divider.bottom {
+            bottom: 0;
+        }
+
+        .shape-divider svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+        }
+
+        .shape-divider.wave svg {
+            height: 50px;
+        }
+
+        .shape-divider.curve svg {
+            height: 60px;
+        }
+
+        .shape-divider.angle svg {
+            height: 40px;
+        }
+
+        .shape-divider.zigzag svg {
+            height: 30px;
+        }
+
+        /* Variation 1: Original Sage/Brown with Wave */
+        .variation-1 {
+            background: linear-gradient(135deg, #7A8B7F 0%, #4A3426 100%);
+        }
+
+        .variation-1::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="stars1" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255, 255, 255, 0.1)"/><circle cx="90" cy="30" r="1" fill="rgba(255, 255, 255, 0.1)"/><circle cx="50" cy="50" r="1" fill="rgba(255, 255, 255, 0.1)"/><circle cx="30" cy="80" r="1" fill="rgba(255, 255, 255, 0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23stars1)"/></svg>');
+        }
+
+        .variation-1 .social-logo,
+        .variation-1 .social-text {
+            color: white;
+        }
+
+        .variation-1 .highlight {
+            color: #D4A574;
+        }
+
+        /* Variation 2: Navy/Gold Luxe with Curves */
+        .variation-2 {
+            background: linear-gradient(135deg, #1a2f56 0%, #0f1f3d 100%);
+        }
+
+        .variation-2::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml,<svg width="80" height="80" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="dots2" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse"><circle cx="40" cy="40" r="1" fill="rgba(212, 175, 55, 0.15)"/></pattern></defs><rect width="80" height="80" fill="url(%23dots2)"/></svg>');
+        }
+
+        .variation-2 .social-logo,
+        .variation-2 .social-text {
+            color: #f5f5f5;
+        }
+
+        .variation-2 .highlight {
+            color: #d4af37;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Variation 3: Blush/Wine Romantic with Angles */
+        .variation-3 {
+            background: linear-gradient(135deg, #722F37 0%, #4a1f24 100%);
+        }
+
+        .variation-3::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="hearts3" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M30 35 L25 30 Q20 25 20 20 Q20 15 25 15 Q27.5 15 30 17.5 Q32.5 15 35 15 Q40 15 40 20 Q40 25 35 30 L30 35" fill="rgba(232, 213, 208, 0.05)" stroke="none"/></pattern></defs><rect width="60" height="60" fill="url(%23hearts3)"/></svg>');
+        }
+
+        .variation-3 .social-logo,
+        .variation-3 .social-text {
+            color: #fff5f5;
+        }
+
+        .variation-3 .highlight {
+            color: #E8D5D0;
+        }
+
+        /* Variation 4: Forest/Cream Natural */
+        .variation-4 {
+            background: linear-gradient(135deg, #2d4a2b 0%, #1a2e19 100%);
+        }
+
+        .variation-4::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="leaves4" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M50 30 Q45 35 40 30 Q45 25 50 30" fill="rgba(250, 246, 242, 0.05)"/><path d="M70 60 Q65 65 60 60 Q65 55 70 60" fill="rgba(250, 246, 242, 0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23leaves4)"/></svg>');
+        }
+
+        .variation-4 .social-logo,
+        .variation-4 .social-text {
+            color: #FAF6F2;
+        }
+
+        .variation-4 .highlight {
+            color: #c9b18f;
+        }
+
+        /* Variation 5: Charcoal/Silver Modern */
+        .variation-5 {
+            background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+        }
+
+        .variation-5::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid5" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(192, 192, 192, 0.03)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid5)"/></svg>');
+        }
+
+        .variation-5 .social-logo,
+        .variation-5 .social-text {
+            color: #f0f0f0;
+        }
+
+        .variation-5 .highlight {
+            color: #c0c0c0;
+            background: linear-gradient(90deg, #c0c0c0, #ffffff, #c0c0c0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Variation 6: Sunset Gradient with Zigzag */
+        .variation-6 {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff9f40 50%, #ffd93d 100%);
+        }
+
+        .variation-6::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.1);
+            background-image: url('data:image/svg+xml,<svg width="80" height="80" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="sun6" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse"><circle cx="40" cy="40" r="20" fill="none" stroke="rgba(255, 255, 255, 0.1)" stroke-width="0.5"/><circle cx="40" cy="40" r="10" fill="none" stroke="rgba(255, 255, 255, 0.1)" stroke-width="0.5"/></pattern></defs><rect width="80" height="80" fill="url(%23sun6)"/></svg>');
+        }
+
+        .variation-6 .social-logo,
+        .variation-6 .social-text {
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .variation-6 .highlight {
+            color: #fff;
+            font-weight: bold;
+        }
+
+        /* Label styles */
+        .variation-label {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0,0,0,0.5);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            z-index: 10;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .social-text {
+                font-size: 24px;
+            }
+            
+            .social-logos {
+                gap: 30px;
+            }
+            
+            .container {
+                padding: 0 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Social Proof Section Variations</h1>
+
+    <!-- Variation 1: Original Sage/Brown with Wave Dividers -->
+    <section class="social-proof variation-1">
+        <span class="variation-label">Sage & Earth</span>
+        
+        <!-- Top Wave Divider -->
+        <div class="shape-divider top wave">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="rgba(255,255,255,0.1)"></path>
+            </svg>
+        </div>
+
+        <div class="container social-content">
+            <div class="social-logos">
+                <span class="social-logo">The Knot</span>
+                <span class="social-logo">WeddingWire</span>
+                <span class="social-logo">Martha Stewart</span>
+                <span class="social-logo">Minnesota Bride</span>
+            </div>
+            <p class="social-text">
+                "Rum River Barn isn't just a venue—it's <span class="highlight">where dreams come to life</span>. 
+                Their commitment to saying 'yes' to every couple's vision sets them apart as 
+                <span class="highlight">Minnesota's most accommodating wedding destination</span>."
+            </p>
+        </div>
+
+        <!-- Bottom Wave Divider -->
+        <div class="shape-divider bottom wave">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="rgba(255,255,255,0.1)"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Variation 2: Navy/Gold Luxe with Curve Dividers -->
+    <section class="social-proof variation-2">
+        <span class="variation-label">Midnight Luxe</span>
+        
+        <!-- Top Curve Divider -->
+        <div class="shape-divider top curve">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0 Q600,80 1200,0 L1200,0 L0,0 Z" fill="rgba(212,175,55,0.05)"></path>
+            </svg>
+        </div>
+
+        <div class="container social-content">
+            <div class="social-logos">
+                <span class="social-logo">Vogue Weddings</span>
+                <span class="social-logo">Harper's Bazaar</span>
+                <span class="social-logo">Town & Country</span>
+                <span class="social-logo">The Lane</span>
+            </div>
+            <p class="social-text">
+                "This extraordinary estate represents <span class="highlight">luxury redefined</span>. 
+                Where timeless elegance meets contemporary sophistication, creating 
+                <span class="highlight">unforgettable moments of pure magic</span>."
+            </p>
+        </div>
+
+        <!-- Bottom Curve Divider -->
+        <div class="shape-divider bottom curve">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,120 Q600,40 1200,120 L1200,120 L0,120 Z" fill="rgba(212,175,55,0.05)"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Variation 3: Blush/Wine Romantic with Angle Dividers -->
+    <section class="social-proof variation-3">
+        <span class="variation-label">Romance Rose</span>
+        
+        <!-- Top Angle Divider -->
+        <div class="shape-divider top angle">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M1200 0L0 120h1200z" fill="rgba(232,213,208,0.05)"></path>
+            </svg>
+        </div>
+
+        <div class="container social-content">
+            <div class="social-logos">
+                <span class="social-logo">Style Me Pretty</span>
+                <span class="social-logo">100 Layer Cake</span>
+                <span class="social-logo">Ruffled</span>
+                <span class="social-logo">Green Wedding Shoes</span>
+            </div>
+            <p class="social-text">
+                "Where romance blooms eternal and <span class="highlight">love stories unfold</span>. 
+                This enchanting venue transforms every celebration into 
+                <span class="highlight">poetry in motion</span>."
+            </p>
+        </div>
+
+        <!-- Bottom Angle Divider -->
+        <div class="shape-divider bottom angle">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0 0L1200 120h-1200z" fill="rgba(232,213,208,0.05)"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Variation 4: Forest/Cream Natural with Wave -->
+    <section class="social-proof variation-4">
+        <span class="variation-label">Forest Dream</span>
+        
+        <!-- Top Wave Divider -->
+        <div class="shape-divider top wave">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,40 C300,80 900,80 1200,40 L1200,0 L0,0 Z" fill="rgba(250,246,242,0.03)"></path>
+            </svg>
+        </div>
+
+        <div class="container social-content">
+            <div class="social-logos">
+                <span class="social-logo">Wilderness Weddings</span>
+                <span class="social-logo">Natural Beauty</span>
+                <span class="social-logo">Eco Celebrations</span>
+                <span class="social-logo">Forest & Field</span>
+            </div>
+            <p class="social-text">
+                "Nestled in nature's embrace, this venue offers <span class="highlight">untamed beauty</span>. 
+                Where woodland whispers and meadow breezes create 
+                <span class="highlight">ceremonies touched by magic</span>."
+            </p>
+        </div>
+
+        <!-- Bottom Wave Divider -->
+        <div class="shape-divider bottom wave">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,80 C300,40 900,40 1200,80 L1200,120 L0,120 Z" fill="rgba(250,246,242,0.03)"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Variation 5: Charcoal/Silver Modern with Zigzag -->
+    <section class="social-proof variation-5">
+        <span class="variation-label">Urban Elegance</span>
+        
+        <!-- Top Zigzag Divider -->
+        <div class="shape-divider top zigzag">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0 L100,30 L200,0 L300,30 L400,0 L500,30 L600,0 L700,30 L800,0 L900,30 L1000,0 L1100,30 L1200,0 L1200,0 L0,0 Z" fill="rgba(192,192,192,0.05)"></path>
+            </svg>
+        </div>
+
+        <div class="container social-content">
+            <div class="social-logos">
+                <span class="social-logo">Modern Luxury</span>
+                <span class="social-logo">Architectural Digest</span>
+                <span class="social-logo">Elle Decor</span>
+                <span class="social-logo">Design Bureau</span>
+            </div>
+            <p class="social-text">
+                "Sleek sophistication meets <span class="highlight">architectural brilliance</span>. 
+                This contemporary masterpiece redefines celebration spaces with 
+                <span class="highlight">uncompromising style</span>."
+            </p>
+        </div>
+
+        <!-- Bottom Zigzag Divider -->
+        <div class="shape-divider bottom zigzag">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,30 L100,0 L200,30 L300,0 L400,30 L500,0 L600,30 L700,0 L800,30 L900,0 L1000,30 L1100,0 L1200,30 L1200,120 L0,120 Z" fill="rgba(192,192,192,0.05)"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Variation 6: Sunset Gradient with Curves -->
+    <section class="social-proof variation-6">
+        <span class="variation-label">Golden Hour</span>
+        
+        <!-- Top Curve Divider -->
+        <div class="shape-divider top curve">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,60 C200,0 400,120 600,60 C800,0 1000,120 1200,60 L1200,0 L0,0 Z" fill="rgba(255,255,255,0.1)"></path>
+            </svg>
+        </div>
+
+        <div class="container social-content">
+            <div class="social-logos">
+                <span class="social-logo">Sunset Magazine</span>
+                <span class="social-logo">Golden Coast</span>
+                <span class="social-logo">Coastal Living</span>
+                <span class="social-logo">Paradise Found</span>
+            </div>
+            <p class="social-text">
+                "Bathed in golden light, where <span class="highlight">sunset dreams take flight</span>. 
+                This radiant venue captures the essence of 
+                <span class="highlight">California's endless summer</span>."
+            </p>
+        </div>
+
+        <!-- Bottom Curve Divider -->
+        <div class="shape-divider bottom curve">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,60 C200,120 400,0 600,60 C800,120 1000,0 1200,60 L1200,120 L0,120 Z" fill="rgba(255,255,255,0.1)"></path>
+            </svg>
+        </div>
+    </section>
+
+</body>
+</html>

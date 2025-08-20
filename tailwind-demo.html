@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Component Library - Simple Hero Sections</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #ffffff;
+            color: #111827;
+        }
+        
+        /* Header */
+        .header {
+            background: white;
+            border-bottom: 1px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            padding: 1rem 2rem;
+        }
+        
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .nav-tabs {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-tab {
+            color: #6b7280;
+            text-decoration: none;
+            font-size: 0.875rem;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+        }
+        
+        .nav-tab:hover {
+            color: #111827;
+        }
+        
+        .nav-tab.active {
+            color: #111827;
+            border-bottom-color: #6366f1;
+        }
+        
+        .view-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .toggle-group {
+            display: inline-flex;
+            background: #f3f4f6;
+            border-radius: 0.375rem;
+            padding: 0.125rem;
+        }
+        
+        .toggle-btn {
+            padding: 0.375rem 0.75rem;
+            background: transparent;
+            border: none;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            font-size: 0.875rem;
+            color: #6b7280;
+            transition: all 0.2s;
+        }
+        
+        .toggle-btn.active {
+            background: white;
+            color: #111827;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        
+        /* Main Content */
+        .main-content {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        
+        .section-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #6b7280;
+            margin-bottom: 2rem;
+        }
+        
+        /* Component Container */
+        .component-container {
+            margin-bottom: 3rem;
+        }
+        
+        .component-header {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-bottom: none;
+            border-radius: 0.5rem 0.5rem 0 0;
+            padding: 0.75rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .component-name {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #111827;
+        }
+        
+        .component-preview {
+            border: 1px solid #e5e7eb;
+            border-radius: 0 0 0.5rem 0.5rem;
+            background: #fafafa;
+            overflow: hidden;
+        }
+        
+        .preview-frame {
+            width: 100%;
+            min-height: 400px;
+            display: block;
+            background: white;
+            padding: 2rem;
+        }
+        
+        .code-view {
+            display: none;
+            background: #1f2937;
+            color: #e5e7eb;
+            padding: 1.5rem;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            overflow-x: auto;
+            white-space: pre;
+            border: 1px solid #e5e7eb;
+            border-radius: 0 0 0.5rem 0.5rem;
+        }
+        
+        .code-view.active {
+            display: block;
+        }
+        
+        .preview-frame.hidden {
+            display: none;
+        }
+        
+        /* Demo Hero Components */
+        .hero-simple {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .hero-simple h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-simple p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-simple .btn-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
+        .hero-simple .btn {
+            padding: 0.75rem 2rem;
+            border-radius: 0.375rem;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        
+        .hero-simple .btn-primary {
+            background: white;
+            color: #667eea;
+        }
+        
+        .hero-simple .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .hero-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 500px;
+            align-items: center;
+            padding: 2rem;
+            gap: 3rem;
+        }
+        
+        .hero-split .content {
+            padding: 2rem;
+        }
+        
+        .hero-split h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #111827;
+        }
+        
+        .hero-split p {
+            font-size: 1.125rem;
+            color: #6b7280;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .hero-split .image-placeholder {
+            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+            height: 400px;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9ca3af;
+        }
+        
+        .hero-centered {
+            text-align: center;
+            padding: 6rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .hero-centered .badge {
+            display: inline-block;
+            background: #eef2ff;
+            color: #4f46e5;
+            padding: 0.375rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-centered h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #111827 0%, #4f46e5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero-centered p {
+            font-size: 1.25rem;
+            color: #6b7280;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+        
+        .hero-centered .email-form {
+            display: flex;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .hero-centered input {
+            flex: 1;
+            padding: 0.875rem 1rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+            font-size: 1rem;
+        }
+        
+        .hero-centered button {
+            padding: 0.875rem 2rem;
+            background: #4f46e5;
+            color: white;
+            border: none;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .hero-centered button:hover {
+            background: #4338ca;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <div class="nav-tabs">
+                <a href="#" class="nav-tab">Product</a>
+                <a href="#" class="nav-tab">Features</a>
+                <a href="#" class="nav-tab">Marketplace</a>
+                <a href="#" class="nav-tab">Company</a>
+            </div>
+            <div class="view-controls">
+                <div class="toggle-group">
+                    <button class="toggle-btn active" onclick="toggleAllViews('preview')">Preview</button>
+                    <button class="toggle-btn" onclick="toggleAllViews('code')">Code</button>
+                </div>
+                <button class="toggle-btn" style="background: transparent; padding: 0.5rem;">
+                    HTML
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="main-content">
+        <div class="section-title">Simple centered</div>
+        
+        <!-- Component 1: Simple Gradient Hero -->
+        <div class="component-container">
+            <div class="component-header">
+                <span class="component-name">Simple centered</span>
+                <div class="toggle-group">
+                    <button class="toggle-btn active" onclick="toggleView(this, 'preview')">Preview</button>
+                    <button class="toggle-btn" onclick="toggleView(this, 'code')">Code</button>
+                </div>
+            </div>
+            <div class="component-preview">
+                <div class="preview-frame">
+                    <div class="hero-simple">
+                        <h1>Data to enrich your online business</h1>
+                        <p>Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat.</p>
+                        <div class="btn-group">
+                            <a href="#" class="btn btn-primary">Get started</a>
+                            <a href="#" class="btn btn-secondary">Learn more</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-view">
+&lt;div class="hero-simple"&gt;
+    &lt;h1&gt;Data to enrich your online business&lt;/h1&gt;
+    &lt;p&gt;Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat.&lt;/p&gt;
+    &lt;div class="btn-group"&gt;
+        &lt;a href="#" class="btn btn-primary"&gt;Get started&lt;/a&gt;
+        &lt;a href="#" class="btn btn-secondary"&gt;Learn more&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</div>
+            </div>
+        </div>
+        
+        <!-- Component 2: Split Layout Hero -->
+        <div class="component-container">
+            <div class="component-header">
+                <span class="component-name">Split with image</span>
+                <div class="toggle-group">
+                    <button class="toggle-btn active" onclick="toggleView(this, 'preview')">Preview</button>
+                    <button class="toggle-btn" onclick="toggleView(this, 'code')">Code</button>
+                </div>
+            </div>
+            <div class="component-preview">
+                <div class="preview-frame">
+                    <div class="hero-split">
+                        <div class="content">
+                            <h1>Deploy to the cloud with confidence</h1>
+                            <p>Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.</p>
+                            <div class="btn-group">
+                                <a href="#" class="btn btn-primary" style="background: #4f46e5; color: white; padding: 0.75rem 2rem; border-radius: 0.375rem; text-decoration: none; display: inline-block;">Get started</a>
+                                <a href="#" class="btn btn-secondary" style="color: #4f46e5; padding: 0.75rem 2rem; text-decoration: none; display: inline-block;">Live demo →</a>
+                            </div>
+                        </div>
+                        <div class="image-placeholder">
+                            [Image Placeholder]
+                        </div>
+                    </div>
+                </div>
+                <div class="code-view">
+&lt;div class="hero-split"&gt;
+    &lt;div class="content"&gt;
+        &lt;h1&gt;Deploy to the cloud with confidence&lt;/h1&gt;
+        &lt;p&gt;Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.&lt;/p&gt;
+        &lt;div class="btn-group"&gt;
+            &lt;a href="#" class="btn btn-primary"&gt;Get started&lt;/a&gt;
+            &lt;a href="#" class="btn btn-secondary"&gt;Live demo →&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="image-placeholder"&gt;
+        [Image Placeholder]
+    &lt;/div&gt;
+&lt;/div&gt;</div>
+            </div>
+        </div>
+        
+        <!-- Component 3: Centered with Badge -->
+        <div class="component-container">
+            <div class="component-header">
+                <span class="component-name">With app screenshot</span>
+                <div class="toggle-group">
+                    <button class="toggle-btn active" onclick="toggleView(this, 'preview')">Preview</button>
+                    <button class="toggle-btn" onclick="toggleView(this, 'code')">Code</button>
+                </div>
+            </div>
+            <div class="component-preview">
+                <div class="preview-frame">
+                    <div class="hero-centered">
+                        <span class="badge">Announcing our next round of funding</span>
+                        <h1>Data to enrich your online business</h1>
+                        <p>Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.</p>
+                        <div class="email-form">
+                            <input type="email" placeholder="Enter your email">
+                            <button>Get started</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-view">
+&lt;div class="hero-centered"&gt;
+    &lt;span class="badge"&gt;Announcing our next round of funding&lt;/span&gt;
+    &lt;h1&gt;Data to enrich your online business&lt;/h1&gt;
+    &lt;p&gt;Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.&lt;/p&gt;
+    &lt;div class="email-form"&gt;
+        &lt;input type="email" placeholder="Enter your email"&gt;
+        &lt;button&gt;Get started&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function toggleView(button, view) {
+            const container = button.closest('.component-container');
+            const preview = container.querySelector('.preview-frame');
+            const code = container.querySelector('.code-view');
+            const buttons = container.querySelectorAll('.toggle-btn');
+            
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            button.classList.add('active');
+            
+            if (view === 'code') {
+                preview.classList.add('hidden');
+                code.classList.add('active');
+            } else {
+                preview.classList.remove('hidden');
+                code.classList.remove('active');
+            }
+        }
+        
+        function toggleAllViews(view) {
+            const allButtons = document.querySelectorAll('.view-controls .toggle-btn');
+            allButtons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent.toLowerCase() === view) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            document.querySelectorAll('.component-container').forEach(container => {
+                const preview = container.querySelector('.preview-frame');
+                const code = container.querySelector('.code-view');
+                const previewBtn = container.querySelector('.toggle-btn:first-child');
+                const codeBtn = container.querySelector('.toggle-btn:last-child');
+                
+                if (view === 'code') {
+                    preview.classList.add('hidden');
+                    code.classList.add('active');
+                    previewBtn.classList.remove('active');
+                    codeBtn.classList.add('active');
+                } else {
+                    preview.classList.remove('hidden');
+                    code.classList.remove('active');
+                    previewBtn.classList.add('active');
+                    codeBtn.classList.remove('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

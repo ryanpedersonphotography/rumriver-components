@@ -1,0 +1,2009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Willow Creek Barn - Luxury Barn Wedding Venue</title>
+    <meta name="description" content="Willow Creek Barn offers a stunning rustic wedding venue with modern elegance. Perfect for your dream barn wedding celebration.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Montserrat:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Reset and Variables */
+        :root {
+            /* Rum River Inspired Color Palette - Warm & Rustic */
+            --primary-brown: #8B6337;
+            --accent-gold: #D4A574;
+            --warm-cream: #FAF6F2;
+            --deep-brown: #4A3426;
+            --sage-green: #7A8B7F;
+            --text-dark: #2C2416;
+            --text-light: #6B5D54;
+            --blush: #E8D5D0;
+            --wine: #722F37;
+            --soft-white: #FEFDFB;
+            --dark-bg: #2C2416;
+            --medium-bg: #3D3328;
+            
+            /* Legacy color mappings */
+            --primary-color: var(--primary-brown);
+            --secondary-color: var(--accent-gold);
+            --accent-color: var(--blush);
+            --sage: var(--sage-green);
+            --cream: var(--warm-cream);
+            --charcoal: var(--deep-brown);
+            --white: #FFFFFF;
+            --off-white: var(--soft-white);
+            --black: var(--dark-bg);
+            
+            /* Overlays */
+            --overlay-dark: rgba(44, 36, 22, 0.6);
+            --overlay-darker: rgba(44, 36, 22, 0.85);
+            --overlay-light: rgba(255, 255, 255, 0.95);
+            
+            /* Layout */
+            --max-width: 1400px;
+            
+            /* Improved Spacing System - Cleaner white space */
+            --spacing-2xs: 0.375rem;  /* 6px */
+            --spacing-xs: 1rem;       /* 16px */
+            --spacing-sm: 1.75rem;    /* 28px */
+            --spacing-md: 3rem;       /* 48px */
+            --spacing-lg: 5rem;       /* 80px */
+            --spacing-xl: 7rem;       /* 112px */
+            --spacing-xxl: 9rem;      /* 144px */
+            --spacing-xxxl: 12rem;    /* 192px */
+            
+            /* Transitions */
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            
+            /* Shadows - Softer for rustic feel */
+            --shadow-sm: 0 2px 10px rgba(44, 36, 22, 0.08);
+            --shadow: 0 5px 25px rgba(44, 36, 22, 0.12);
+            --shadow-lg: 0 15px 40px rgba(44, 36, 22, 0.15);
+            --shadow-xl: 0 25px 60px rgba(44, 36, 22, 0.18);
+            
+            /* Rum River Inspired Gradients */
+            --gradient-warm: linear-gradient(135deg, var(--soft-white) 0%, var(--warm-cream) 100%);
+            --gradient-earth: linear-gradient(135deg, var(--primary-brown) 0%, var(--deep-brown) 100%);
+            --gradient-sunset: linear-gradient(135deg, var(--blush) 0%, var(--accent-gold) 100%);
+            --gradient-sage: linear-gradient(90deg, var(--sage-green) 0%, var(--deep-brown) 100%);
+            --gradient-wine: linear-gradient(135deg, var(--wine) 0%, var(--deep-brown) 100%);
+            --gradient-cream: linear-gradient(180deg, var(--warm-cream) 0%, var(--white) 100%);
+            --gradient-dark: linear-gradient(180deg, var(--dark-bg) 0%, var(--medium-bg) 100%);
+            --gradient-dusk: linear-gradient(180deg, rgba(44, 36, 22, 0) 0%, rgba(44, 36, 22, 0.9) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: 'Lora', Georgia, serif;
+            font-weight: 400;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background-color: var(--warm-cream);
+            overflow-x: hidden;
+            letter-spacing: 0.02em;
+        }
+
+        /* Fix for link styles globally */
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        /* Elegant Typography System - Keep existing fonts */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+            line-height: 1.2;
+            font-weight: 300;
+            letter-spacing: -0.01em;
+            color: var(--deep-brown);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        h1 { 
+            font-size: clamp(3.5rem, 7vw, 6rem);
+            line-height: 1.1;
+            font-weight: 300;
+            letter-spacing: -0.03em;
+        }
+
+        h2 { 
+            font-size: clamp(2.75rem, 5vw, 4rem);
+            line-height: 1.15;
+            margin-bottom: var(--spacing-md);
+            font-weight: 400;
+        }
+
+        h3 { 
+            font-size: clamp(2rem, 3.5vw, 2.75rem);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        h4 {
+            font-size: clamp(1.5rem, 2.5vw, 2rem);
+            font-weight: 400;
+        }
+
+        p {
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.9;
+            color: var(--text-light);
+            font-size: 1.0625rem;
+        }
+
+        .lead-text {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            font-weight: 300;
+        }
+
+        /* Container Component with Better Spacing */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 var(--spacing-lg);
+            }
+        }
+
+        /* Section Component with Improved Spacing */
+        .section {
+            padding: var(--spacing-xxxl) 0;
+            position: relative;
+            overflow: visible;
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: var(--spacing-xl) 0;
+            }
+        }
+
+        /* Updated gradient backgrounds */
+        .section-gradient-1 {
+            background: var(--gradient-warm);
+        }
+
+        .section-gradient-2 {
+            background: var(--gradient-earth);
+        }
+
+        .section-gradient-3 {
+            background: var(--gradient-sunset);
+        }
+
+        .section-gradient-4 {
+            background: var(--gradient-sage);
+        }
+
+        .section-gradient-5 {
+            background: var(--gradient-cream);
+        }
+
+        .section-gradient-wine {
+            background: var(--gradient-wine);
+        }
+
+        .section-white {
+            background: var(--soft-white);
+        }
+
+        .section-cream {
+            background: var(--warm-cream);
+        }
+
+        .section-dark {
+            background: var(--gradient-dark);
+            color: var(--warm-cream);
+        }
+
+        /* Pattern overlay for sections */
+        .section-pattern::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="dots" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse"><circle cx="30" cy="30" r="1" fill="rgba(139, 99, 55, 0.05)"/></pattern></defs><rect width="60" height="60" fill="url(%23dots)"/></svg>');
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        /* Shape Dividers with Adjusted Sizing */
+        :root {
+            --divider-size: 100px;
+            --divider-gap: 0px;
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --divider-size: 60px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            :root {
+                --divider-size: 40px;
+            }
+        }
+
+        /* Base divider styles */
+        [class*="divider-"] {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Slanted Divider */
+        .divider-slant-down {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - var(--divider-size)));
+        }
+
+        .divider-slant-up {
+            clip-path: polygon(0 0, 100% var(--divider-size), 100% 100%, 0 100%);
+            margin-top: calc(var(--divider-gap) - var(--divider-size));
+            z-index: 2;
+        }
+
+        /* Arrow Divider (Full Width) */
+        .divider-arrow-down {
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--divider-size)), 50% 100%, 0 calc(100% - var(--divider-size)));
+        }
+
+        .divider-arrow-up {
+            clip-path: polygon(0 0, 50% var(--divider-size), 100% 0, 100% 100%, 0 100%);
+            margin-top: calc(var(--divider-gap) - var(--divider-size));
+            z-index: 2;
+        }
+
+        /* Wave Divider */
+        .divider-wave-down {
+            clip-path: polygon(
+                0 0,
+                100% 0,
+                100% calc(100% - var(--divider-size)),
+                75% 100%,
+                50% calc(100% - var(--divider-size)),
+                25% 100%,
+                0 calc(100% - var(--divider-size))
+            );
+        }
+
+        .divider-wave-up {
+            clip-path: polygon(
+                0 0,
+                25% var(--divider-size),
+                50% 0,
+                75% var(--divider-size),
+                100% 0,
+                100% 100%,
+                0 100%
+            );
+            margin-top: calc(var(--divider-gap) - var(--divider-size));
+            z-index: 2;
+        }
+
+        /* Rounded Divider using mask */
+        .divider-round-down {
+            mask: 
+                linear-gradient(#000 0 0) top/100% calc(100% - var(--divider-size)) no-repeat,
+                radial-gradient(farthest-side, #000 98%, transparent) bottom/calc(3*var(--divider-size)) calc(2*var(--divider-size)) no-repeat;
+            -webkit-mask: 
+                linear-gradient(#000 0 0) top/100% calc(100% - var(--divider-size)) no-repeat,
+                radial-gradient(farthest-side, #000 98%, transparent) bottom/calc(3*var(--divider-size)) calc(2*var(--divider-size)) no-repeat;
+            mask-position: top, bottom center;
+            -webkit-mask-position: top, bottom center;
+        }
+
+        .divider-round-up {
+            mask: radial-gradient(calc(var(--divider-gap) + var(--divider-size)*1.5) at 50% calc(-1*var(--divider-gap)), transparent 98%, #000);
+            -webkit-mask: radial-gradient(calc(var(--divider-gap) + var(--divider-size)*1.5) at 50% calc(-1*var(--divider-gap)), transparent 98%, #000);
+            margin-top: calc(var(--divider-gap) - var(--divider-size));
+            z-index: 2;
+        }
+
+        /* Tilt Divider */
+        .divider-tilt-left {
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--divider-size)), 0 100%);
+        }
+
+        .divider-tilt-right {
+            clip-path: polygon(0 var(--divider-size), 100% 0, 100% 100%, 0 100%);
+            margin-top: calc(var(--divider-gap) - var(--divider-size));
+            z-index: 2;
+        }
+
+        /* Zigzag Divider */
+        .divider-zigzag-down {
+            clip-path: polygon(
+                0 0,
+                100% 0,
+                100% calc(100% - var(--divider-size)),
+                90% 100%,
+                80% calc(100% - var(--divider-size)),
+                70% 100%,
+                60% calc(100% - var(--divider-size)),
+                50% 100%,
+                40% calc(100% - var(--divider-size)),
+                30% 100%,
+                20% calc(100% - var(--divider-size)),
+                10% 100%,
+                0 calc(100% - var(--divider-size))
+            );
+        }
+
+        .divider-zigzag-up {
+            clip-path: polygon(
+                0 0,
+                10% var(--divider-size),
+                20% 0,
+                30% var(--divider-size),
+                40% 0,
+                50% var(--divider-size),
+                60% 0,
+                70% var(--divider-size),
+                80% 0,
+                90% var(--divider-size),
+                100% 0,
+                100% 100%,
+                0 100%
+            );
+            margin-top: calc(var(--divider-gap) - var(--divider-size));
+            z-index: 2;
+        }
+
+        /* Curve Divider */
+        .divider-curve-down {
+            clip-path: ellipse(150% 100% at 50% 0%);
+            padding-bottom: var(--divider-size);
+        }
+
+        .divider-curve-up {
+            clip-path: ellipse(150% 100% at 50% 100%);
+            margin-top: calc(var(--divider-gap) - var(--divider-size));
+            padding-top: var(--divider-size);
+            z-index: 2;
+        }
+
+        /* Elegant Button Components with Rum River Colors */
+        .btn {
+            display: inline-block;
+            padding: 1.125rem 3rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            margin: var(--spacing-xs) 0;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.5s ease;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: var(--primary-brown);
+            color: var(--white);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-primary:hover {
+            background: var(--deep-brown);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: var(--accent-gold);
+            color: var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-brown);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-light {
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--deep-brown);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-light:hover {
+            background: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--warm-cream);
+            border: 2px solid var(--warm-cream);
+            padding: 1rem 2.75rem;
+        }
+
+        .btn-outline:hover {
+            background: var(--warm-cream);
+            color: var(--deep-brown);
+            border-color: var(--warm-cream);
+        }
+
+        .btn-outline-dark {
+            background: transparent;
+            color: var(--deep-brown);
+            border: 2px solid var(--deep-brown);
+            padding: 1rem 2.75rem;
+        }
+
+        .btn-outline-dark:hover {
+            background: var(--deep-brown);
+            color: var(--warm-cream);
+        }
+
+        .btn-gold {
+            background: var(--accent-gold);
+            color: var(--white);
+        }
+
+        .btn-gold:hover {
+            background: var(--primary-brown);
+            transform: translateY(-2px);
+        }
+
+        /* Modern Elegant Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: transparent;
+            z-index: 1000;
+            transition: var(--transition);
+            padding: 2rem 0;
+        }
+
+        header.scrolled {
+            background: rgba(251, 247, 244, 0.98);
+            backdrop-filter: blur(20px);
+            padding: 1.25rem 0;
+            box-shadow: var(--shadow);
+        }
+
+        header.scrolled .logo-circle {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        header.scrolled .nav-menu a {
+            color: var(--charcoal);
+        }
+
+        header.scrolled .lang-switch a {
+            color: var(--text-medium);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .logo-circle {
+            width: 55px;
+            height: 55px;
+            border: 2px solid var(--cream);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            color: var(--cream);
+            font-weight: 300;
+            font-family: 'Cormorant Garamond', serif;
+            transition: var(--transition);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-lg);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: var(--spacing-md);
+        }
+
+        .nav-menu a {
+            color: var(--cream);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after,
+        .nav-menu a.active::after {
+            width: 100%;
+        }
+
+        .lang-switch {
+            display: flex;
+            gap: var(--spacing-sm);
+        }
+
+        .lang-switch a {
+            color: var(--cream);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8125rem;
+            font-weight: 400;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .lang-switch a:hover,
+        .lang-switch a.active {
+            opacity: 1;
+        }
+
+        /* Elegant Hero Section with Rum River Style */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            background-image: var(--gradient-dusk),
+                            linear-gradient(180deg, var(--dark-bg) 0%, var(--medium-bg) 100%);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="stars" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255, 255, 255, 0.1)"/><circle cx="90" cy="30" r="1" fill="rgba(255, 255, 255, 0.1)"/><circle cx="50" cy="50" r="1" fill="rgba(255, 255, 255, 0.1)"/><circle cx="30" cy="80" r="1" fill="rgba(255, 255, 255, 0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23stars)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-year {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.125rem;
+            color: var(--accent-gold);
+            margin-bottom: var(--spacing-md);
+            font-weight: 400;
+            letter-spacing: 0.3em;
+            opacity: 0.9;
+        }
+
+        .hero-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9375rem;
+            text-transform: uppercase;
+            letter-spacing: 0.4em;
+            color: var(--warm-cream);
+            margin-bottom: var(--spacing-sm);
+            opacity: 0.8;
+        }
+
+        .hero h1 {
+            color: var(--warm-cream);
+            margin-bottom: var(--spacing-lg);
+            text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+
+        /* Social Sidebar with Better Styling */
+        .social-sidebar {
+            position: fixed;
+            left: 3rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .social-sidebar a {
+            color: var(--cream);
+            font-size: 1rem;
+            transition: var(--transition);
+            opacity: 0.6;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+        }
+
+        .social-sidebar a:hover {
+            color: var(--secondary-color);
+            transform: translateX(5px);
+            opacity: 1;
+        }
+
+        /* Elegant Navigation Dots */
+        .nav-dots {
+            position: fixed;
+            right: 3rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .nav-dots span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--cream);
+            opacity: 0.3;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .nav-dots span.active {
+            opacity: 1;
+            background: var(--secondary-color);
+            transform: scale(1.5);
+        }
+
+        .nav-dots span:hover {
+            opacity: 0.8;
+            transform: scale(1.3);
+        }
+
+        /* Refined Card Component with Rum River Style */
+        .card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: var(--spacing-lg) var(--spacing-md);
+            box-shadow: 0 10px 30px rgba(44, 36, 22, 0.1);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(44, 36, 22, 0.05);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent-gold), var(--primary-brown));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+            transform-origin: left;
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(44, 36, 22, 0.15);
+        }
+
+        .card-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--accent-gold), var(--primary-brown));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--white);
+            margin-bottom: var(--spacing-md);
+            transition: var(--transition);
+        }
+
+        .card:hover .card-icon {
+            transform: rotate(5deg) scale(1.05);
+        }
+
+        .card-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.75rem;
+            margin-bottom: var(--spacing-sm);
+            color: var(--deep-brown);
+            font-weight: 400;
+        }
+
+        .card-description {
+            color: var(--text-light);
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        /* Image Overlay Component */
+        .image-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(44, 36, 22, 0.15);
+        }
+
+        .image-wrapper img,
+        .image-wrapper > div {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s ease;
+        }
+
+        .image-wrapper:hover img,
+        .image-wrapper:hover > div {
+            transform: scale(1.1);
+        }
+
+        .image-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(44, 36, 22, 0.9) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: flex-end;
+            padding: var(--spacing-lg);
+        }
+
+        .image-wrapper:hover .image-overlay {
+            opacity: 1;
+        }
+
+        .image-overlay-content h3 {
+            color: var(--white);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .image-overlay-content p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Elegant Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: var(--spacing-xl);
+            align-items: center;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--spacing-lg);
+            row-gap: var(--spacing-xl);
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        /* Refined Content Block */
+        .content-block {
+            padding: var(--spacing-md) 0;
+        }
+
+        .content-block-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: var(--secondary-color);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .content-block h2 {
+            margin-bottom: var(--spacing-md);
+            color: var(--charcoal);
+        }
+
+        .content-block h3 {
+            margin-bottom: var(--spacing-sm);
+            color: var(--charcoal);
+        }
+
+        .content-block p {
+            color: var(--text-medium);
+            margin-bottom: var(--spacing-md);
+            line-height: 1.9;
+        }
+
+        /* Image Component */
+        .image-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .image-wrapper:hover img {
+            transform: scale(1.1);
+        }
+
+        .image-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.7) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: flex-end;
+            padding: var(--spacing-lg);
+        }
+
+        .image-wrapper:hover .image-overlay {
+            opacity: 1;
+        }
+
+        .image-overlay-content h3 {
+            color: var(--white);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .image-overlay-content p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Elegant Feature List */
+        .feature-list {
+            list-style: none;
+            display: grid;
+            gap: var(--spacing-sm);
+            margin: var(--spacing-md) 0;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-xs) 0;
+        }
+
+        .feature-list .icon {
+            width: 28px;
+            height: 28px;
+            background: var(--sage);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 0.875rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .feature-list span {
+            color: var(--text-medium);
+            line-height: 1.7;
+        }
+
+        /* Elegant Pricing Cards with Rum River Style */
+        .pricing-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: var(--spacing-xl) var(--spacing-lg);
+            text-align: center;
+            position: relative;
+            transition: var(--transition);
+            box-shadow: 0 15px 40px rgba(44, 36, 22, 0.1);
+            border: 1px solid rgba(212, 165, 116, 0.1);
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent-gold), var(--wine));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .pricing-card:hover::before {
+            opacity: 1;
+        }
+
+        .pricing-card.featured {
+            background: linear-gradient(135deg, var(--primary-brown), var(--deep-brown));
+            color: var(--warm-cream);
+            transform: scale(1.05);
+            box-shadow: 0 20px 50px rgba(44, 36, 22, 0.2);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(44, 36, 22, 0.15);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        .pricing-label {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--wine);
+            color: var(--white);
+            padding: 0.5rem 2rem;
+            border-radius: 30px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        .pricing-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            margin-bottom: var(--spacing-sm);
+            font-weight: 400;
+            color: var(--deep-brown);
+        }
+
+        .pricing-card.featured .pricing-title {
+            color: var(--warm-cream);
+        }
+
+        .pricing-amount {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            font-weight: 300;
+            margin: var(--spacing-md) 0;
+            color: var(--accent-gold);
+        }
+
+        .pricing-card.featured .pricing-amount {
+            color: var(--warm-cream);
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: var(--spacing-lg) 0;
+            padding: var(--spacing-md) 0;
+            border-top: 1px solid rgba(44, 36, 22, 0.1);
+            border-bottom: 1px solid rgba(44, 36, 22, 0.1);
+        }
+
+        .pricing-features li {
+            padding: var(--spacing-xs) 0;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--accent-gold);
+            font-weight: bold;
+            margin-right: var(--spacing-xs);
+        }
+
+        .pricing-card.featured .pricing-features {
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .pricing-card.featured .pricing-features li {
+            color: var(--warm-cream);
+            opacity: 0.95;
+        }
+
+        .pricing-card.featured .pricing-features li::before {
+            color: var(--accent-gold);
+        }
+
+        /* Elegant Testimonial Cards */
+        .testimonial {
+            background: var(--white);
+            border-radius: 0;
+            padding: var(--spacing-xl);
+            position: relative;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid rgba(31, 29, 26, 0.05);
+        }
+
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: var(--spacing-md);
+            left: var(--spacing-md);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 5rem;
+            color: var(--blush);
+            opacity: 0.3;
+            line-height: 1;
+        }
+
+        .testimonial:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .testimonial-quote {
+            font-family: 'Lora', serif;
+            font-size: 1.125rem;
+            line-height: 1.9;
+            color: var(--text-medium);
+            margin-bottom: var(--spacing-md);
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-md);
+        }
+
+        .testimonial-avatar {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--blush), var(--secondary-color));
+            flex-shrink: 0;
+        }
+
+        .testimonial-info h4 {
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--charcoal);
+            margin-bottom: 0.25rem;
+            font-size: 1.25rem;
+            font-weight: 400;
+        }
+
+        .testimonial-info p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Elegant Modern Form */
+        .form-modern {
+            display: grid;
+            gap: var(--spacing-md);
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-group label {
+            position: absolute;
+            left: 0;
+            top: 1.25rem;
+            color: var(--text-medium);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9375rem;
+            font-weight: 400;
+            transition: var(--transition);
+            pointer-events: none;
+            letter-spacing: 0.02em;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1.5rem 0 0.75rem;
+            border: none;
+            border-bottom: 2px solid rgba(31, 29, 26, 0.1);
+            background: transparent;
+            font-family: 'Lora', serif;
+            font-size: 1.0625rem;
+            color: var(--charcoal);
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-bottom-color: var(--primary-color);
+        }
+
+        .form-group input:focus + label,
+        .form-group textarea:focus + label,
+        .form-group input:not(:placeholder-shown) + label,
+        .form-group textarea:not(:placeholder-shown) + label {
+            top: -0.5rem;
+            font-size: 0.8125rem;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        /* Elegant Footer */
+        footer {
+            background: linear-gradient(135deg, var(--charcoal) 0%, var(--black) 100%);
+            color: var(--cream);
+            padding: var(--spacing-xxl) 0 var(--spacing-lg);
+            position: relative;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .footer-section h4 {
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--secondary-color);
+            margin-bottom: var(--spacing-md);
+            font-size: 1.5rem;
+            font-weight: 400;
+        }
+
+        .footer-section p {
+            color: rgba(251, 247, 244, 0.7);
+            line-height: 1.8;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: rgba(251, 247, 244, 0.7);
+            display: block;
+            padding: 0.5rem 0;
+            transition: var(--transition);
+            font-size: 0.9375rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--secondary-color);
+            transform: translateX(5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: var(--spacing-md);
+            border-top: 1px solid rgba(251, 247, 244, 0.1);
+            margin-top: var(--spacing-lg);
+            color: rgba(251, 247, 244, 0.5);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.875rem;
+            letter-spacing: 0.05em;
+        }
+
+        /* Utility Classes with Better Spacing */
+        .text-center { text-align: center; }
+        .text-white { color: var(--cream); }
+        .text-dark { color: var(--charcoal); }
+        
+        .mb-xs { margin-bottom: var(--spacing-xs); }
+        .mb-sm { margin-bottom: var(--spacing-sm); }
+        .mb-md { margin-bottom: var(--spacing-md); }
+        .mb-lg { margin-bottom: var(--spacing-lg); }
+        .mb-xl { margin-bottom: var(--spacing-xl); }
+        
+        .mt-xs { margin-top: var(--spacing-xs); }
+        .mt-sm { margin-top: var(--spacing-sm); }
+        .mt-md { margin-top: var(--spacing-md); }
+        .mt-lg { margin-top: var(--spacing-lg); }
+        .mt-xl { margin-top: var(--spacing-xl); }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .section-header h2 {
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .section-header p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--text-medium);
+            font-size: 1.125rem;
+            line-height: 1.8;
+        }
+
+        /* Mobile Menu */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--white);
+            transition: var(--transition);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .social-sidebar,
+            .nav-dots {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-menu,
+            .lang-switch {
+                display: none;
+            }
+
+            .grid-2,
+            .grid-3,
+            .grid-4 {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 var(--spacing-sm);
+            }
+
+            .section {
+                padding: var(--spacing-xl) 0;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Modern Header -->
+    <header id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-wrapper">
+                    <div class="logo-circle">W</div>
+                </div>
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="#home" class="active">HOME</a></li>
+                        <li><a href="#about">ABOUT</a></li>
+                        <li><a href="#services">SERVICES</a></li>
+                        <li><a href="#gallery">GALLERY</a></li>
+                        <li><a href="#contact">CONTACT</a></li>
+                    </ul>
+                    <div class="lang-switch">
+                        <a href="#" class="active">ENG</a>
+                        <a href="#">FRA</a>
+                    </div>
+                </nav>
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Social Sidebar -->
+    <div class="social-sidebar">
+        <a href="#">f</a>
+        <a href="#">ig</a>
+        <a href="#">tw</a>
+    </div>
+
+    <!-- Navigation Dots -->
+    <div class="nav-dots">
+        <span class="active" data-section="home"></span>
+        <span data-section="about"></span>
+        <span data-section="services"></span>
+        <span data-section="gallery"></span>
+        <span data-section="contact"></span>
+    </div>
+
+    <!-- Modern Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-year">EST. 2010</div>
+                <div class="hero-subtitle">Rustic Elegance</div>
+                <h1>Willow Creek<br>Barn</h1>
+                <p class="lead-text" style="color: var(--cream); opacity: 0.9; margin-bottom: var(--spacing-lg);">
+                    Where timeless romance meets<br>countryside charm
+                </p>
+                <div class="hero-buttons">
+                    <a href="#about" class="btn btn-light">Discover Our Story</a>
+                    <a href="#contact" class="btn btn-outline">Schedule Your Visit</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section with Warm Gradient -->
+    <section id="about" class="section section-gradient-1 divider-slant-down">
+        <div class="container">
+            <div class="grid-2" style="gap: var(--spacing-xxl);">
+                <div class="content-block">
+                    <span class="badge" style="display: inline-block; background: var(--accent-gold); color: white; padding: 8px 20px; border-radius: 30px; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: var(--spacing-md); font-family: 'Montserrat', sans-serif;">Minnesota's Premier Venue</span>
+                    <h2>Where Love Stories Begin</h2>
+                    <p class="lead-text">
+                        Create unforgettable memories in our beautifully restored barn, surrounded by 400 acres 
+                        of Minnesota's natural splendor.
+                    </p>
+                    <p>
+                        This meticulously preserved 1890s barn combines the warmth of rustic heritage with 
+                        refined modern comforts. Every weathered beam tells a story, every carefully placed 
+                        detail speaks of our commitment to making your celebration extraordinary.
+                    </p>
+                    <ul class="feature-list">
+                        <li>
+                            <span class="icon" style="background: var(--sage-green);">✓</span>
+                            <span>Century-old craftsmanship with modern amenities</span>
+                        </li>
+                        <li>
+                            <span class="icon" style="background: var(--sage-green);">✓</span>
+                            <span>400 acres of pristine Minnesota countryside</span>
+                        </li>
+                        <li>
+                            <span class="icon" style="background: var(--sage-green);">✓</span>
+                            <span>Climate-controlled comfort in all seasons</span>
+                        </li>
+                        <li>
+                            <span class="icon" style="background: var(--sage-green);">✓</span>
+                            <span>Exclusive use of entire property</span>
+                        </li>
+                        <li>
+                            <span class="icon" style="background: var(--sage-green);">✓</span>
+                            <span>Award-winning venue with 200+ five-star reviews</span>
+                        </li>
+                    </ul>
+                    <a href="#services" class="btn btn-primary mt-lg">Explore Our Spaces</a>
+                </div>
+                <div class="image-wrapper">
+                    <div style="height: 600px; background: linear-gradient(135deg, var(--accent-gold), var(--primary-brown)); border-radius: 20px;"></div>
+                    <div class="image-overlay">
+                        <div class="image-overlay-content">
+                            <h3>Minnesota's Most Sought-After Venue</h3>
+                            <p>Celebrating love since 2010</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section with Pattern Overlay -->
+    <section id="services" class="section section-cream section-pattern divider-slant-up">
+        <div class="container">
+            <div class="section-header">
+                <div class="content-block-title" style="color: var(--accent-gold);">What We Offer</div>
+                <h2>Celebrate Every Moment</h2>
+                <p style="max-width: 700px; margin: 0 auto; color: var(--text-light);">
+                    From intimate gatherings to grand celebrations, we're here for all of life's milestones
+                </p>
+            </div>
+            <div class="grid-3">
+                <div class="card">
+                    <div class="card-icon">🌿</div>
+                    <h3 class="card-title">Garden Ceremonies</h3>
+                    <p class="card-description">
+                        Exchange vows beneath our century-old willow tree or in our rose garden pavilion, 
+                        surrounded by nature's beauty
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🏛️</div>
+                    <h3 class="card-title">The Historic Barn</h3>
+                    <p class="card-description">
+                        Our magnificently restored barn features soaring ceilings, Edison bulbs, 
+                        and space for up to 300 guests
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📸</div>
+                    <h3 class="card-title">Photography Paradise</h3>
+                    <p class="card-description">
+                        Countless stunning backdrops including wildflower meadows, rustic doors, 
+                        and our signature oak grove
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🍾</div>
+                    <h3 class="card-title">Vineyard Terrace</h3>
+                    <p class="card-description">
+                        An elegant outdoor space with string lights and vineyard views, perfect for 
+                        sunset cocktail hours
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💐</div>
+                    <h3 class="card-title">Bridal Suite</h3>
+                    <p class="card-description">
+                        A luxurious private retreat with natural light, comfortable seating, 
+                        and everything needed for preparation
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">✨</div>
+                    <h3 class="card-title">Full Service</h3>
+                    <p class="card-description">
+                        Dedicated coordinators, preferred vendor list, and complete setup/breakdown 
+                        so you can simply enjoy
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section with Elegant Design -->
+    <section id="gallery" class="section section-gradient-3 divider-arrow-down">
+        <div class="container">
+            <div class="section-header">
+                <div class="content-block-title">Our Portfolio</div>
+                <h2>Moments of Magic</h2>
+                <p>Every wedding tells a unique story of love and celebration</p>
+            </div>
+            <div class="grid-4">
+                <div class="image-wrapper" style="height: 350px;">
+                    <div style="height: 100%; background: linear-gradient(135deg, var(--blush), var(--secondary-color));"></div>
+                    <div class="image-overlay">
+                        <div class="image-overlay-content">
+                            <h3>Sarah & Michael</h3>
+                            <p>Garden ceremony at sunset</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-wrapper" style="height: 350px;">
+                    <div style="height: 100%; background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));"></div>
+                    <div class="image-overlay">
+                        <div class="image-overlay-content">
+                            <h3>Emily & James</h3>
+                            <p>Autumn barn celebration</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-wrapper" style="height: 350px;">
+                    <div style="height: 100%; background: linear-gradient(135deg, var(--sage), #B5C99A);"></div>
+                    <div class="image-overlay">
+                        <div class="image-overlay-content">
+                            <h3>Jessica & David</h3>
+                            <p>Spring meadow romance</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-wrapper" style="height: 350px;">
+                    <div style="height: 100%; background: linear-gradient(135deg, var(--primary-color), var(--charcoal));"></div>
+                    <div class="image-overlay">
+                        <div class="image-overlay-content">
+                            <h3>Amanda & Robert</h3>
+                            <p>Candlelit winter wedding</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-wrapper" style="height: 350px;">
+                    <div style="height: 100%; background: linear-gradient(135deg, var(--accent-color), var(--blush));"></div>
+                    <div class="image-overlay">
+                        <div class="image-overlay-content">
+                            <h3>Lauren & Christopher</h3>
+                            <p>Rustic chic elegance</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-wrapper" style="height: 350px;">
+                    <div style="height: 100%; background: linear-gradient(135deg, var(--charcoal), var(--primary-color));"></div>
+                    <div class="image-overlay">
+                        <div class="image-overlay-content">
+                            <h3>Rachel & Matthew</h3>
+                            <p>Golden hour ceremony</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-wrapper" style="height: 350px;">
+                    <div style="height: 100%; background: linear-gradient(135deg, var(--sage), var(--secondary-color));"></div>
+                    <div class="image-overlay">
+                        <div class="image-overlay-content">
+                            <h3>Nicole & Andrew</h3>
+                            <p>Vineyard views reception</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-wrapper" style="height: 350px;">
+                    <div style="height: 100%; background: linear-gradient(135deg, var(--blush), var(--primary-color));"></div>
+                    <div class="image-overlay">
+                        <div class="image-overlay-content">
+                            <h3>Sophia & Daniel</h3>
+                            <p>Fairytale barn wedding</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section with Refined Styling -->
+    <section class="section section-white divider-arrow-up">
+        <div class="container">
+            <div class="section-header">
+                <div class="content-block-title">Investment</div>
+                <h2>Choose Your Experience</h2>
+                <p>Thoughtfully crafted packages to suit every celebration style</p>
+            </div>
+            <div class="grid-3" style="max-width: 1200px; margin: 0 auto;">
+                <div class="pricing-card">
+                    <h3 class="pricing-title">Intimate</h3>
+                    <div class="pricing-amount">$4,500</div>
+                    <p style="color: var(--text-medium); margin-bottom: var(--spacing-md);">Perfect for close family & friends</p>
+                    <ul class="pricing-features">
+                        <li>Up to 75 guests</li>
+                        <li>8-hour venue access</li>
+                        <li>Ceremony & reception spaces</li>
+                        <li>Tables, chairs & linens</li>
+                        <li>String lighting package</li>
+                        <li>Day-of coordinator</li>
+                        <li>Complimentary tasting</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline-dark" style="margin-top: var(--spacing-md);">Learn More</a>
+                </div>
+                <div class="pricing-card featured">
+                    <span class="pricing-label">Most Popular</span>
+                    <h3 class="pricing-title">Signature</h3>
+                    <div class="pricing-amount">$6,500</div>
+                    <p style="margin-bottom: var(--spacing-md);">Our complete wedding experience</p>
+                    <ul class="pricing-features">
+                        <li>Up to 150 guests</li>
+                        <li>12-hour venue access</li>
+                        <li>All venue spaces included</li>
+                        <li>Premium decor package</li>
+                        <li>Bridal suite all day</li>
+                        <li>Full planning assistance</li>
+                        <li>Setup & cleanup crew</li>
+                        <li>Rehearsal time included</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-light" style="margin-top: var(--spacing-md);">Reserve Your Date</a>
+                </div>
+                <div class="pricing-card">
+                    <h3 class="pricing-title">Grand Estate</h3>
+                    <div class="pricing-amount">$9,500</div>
+                    <p style="color: var(--text-medium); margin-bottom: var(--spacing-md);">The ultimate luxury experience</p>
+                    <ul class="pricing-features">
+                        <li>Up to 250 guests</li>
+                        <li>Full weekend access</li>
+                        <li>All premium amenities</li>
+                        <li>Custom lighting design</li>
+                        <li>Rehearsal dinner space</li>
+                        <li>Guest shuttle service</li>
+                        <li>Luxury restroom trailers</li>
+                        <li>Complimentary anniversary stay</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline-dark" style="margin-top: var(--spacing-md);">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section section-white divider-wave-down">
+        <div class="container">
+            <div class="text-center mb-lg">
+                <div class="content-block-title">Reviews</div>
+                <h2>Love Stories from Our Couples</h2>
+            </div>
+            <div class="grid-3">
+                <div class="testimonial">
+                    <p class="testimonial-quote">
+                        "Willow Creek Barn exceeded every expectation. The venue's natural beauty combined 
+                        with the team's attention to detail made our wedding absolutely magical."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar"></div>
+                        <div class="testimonial-info">
+                            <h4>Sarah & Michael</h4>
+                            <p>June 2024 Wedding</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-quote">
+                        "From the first tour to our last dance, everything was flawless. The barn's charm 
+                        meant we needed minimal decorations - it's naturally stunning!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar"></div>
+                        <div class="testimonial-info">
+                            <h4>Emily & James</h4>
+                            <p>September 2024 Wedding</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-quote">
+                        "The flexibility to customize every aspect of our day was incredible. The team 
+                        helped bring our vision to life in ways we never imagined possible."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar"></div>
+                        <div class="testimonial-info">
+                            <h4>Jessica & David</h4>
+                            <p>April 2024 Wedding</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section section-gradient-4 divider-wave-up">
+        <div class="container">
+            <div class="text-center mb-lg">
+                <div class="content-block-title">Get Started</div>
+                <h2>Schedule Your Private Tour</h2>
+            </div>
+            <div class="grid-2">
+                <form class="form-modern">
+                    <div class="form-group">
+                        <input type="text" id="names" placeholder=" " required>
+                        <label for="names">Your Names</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder=" " required>
+                        <label for="email">Email Address</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" placeholder=" ">
+                        <label for="phone">Phone Number</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="date" id="date" placeholder=" ">
+                        <label for="date">Wedding Date</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" rows="4" placeholder=" "></textarea>
+                        <label for="message">Tell us about your vision</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+                <div class="content-block">
+                    <h3>Visit Our Venue</h3>
+                    <div class="feature-list">
+                        <div>
+                            <h4>Location</h4>
+                            <p>1847 Willow Creek Road<br>Meadowbrook Valley, CA 95460</p>
+                        </div>
+                        <div>
+                            <h4>Contact</h4>
+                            <p>Phone: (555) 123-4567<br>Email: hello@willowcreekbarn.com</p>
+                        </div>
+                        <div>
+                            <h4>Tour Hours</h4>
+                            <p>Tuesday - Sunday: 10am - 5pm<br>Closed Mondays</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="divider-tilt-left">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Willow Creek Barn</h4>
+                    <p style="margin-top: 1rem; opacity: 0.8;">
+                        Creating unforgettable wedding experiences in California's countryside since 2010.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Virtual Tour</a></li>
+                        <li><a href="#">Preferred Vendors</a></li>
+                        <li><a href="#">Floor Plans</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Pinterest</a></li>
+                        <li><a href="#">YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div style="text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 3rem; opacity: 0.6;">
+                <p>&copy; 2024 Willow Creek Barn. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Enhanced header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling with offset for fixed header
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Enhanced navigation dots
+        const sections = document.querySelectorAll('section[id]');
+        const navDots = document.querySelectorAll('.nav-dots span');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navDots.forEach(dot => {
+                dot.classList.remove('active');
+                if (dot.dataset.section === current) {
+                    dot.classList.add('active');
+                }
+            });
+
+            // Update active nav menu item
+            const navLinks = document.querySelectorAll('.nav-menu a');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Navigation dot clicks
+        navDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const section = document.getElementById(dot.dataset.section);
+                if (section) {
+                    const headerOffset = 80;
+                    const elementPosition = section.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Enhanced form submission
+        document.querySelector('.form-modern').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simple form validation animation
+            const button = this.querySelector('button[type="submit"]');
+            const originalText = button.textContent;
+            button.textContent = 'Sending...';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                alert('Thank you for your interest in Willow Creek Barn! We\'ll contact you within 24 hours to schedule your private tour.');
+                this.reset();
+                button.textContent = originalText;
+                button.disabled = false;
+            }, 1500);
+        });
+
+        // Enhanced Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    
+                    // Stagger animations for cards
+                    if (entry.target.classList.contains('card')) {
+                        const cards = entry.target.parentElement.querySelectorAll('.card');
+                        cards.forEach((card, index) => {
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, index * 100);
+                        });
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.card, .testimonial, .pricing-card, .content-block').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Mobile menu toggle functionality
+        const menuToggle = document.querySelector('.menu-toggle');
+        if (menuToggle) {
+            menuToggle.addEventListener('click', function() {
+                this.classList.toggle('active');
+                // Add mobile menu functionality here if needed
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,2138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rum River Barn - Minnesota's Premier Wedding Venue</title>
+    <meta name="description" content="Create unforgettable memories in our beautifully restored barn, surrounded by 400 acres of Minnesota's natural splendor.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Georgia&family=Brush+Script+MT&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Reset and Variables - Rum River Color Palette */
+        :root {
+            /* Rum River Color Palette */
+            --primary-brown: #8B6337;
+            --accent-gold: #D4A574;
+            --warm-cream: #FAF6F2;
+            --deep-brown: #4A3426;
+            --sage-green: #7A8B7F;
+            --text-dark: #2C2416;
+            --text-light: #6B5D54;
+            --blush: #E8D5D0;
+            --wine: #722F37;
+            --soft-white: #FEFDFB;
+            --dark-bg: #2C2416;
+            --medium-bg: #3D3328;
+            
+            /* Layout */
+            --max-width: 1400px;
+            
+            /* Shape Divider Variables */
+            --divider-size: 100px;
+            --divider-gap: 0px;
+            
+            /* Transitions */
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --divider-size: 60px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            :root {
+                --divider-size: 40px;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            color: var(--text-dark);
+            background: var(--warm-cream);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 400;
+            line-height: 1.2;
+        }
+
+        .script-font {
+            font-family: 'Brush Script MT', cursive;
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Shape Dividers - Using barn-wedding-venue33333 coding style */
+        [class*="divider-"] {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Subtle Wave Divider */
+        .divider-wave-down {
+            clip-path: polygon(
+                0 0,
+                100% 0,
+                100% calc(100% - var(--divider-size)),
+                75% 100%,
+                50% calc(100% - var(--divider-size)),
+                25% 100%,
+                0 calc(100% - var(--divider-size))
+            );
+        }
+
+        .divider-wave-up {
+            clip-path: polygon(
+                0 0,
+                25% var(--divider-size),
+                50% 0,
+                75% var(--divider-size),
+                100% 0,
+                100% 100%,
+                0 100%
+            );
+            margin-top: calc(var(--divider-gap) - var(--divider-size));
+            z-index: 2;
+        }
+
+        /* Angle Divider */
+        .divider-angle-down {
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--divider-size)), 0 100%);
+        }
+
+        .divider-angle-up {
+            clip-path: polygon(0 var(--divider-size), 100% 0, 100% 100%, 0 100%);
+            margin-top: calc(var(--divider-gap) - var(--divider-size));
+            z-index: 2;
+        }
+
+        /* Soft Curve Divider */
+        .divider-curve-down {
+            clip-path: ellipse(150% 100% at 50% 0%);
+            padding-bottom: var(--divider-size);
+        }
+
+        .divider-curve-up {
+            clip-path: ellipse(150% 100% at 50% 100%);
+            margin-top: calc(var(--divider-gap) - var(--divider-size));
+            padding-top: var(--divider-size);
+            z-index: 2;
+        }
+
+        /* Split/Arrow Divider */
+        .divider-split-down {
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--divider-size)), 50% 100%, 0 calc(100% - var(--divider-size)));
+        }
+
+        .divider-split-up {
+            clip-path: polygon(0 0, 50% var(--divider-size), 100% 0, 100% 100%, 0 100%);
+            margin-top: calc(var(--divider-gap) - var(--divider-size));
+            z-index: 2;
+        }
+
+        /* Modern Elegant Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: transparent;
+            z-index: 1000;
+            transition: var(--transition);
+            padding: 2rem 0;
+        }
+
+        header.scrolled {
+            background: rgba(251, 247, 244, 0.98);
+            backdrop-filter: blur(20px);
+            padding: 1.25rem 0;
+            box-shadow: 0 4px 20px rgba(31, 29, 26, 0.12);
+        }
+
+        header.scrolled .logo-circle {
+            border-color: var(--primary-brown);
+            color: var(--primary-brown);
+        }
+
+        header.scrolled .nav-menu a {
+            color: var(--deep-brown);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        .logo-circle {
+            width: 55px;
+            height: 55px;
+            border: 2px solid var(--warm-cream);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            color: var(--warm-cream);
+            font-weight: 300;
+            font-family: 'Playfair Display', serif;
+            transition: var(--transition);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-menu a {
+            color: var(--warm-cream);
+            font-family: 'Georgia', sans-serif;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after,
+        .nav-menu a.active::after {
+            width: 100%;
+        }
+
+        /* Social Sidebar */
+        .social-sidebar {
+            position: fixed;
+            left: 3rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .social-sidebar a {
+            color: var(--warm-cream);
+            font-size: 1rem;
+            transition: var(--transition);
+            opacity: 0.6;
+            font-family: 'Georgia', sans-serif;
+            font-weight: 300;
+        }
+
+        .social-sidebar a:hover {
+            color: var(--accent-gold);
+            transform: translateX(5px);
+            opacity: 1;
+        }
+
+        /* Navigation Dots */
+        .nav-dots {
+            position: fixed;
+            right: 3rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .nav-dots span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--warm-cream);
+            opacity: 0.3;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .nav-dots span.active {
+            opacity: 1;
+            background: var(--accent-gold);
+            transform: scale(1.5);
+        }
+
+        .nav-dots span:hover {
+            opacity: 0.8;
+            transform: scale(1.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            background-image: linear-gradient(rgba(31, 29, 26, 0.85), rgba(31, 29, 26, 0.6)),
+                            linear-gradient(135deg, var(--deep-brown) 0%, var(--dark-bg) 100%);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><rect fill="transparent" width="1920" height="1080"/><g opacity="0.05"><path fill="%23ffffff" d="M0,540 Q480,400 960,540 T1920,540 L1920,1080 L0,1080 Z"/></g></svg>');
+            opacity: 0.1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+        }
+
+        .hero-year {
+            font-family: 'Georgia', sans-serif;
+            font-size: 1.125rem;
+            color: var(--accent-gold);
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+            letter-spacing: 0.3em;
+            opacity: 0.9;
+        }
+
+        .hero-subtitle {
+            font-family: 'Georgia', sans-serif;
+            font-size: 0.9375rem;
+            text-transform: uppercase;
+            letter-spacing: 0.4em;
+            color: var(--warm-cream);
+            margin-bottom: 1.25rem;
+            opacity: 0.8;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(3.5rem, 7vw, 6rem);
+            line-height: 1.1;
+            font-weight: 300;
+            letter-spacing: -0.03em;
+            color: var(--warm-cream);
+            margin-bottom: 2rem;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        }
+
+        .lead-text {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            color: var(--warm-cream);
+            opacity: 0.9;
+            font-weight: 300;
+            margin-bottom: 3rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 1.125rem 3rem;
+            font-family: 'Georgia', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: none;
+            border-radius: 0;
+            text-decoration: none;
+            margin: 0.75rem 0;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.5s ease;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-light {
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--deep-brown);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-light:hover {
+            background: var(--soft-white);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--warm-cream);
+            border: 2px solid var(--warm-cream);
+            padding: 1rem 2.75rem;
+        }
+
+        .btn-outline:hover {
+            background: var(--warm-cream);
+            color: var(--deep-brown);
+            border-color: var(--warm-cream);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--warm-cream);
+            transition: var(--transition);
+        }
+
+        header.scrolled .menu-toggle span {
+            background: var(--deep-brown);
+        }
+
+        /* Section 2: Alternating Content Blocks */
+        .alternating-blocks {
+            padding: 120px 0;
+            background: linear-gradient(180deg, var(--dark-bg) 0%, var(--medium-bg) 100%);
+            position: relative;
+        }
+
+        .alternating-blocks h3,
+        .alternating-blocks .number {
+            color: white;
+        }
+
+        .alternating-blocks p,
+        .alternating-blocks .feature-list li {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .alternating-blocks .btn-outline {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        .alternating-blocks .btn-outline:hover {
+            background: var(--accent-gold);
+            color: white;
+        }
+
+        .block-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            margin-bottom: 120px;
+        }
+
+        .block-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .block-item.reverse {
+            direction: rtl;
+        }
+
+        .block-item.reverse .block-content {
+            direction: ltr;
+        }
+
+        .block-content {
+            padding: 40px;
+        }
+
+        .block-content .number {
+            font-size: 80px;
+            color: var(--accent-gold);
+            opacity: 0.5;
+            font-weight: bold;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .block-content h3 {
+            font-size: 42px;
+            margin-bottom: 25px;
+        }
+
+        .block-content p {
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .feature-list li {
+            padding: 12px 0;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-gold);
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .block-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+        }
+
+        .block-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        .image-badge {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: var(--wine);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Section 3: Services Cards */
+        .services-reveal {
+            padding: 120px 0;
+            background: linear-gradient(180deg, var(--warm-cream) 0%, white 100%);
+            position: relative;
+        }
+
+        .services-reveal::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="dots" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse"><circle cx="30" cy="30" r="1" fill="rgba(139, 99, 55, 0.05)"/></pattern></defs><rect width="60" height="60" fill="url(%23dots)"/></svg>');
+            opacity: 0.5;
+        }
+
+        .services-header {
+            text-align: center;
+            margin-bottom: 80px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .services-header h2 {
+            font-size: 48px;
+            color: var(--deep-brown);
+            margin-bottom: 20px;
+        }
+
+        .services-header .subtitle {
+            font-size: 20px;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card {
+            position: relative;
+            height: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .service-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .service-card:hover .service-bg {
+            transform: scale(1.1);
+        }
+
+        .service-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(44, 36, 22, 0.3) 0%, rgba(44, 36, 22, 0.9) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 40px;
+            transition: background 0.4s ease;
+        }
+
+        .service-card:hover .service-overlay {
+            background: linear-gradient(180deg, rgba(44, 36, 22, 0.7) 0%, rgba(44, 36, 22, 0.95) 100%);
+        }
+
+        .service-title {
+            font-size: 32px;
+            color: white;
+            margin-bottom: 15px;
+            transform: translateY(0);
+            transition: transform 0.4s ease;
+        }
+
+        .service-description {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s ease;
+        }
+
+        .service-card:hover .service-title {
+            transform: translateY(-10px);
+        }
+
+        .service-card:hover .service-description {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .service-price {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: var(--accent-gold);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        /* Section 4: Venue Spaces */
+        .venue-showcase {
+            padding: 120px 0;
+            background: linear-gradient(135deg, var(--deep-brown) 0%, var(--dark-bg) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .venue-showcase::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(212, 165, 116, 0.05)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+        }
+
+        .venue-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .venue-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .venue-header h2 {
+            font-size: 48px;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .venue-header p {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .venue-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+
+        .venue-tab {
+            padding: 15px 35px;
+            background: transparent;
+            border: 2px solid var(--accent-gold);
+            color: var(--accent-gold);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .venue-tab.active,
+        .venue-tab:hover {
+            background: var(--accent-gold);
+            color: white;
+        }
+
+        .venue-display {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .venue-main-image {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+        }
+
+        .venue-main-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        .venue-details {
+            color: white;
+        }
+
+        .venue-details h3 {
+            font-size: 36px;
+            margin-bottom: 25px;
+            color: var(--accent-gold);
+        }
+
+        .venue-details p {
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .venue-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .venue-feature {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid rgba(212, 165, 116, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .venue-feature h5 {
+            color: var(--accent-gold);
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .venue-feature p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            margin: 0;
+        }
+
+        /* Section 5: Packages Grid */
+        .packages-section {
+            padding: 120px 0;
+            background: linear-gradient(135deg, var(--soft-white) 0%, var(--warm-cream) 100%);
+            position: relative;
+        }
+
+        .packages-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .packages-header .script-font {
+            font-size: 28px;
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+        }
+
+        .packages-header h2 {
+            font-size: 48px;
+            color: var(--deep-brown);
+            margin-bottom: 20px;
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .package-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .package-card.featured {
+            transform: scale(1.05);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .package-card.featured::before {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: var(--wine);
+            color: white;
+            padding: 8px 40px;
+            transform: rotate(45deg);
+            font-size: 12px;
+            letter-spacing: 1px;
+            z-index: 1;
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+        }
+
+        .package-card.featured:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        .package-header {
+            background: linear-gradient(135deg, var(--primary-brown) 0%, var(--deep-brown) 100%);
+            padding: 30px;
+            text-align: center;
+            color: white;
+        }
+
+        .package-name {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .package-price {
+            font-size: 42px;
+            font-weight: bold;
+            color: var(--accent-gold);
+        }
+
+        .package-price span {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: normal;
+        }
+
+        .package-body {
+            padding: 40px 30px;
+        }
+
+        .package-features {
+            list-style: none;
+            margin-bottom: 40px;
+        }
+
+        .package-features li {
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+        }
+
+        .package-features li::before {
+            content: '✓';
+            color: var(--accent-gold);
+            font-weight: bold;
+            margin-right: 15px;
+            font-size: 18px;
+        }
+
+        .package-btn {
+            width: 100%;
+            padding: 18px;
+            background: var(--accent-gold);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .package-btn:hover {
+            background: var(--primary-brown);
+            transform: translateY(-2px);
+        }
+
+        /* Section 6: Team */
+        .team-section {
+            padding: 120px 0;
+            background: linear-gradient(135deg, var(--wine) 0%, var(--deep-brown) 100%);
+            position: relative;
+        }
+
+        .team-section .team-header h2,
+        .team-section .member-name {
+            color: white;
+        }
+
+        .team-section .team-header .script-font {
+            color: var(--accent-gold);
+        }
+
+        .team-section .member-bio {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .team-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .team-header .script-font {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .team-header h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .team-carousel {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .team-member {
+            text-align: center;
+            position: relative;
+        }
+
+        .member-image {
+            position: relative;
+            width: 250px;
+            height: 250px;
+            margin: 0 auto 30px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            border: 4px solid var(--accent-gold);
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .team-member:hover .member-image img {
+            transform: scale(1.1);
+        }
+
+        .member-name {
+            font-size: 26px;
+            margin-bottom: 8px;
+        }
+
+        .member-role {
+            font-size: 16px;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .member-bio {
+            line-height: 1.6;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        /* Section 7: Blog */
+        .blog-section {
+            padding: 120px 0;
+            background: white;
+            position: relative;
+        }
+
+        .blog-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .blog-header-text h2 {
+            font-size: 48px;
+            color: var(--deep-brown);
+            margin-bottom: 10px;
+        }
+
+        .blog-header-text p {
+            color: var(--text-light);
+            font-size: 18px;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .blog-card {
+            background: var(--warm-cream);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+        }
+
+        .blog-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .blog-card:hover .blog-image img {
+            transform: scale(1.1);
+        }
+
+        .blog-category {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--accent-gold);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .blog-content {
+            padding: 35px;
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .blog-title {
+            font-size: 24px;
+            color: var(--deep-brown);
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .blog-excerpt {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .read-more {
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .read-more::after {
+            content: '→';
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .read-more:hover {
+            color: var(--primary-brown);
+        }
+
+        .read-more:hover::after {
+            transform: translateX(5px);
+        }
+
+        /* Section 8: Social Proof */
+        .social-proof {
+            padding: 80px 0;
+            background: linear-gradient(90deg, var(--sage-green) 0%, var(--deep-brown) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-proof::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="stars" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255, 255, 255, 0.1)"/><circle cx="90" cy="30" r="1" fill="rgba(255, 255, 255, 0.1)"/><circle cx="50" cy="50" r="1" fill="rgba(255, 255, 255, 0.1)"/><circle cx="30" cy="80" r="1" fill="rgba(255, 255, 255, 0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23stars)"/></svg>');
+        }
+
+        .social-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .social-logos {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            opacity: 0.6;
+        }
+
+        .social-logo {
+            color: white;
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .social-text {
+            font-size: 32px;
+            color: white;
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.4;
+        }
+
+        .social-text .highlight {
+            color: var(--accent-gold);
+            font-style: italic;
+        }
+
+        /* Section 9: Instagram */
+        .instagram-section {
+            padding: 120px 0;
+            background: var(--warm-cream);
+            position: relative;
+        }
+
+        .instagram-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .instagram-header h2 {
+            font-size: 48px;
+            color: var(--deep-brown);
+            margin-bottom: 15px;
+        }
+
+        .instagram-handle {
+            color: var(--accent-gold);
+            font-size: 20px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .instagram-handle:hover {
+            color: var(--primary-brown);
+        }
+
+        .instagram-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .instagram-post {
+            position: relative;
+            padding-bottom: 100%;
+            overflow: hidden;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+
+        .instagram-post img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .instagram-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(44, 36, 22, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .instagram-post:hover .instagram-overlay {
+            opacity: 1;
+        }
+
+        .instagram-post:hover img {
+            transform: scale(1.1);
+        }
+
+        .instagram-stats {
+            text-align: center;
+            color: white;
+        }
+
+        .instagram-stats span {
+            display: block;
+            margin: 10px;
+            font-size: 16px;
+        }
+
+        .instagram-stats .count {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--accent-gold);
+        }
+
+        /* Section 10: Map */
+        .map-section {
+            padding: 0;
+            background: var(--warm-cream);
+            position: relative;
+        }
+
+        .map-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 600px;
+        }
+
+        .map-info {
+            padding: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: white;
+        }
+
+        .map-info h2 {
+            font-size: 42px;
+            color: var(--deep-brown);
+            margin-bottom: 30px;
+        }
+
+        .location-details {
+            margin-bottom: 40px;
+        }
+
+        .location-item {
+            display: flex;
+            align-items: start;
+            margin-bottom: 25px;
+            color: var(--text-dark);
+        }
+
+        .location-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--accent-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .location-text h4 {
+            color: var(--deep-brown);
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+
+        .location-text p {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .map-embed {
+            background: var(--deep-brown);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .map-embed::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(122, 139, 127, 0.9) 0%, rgba(74, 52, 38, 0.9) 100%);
+        }
+
+        .map-placeholder {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .social-sidebar,
+            .nav-dots {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            h2 {
+                font-size: 36px !important;
+            }
+
+            h3 {
+                font-size: 28px !important;
+            }
+
+            .offset-hero-content,
+            .block-item,
+            .venue-display,
+            .map-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .block-item.reverse {
+                direction: ltr;
+            }
+
+            .offset-images {
+                height: 400px;
+                margin-top: 40px;
+            }
+
+            .offset-accent-img {
+                display: none;
+            }
+
+            .venue-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .packages-grid,
+            .services-cards,
+            .team-carousel,
+            .blog-grid,
+            .instagram-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .map-info {
+                padding: 40px 20px;
+            }
+
+            .blog-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Modern Header -->
+    <header id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-wrapper">
+                    <div class="logo-circle">R</div>
+                </div>
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="#home" class="active">HOME</a></li>
+                        <li><a href="#about">ABOUT</a></li>
+                        <li><a href="#services">SERVICES</a></li>
+                        <li><a href="#gallery">GALLERY</a></li>
+                        <li><a href="#contact">CONTACT</a></li>
+                    </ul>
+                </nav>
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Social Sidebar -->
+    <div class="social-sidebar">
+        <a href="#">FB</a>
+        <a href="#">IG</a>
+        <a href="#">TW</a>
+    </div>
+
+    <!-- Navigation Dots -->
+    <div class="nav-dots">
+        <span class="active" data-section="home"></span>
+        <span data-section="about"></span>
+        <span data-section="services"></span>
+        <span data-section="gallery"></span>
+        <span data-section="contact"></span>
+    </div>
+
+    <!-- Modern Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-year">EST. 2005</div>
+                <div class="hero-subtitle">Minnesota's Premier Venue</div>
+                <h1>Rum River<br>Barn</h1>
+                <p class="lead-text">
+                    Where rustic charm meets<br>modern elegance
+                </p>
+                <div class="hero-buttons">
+                    <a href="#about" class="btn btn-light">Discover Our Story</a>
+                    <a href="#contact" class="btn btn-outline">Schedule Your Visit</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Alternating Content Blocks with Wave Down -->
+    <section class="alternating-blocks divider-wave-down">
+        <div class="container">
+            <div class="block-item">
+                <div class="block-content">
+                    <div class="number">01</div>
+                    <h3>The Historic Barn</h3>
+                    <p>Step into a piece of Minnesota history. Our meticulously restored barn combines century-old craftsmanship with modern amenities, creating the perfect backdrop for your celebration.</p>
+                    <ul class="feature-list">
+                        <li>Climate-controlled comfort year-round</li>
+                        <li>Original exposed beam architecture</li>
+                        <li>Capacity for up to 300 guests</li>
+                        <li>State-of-the-art lighting system</li>
+                    </ul>
+                    <a href="#" class="btn-outline">Explore The Barn</a>
+                </div>
+                <div class="block-image">
+                    <img src="https://images.unsplash.com/photo-1510076857177-7470076d4098?w=800" alt="Historic barn interior">
+                    <span class="image-badge">100+ Years</span>
+                </div>
+            </div>
+
+            <div class="block-item reverse">
+                <div class="block-content">
+                    <div class="number">02</div>
+                    <h3>Vineyard Ceremonies</h3>
+                    <p>Exchange vows surrounded by rolling hills and grape vines. Our vineyard offers multiple ceremony sites, each with its own unique charm and breathtaking views.</p>
+                    <ul class="feature-list">
+                        <li>Sunset ceremony perfection</li>
+                        <li>Natural amphitheater setting</li>
+                        <li>Rain backup in covered pavilion</li>
+                        <li>Complimentary wine tasting for couples</li>
+                    </ul>
+                    <a href="#" class="btn-outline">View Ceremony Sites</a>
+                </div>
+                <div class="block-image">
+                    <img src="https://images.unsplash.com/photo-1474112704314-8162b7749a90?w=800" alt="Vineyard ceremony site">
+                    <span class="image-badge">5 Locations</span>
+                </div>
+            </div>
+
+            <div class="block-item">
+                <div class="block-content">
+                    <div class="number">03</div>
+                    <h3>Enchanted Forest</h3>
+                    <p>Wander through our mile-long paths beneath ancient oaks and whispering pines. The forest provides endless opportunities for stunning photography and intimate moments.</p>
+                    <ul class="feature-list">
+                        <li>Professional trail lighting available</li>
+                        <li>Hidden clearings for portraits</li>
+                        <li>Seasonal wildflower meadows</li>
+                        <li>Private couple's photography hour</li>
+                    </ul>
+                    <a href="#" class="btn-outline">Discover The Grounds</a>
+                </div>
+                <div class="block-image">
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800" alt="Forest wedding photos">
+                    <span class="image-badge">400 Acres</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Services with Wave Up -->
+    <section class="services-reveal divider-wave-up">
+        <div class="container">
+            <div class="services-header">
+                <h2>Celebrate Every Moment</h2>
+                <p class="subtitle">From intimate gatherings to grand celebrations, we're here for all of life's milestones</p>
+            </div>
+            <div class="services-cards">
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=600" alt="Wedding" class="service-bg">
+                    <div class="service-overlay">
+                        <span class="service-price">From $5,000</span>
+                        <h3 class="service-title">Weddings</h3>
+                        <p class="service-description">Your perfect day deserves the perfect setting. Full venue access, customizable packages, and our signature "yes" to all your dreams.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600" alt="Corporate Event" class="service-bg">
+                    <div class="service-overlay">
+                        <span class="service-price">From $2,000</span>
+                        <h3 class="service-title">Corporate Events</h3>
+                        <p class="service-description">Inspire your team in a setting that sparks creativity. Perfect for retreats, celebrations, and memorable company gatherings.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=600" alt="Special Celebration" class="service-bg">
+                    <div class="service-overlay">
+                        <span class="service-price">From $1,500</span>
+                        <h3 class="service-title">Celebrations</h3>
+                        <p class="service-description">Birthdays, anniversaries, reunions—every milestone deserves a spectacular venue. Flexible spaces for parties of all sizes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Venue Spaces with Angle Down -->
+    <section class="venue-showcase divider-angle-down">
+        <div class="container venue-content">
+            <div class="venue-header">
+                <h2>Explore Our Spaces</h2>
+                <p>Every corner tells a story, every space creates memories</p>
+            </div>
+            <div class="venue-tabs">
+                <button class="venue-tab active">The Barn</button>
+                <button class="venue-tab">Bridal Suite</button>
+                <button class="venue-tab">Groom's Quarters</button>
+                <button class="venue-tab">Garden Pavilion</button>
+            </div>
+            <div class="venue-display">
+                <div class="venue-main-image">
+                    <img src="https://images.unsplash.com/photo-1564069114553-7215e1ff1890?w=800" alt="Barn interior">
+                </div>
+                <div class="venue-details">
+                    <h3>The Historic Barn</h3>
+                    <p>Our crown jewel, this beautifully restored barn features soaring ceilings, original timber beams, and modern amenities seamlessly integrated into its historic charm.</p>
+                    <div class="venue-features">
+                        <div class="venue-feature">
+                            <h5>Capacity</h5>
+                            <p>Up to 300 guests</p>
+                        </div>
+                        <div class="venue-feature">
+                            <h5>Features</h5>
+                            <p>Built-in bar & dance floor</p>
+                        </div>
+                        <div class="venue-feature">
+                            <h5>Lighting</h5>
+                            <p>Edison bulbs & chandeliers</p>
+                        </div>
+                        <div class="venue-feature">
+                            <h5>Climate</h5>
+                            <p>Heated & air conditioned</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Packages with Angle Up -->
+    <section class="packages-section divider-angle-up">
+        <div class="container">
+            <div class="packages-header">
+                <p class="script-font">Investment in Memories</p>
+                <h2>Wedding Packages</h2>
+            </div>
+            <div class="packages-grid">
+                <div class="package-card">
+                    <div class="package-header">
+                        <h3 class="package-name">Intimate</h3>
+                        <div class="package-price">
+                            $3,500
+                            <span>/ up to 75 guests</span>
+                        </div>
+                    </div>
+                    <div class="package-body">
+                        <ul class="package-features">
+                            <li>6-hour venue rental</li>
+                            <li>Ceremony & reception spaces</li>
+                            <li>Tables, chairs & linens</li>
+                            <li>Bridal suite access</li>
+                            <li>Setup & breakdown assistance</li>
+                        </ul>
+                        <button class="package-btn">Learn More</button>
+                    </div>
+                </div>
+
+                <div class="package-card featured">
+                    <div class="package-header">
+                        <h3 class="package-name">Classic</h3>
+                        <div class="package-price">
+                            $5,500
+                            <span>/ up to 150 guests</span>
+                        </div>
+                    </div>
+                    <div class="package-body">
+                        <ul class="package-features">
+                            <li>10-hour venue rental</li>
+                            <li>Full property access</li>
+                            <li>Premium décor package</li>
+                            <li>Both suites included</li>
+                            <li>Day-before setup time</li>
+                            <li>Complimentary rehearsal</li>
+                        </ul>
+                        <button class="package-btn">Most Popular Choice</button>
+                    </div>
+                </div>
+
+                <div class="package-card">
+                    <div class="package-header">
+                        <h3 class="package-name">Grand</h3>
+                        <div class="package-price">
+                            $8,500
+                            <span>/ up to 300 guests</span>
+                        </div>
+                    </div>
+                    <div class="package-body">
+                        <ul class="package-features">
+                            <li>Full weekend rental</li>
+                            <li>All venue spaces included</li>
+                            <li>Luxury décor collection</li>
+                            <li>Golf cart transportation</li>
+                            <li>Fire pit & s'mores bar</li>
+                            <li>Morning-after brunch setup</li>
+                        </ul>
+                        <button class="package-btn">Ultimate Experience</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: Team with Split Down -->
+    <section class="team-section divider-split-down">
+        <div class="container">
+            <div class="team-header">
+                <p class="script-font">Meet Your Hosts</p>
+                <h2>The Family Behind the Farm</h2>
+            </div>
+            <div class="team-carousel">
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400" alt="John">
+                    </div>
+                    <h3 class="member-name">John & Mary Thompson</h3>
+                    <p class="member-role">Owners</p>
+                    <p class="member-bio">Fourth-generation farmers who transformed their family property into Minnesota's most sought-after wedding venue.</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400" alt="Sarah">
+                    </div>
+                    <h3 class="member-name">Sarah Mitchell</h3>
+                    <p class="member-role">Event Coordinator</p>
+                    <p class="member-bio">With 15 years of experience, Sarah ensures every detail of your special day runs flawlessly.</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400" alt="Michael">
+                    </div>
+                    <h3 class="member-name">Michael Rivers</h3>
+                    <p class="member-role">Grounds Manager</p>
+                    <p class="member-bio">Maintains our 400 acres to perfection, creating stunning backdrops for your celebration.</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400" alt="Emily">
+                    </div>
+                    <h3 class="member-name">Emily Chen</h3>
+                    <p class="member-role">Guest Relations</p>
+                    <p class="member-bio">Your first point of contact, Emily helps couples envision and plan their perfect day.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 7: Blog with Split Up -->
+    <section class="blog-section divider-split-up">
+        <div class="container">
+            <div class="blog-header">
+                <div class="blog-header-text">
+                    <h2>Stories from the Barn</h2>
+                    <p>Wedding inspiration, planning tips, and real celebrations</p>
+                </div>
+                <a href="#" class="btn-outline">View All Posts</a>
+            </div>
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=600" alt="Fall wedding">
+                        <span class="blog-category">Real Weddings</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>October 15, 2024</span>
+                            <span>5 min read</span>
+                        </div>
+                        <h3 class="blog-title">A Magical Fall Wedding: Sarah & Tom's Story</h3>
+                        <p class="blog-excerpt">When the autumn leaves created a natural confetti for their first kiss as newlyweds, we knew this celebration was pure magic...</p>
+                        <a href="#" class="read-more">Read Story</a>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600" alt="Wedding planning">
+                        <span class="blog-category">Planning Tips</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>October 10, 2024</span>
+                            <span>3 min read</span>
+                        </div>
+                        <h3 class="blog-title">10 Ways to Personalize Your Barn Wedding</h3>
+                        <p class="blog-excerpt">From custom signage to family heirlooms, discover creative ways to make your barn wedding uniquely yours...</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=600" alt="Seasonal guide">
+                        <span class="blog-category">Seasonal Guide</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>October 5, 2024</span>
+                            <span>4 min read</span>
+                        </div>
+                        <h3 class="blog-title">Why Minnesota Summers Make Perfect Weddings</h3>
+                        <p class="blog-excerpt">Long golden hours, warm breezes through the vineyard, and starlit receptions—summer at Rum River is unforgettable...</p>
+                        <a href="#" class="read-more">Read Guide</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 8: Social Proof -->
+    <section class="social-proof">
+        <div class="container social-content">
+            <div class="social-logos">
+                <span class="social-logo">The Knot</span>
+                <span class="social-logo">WeddingWire</span>
+                <span class="social-logo">Martha Stewart</span>
+                <span class="social-logo">Minnesota Bride</span>
+            </div>
+            <p class="social-text">
+                "Rum River Barn isn't just a venue—it's <span class="highlight">where dreams come to life</span>. 
+                Their commitment to saying 'yes' to every couple's vision sets them apart as 
+                <span class="highlight">Minnesota's most accommodating wedding destination</span>."
+            </p>
+        </div>
+    </section>
+
+    <!-- Section 9: Instagram with Angle Up -->
+    <section class="instagram-section divider-angle-up">
+        <div class="container">
+            <div class="instagram-header">
+                <h2>Follow Our Journey</h2>
+                <a href="#" class="instagram-handle">@rumriverbarn</a>
+            </div>
+            <div class="instagram-grid">
+                <div class="instagram-post">
+                    <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=400" alt="Instagram post">
+                    <div class="instagram-overlay">
+                        <div class="instagram-stats">
+                            <span class="count">1,247</span>
+                            <span>Likes</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="instagram-post">
+                    <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=400" alt="Instagram post">
+                    <div class="instagram-overlay">
+                        <div class="instagram-stats">
+                            <span class="count">892</span>
+                            <span>Likes</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="instagram-post">
+                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400" alt="Instagram post">
+                    <div class="instagram-overlay">
+                        <div class="instagram-stats">
+                            <span class="count">2,103</span>
+                            <span>Likes</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="instagram-post">
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=400" alt="Instagram post">
+                    <div class="instagram-overlay">
+                        <div class="instagram-stats">
+                            <span class="count">1,567</span>
+                            <span>Likes</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="instagram-post">
+                    <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=400" alt="Instagram post">
+                    <div class="instagram-overlay">
+                        <div class="instagram-stats">
+                            <span class="count">934</span>
+                            <span>Likes</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="instagram-post">
+                    <img src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=400" alt="Instagram post">
+                    <div class="instagram-overlay">
+                        <div class="instagram-stats">
+                            <span class="count">3,421</span>
+                            <span>Likes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 10: Map & Directions -->
+    <section class="map-section">
+        <div class="map-container">
+            <div class="map-info">
+                <h2>Find Your Way to Forever</h2>
+                <div class="location-details">
+                    <div class="location-item">
+                        <div class="location-icon">📍</div>
+                        <div class="location-text">
+                            <h4>Address</h4>
+                            <p>12500 Rum River Drive<br>Princeton, MN 55371</p>
+                        </div>
+                    </div>
+                    <div class="location-item">
+                        <div class="location-icon">🚗</div>
+                        <div class="location-text">
+                            <h4>Easy Access From</h4>
+                            <p>45 min from Minneapolis<br>30 min from St. Cloud<br>1 hour from Brainerd</p>
+                        </div>
+                    </div>
+                    <div class="location-item">
+                        <div class="location-icon">✈️</div>
+                        <div class="location-text">
+                            <h4>Nearest Airport</h4>
+                            <p>Minneapolis-St. Paul International<br>55 miles (1 hour drive)</p>
+                        </div>
+                    </div>
+                    <div class="location-item">
+                        <div class="location-icon">🏨</div>
+                        <div class="location-text">
+                            <h4>Accommodations</h4>
+                            <p>Partner hotels in Princeton & Milaca<br>Group rates available</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="map-embed">
+                <div class="map-placeholder">
+                    <p>Interactive Map</p>
+                    <p style="font-size: 16px; margin-top: 10px;">Click to view on Google Maps</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Enhanced header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling with offset for fixed header
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Enhanced navigation dots
+        const sections = document.querySelectorAll('section[id]');
+        const navDots = document.querySelectorAll('.nav-dots span');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navDots.forEach(dot => {
+                dot.classList.remove('active');
+                if (dot.dataset.section === current) {
+                    dot.classList.add('active');
+                }
+            });
+
+            // Update active nav menu item
+            const navLinks = document.querySelectorAll('.nav-menu a');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Navigation dot clicks
+        navDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const section = document.getElementById(dot.dataset.section);
+                if (section) {
+                    const headerOffset = 80;
+                    const elementPosition = section.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add smooth reveal animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '0';
+                    entry.target.style.transform = 'translateY(30px)';
+                    entry.target.style.transition = 'all 0.8s ease';
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, 100);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe various elements
+        document.querySelectorAll('.block-item, .service-card, .package-card, .team-member, .blog-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Venue tabs functionality
+        const venueTabs = document.querySelectorAll('.venue-tab');
+        venueTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                venueTabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                // Here you would switch the displayed content
+            });
+        });
+    </script>
+
+</body>
+</html>

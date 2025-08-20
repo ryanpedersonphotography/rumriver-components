@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Willow Creek Barn - Rustic Wedding Venue</title>
+    <meta name="description" content="Willow Creek Barn offers a stunning rustic wedding venue nestled in the countryside. Perfect for your dream barn wedding celebration.">
+    
+    <style>
+        /* CSS Reset and Variables */
+        :root {
+            --primary-color: #8B7355;
+            --secondary-color: #D4A574;
+            --accent-color: #E8D5C4;
+            --text-dark: #2C2416;
+            --text-light: #6B5D54;
+            --white: #FFFFFF;
+            --off-white: #FAF8F5;
+            --overlay: rgba(44, 36, 22, 0.7);
+            --max-width: 1200px;
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 3rem;
+            --spacing-xl: 4rem;
+            --transition: all 0.3s ease;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--off-white);
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', Georgia, serif;
+            line-height: 1.2;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        h1 { 
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 300;
+            letter-spacing: -0.02em;
+        }
+
+        h2 { 
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 400;
+        }
+
+        h3 { 
+            font-size: clamp(1.5rem, 3vw, 2rem);
+        }
+
+        p {
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        .section {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .text-center { text-align: center; }
+        .text-uppercase { text-transform: uppercase; }
+
+        /* Button Component */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: 2px solid var(--primary-color);
+            border-radius: 0;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-light {
+            background-color: var(--white);
+            color: var(--primary-color);
+            border-color: var(--white);
+        }
+
+        .btn-light:hover {
+            background-color: transparent;
+            color: var(--white);
+        }
+
+        /* Header Component */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            font-family: 'Playfair Display', serif;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: var(--spacing-md);
+        }
+
+        nav a {
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after,
+        nav a.active::after {
+            width: 100%;
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 2px;
+            background-color: var(--text-dark);
+            transition: var(--transition);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(var(--overlay), var(--overlay)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23F5E6D3" width="1200" height="800"/><path fill="%23E8D5C4" d="M0 400L50 383.3C100 366.7 200 333.3 300 316.7C400 300 500 300 600 333.3C700 366.7 800 433.3 900 450C1000 466.7 1100 433.3 1150 416.7L1200 400V800H1150C1100 800 1000 800 900 800C800 800 700 800 600 800C500 800 400 800 300 800C200 800 100 800 50 800H0V400Z"/></svg>') center/cover;
+            color: var(--white);
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: var(--spacing-md);
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: var(--spacing-sm);
+            color: var(--accent-color);
+            font-style: italic;
+        }
+
+        .hero h1 {
+            margin-bottom: var(--spacing-md);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            margin-bottom: var(--spacing-lg);
+            color: var(--white);
+            opacity: 0.95;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xl);
+            align-items: center;
+            margin-top: var(--spacing-lg);
+        }
+
+        .about-image {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(rgba(139, 115, 85, 0.2), rgba(139, 115, 85, 0.2)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400"><rect fill="%23F5E6D3" width="600" height="400"/><path fill="%23D4A574" opacity="0.3" d="M100 200Q200 100 300 200T500 200L500 400L100 400Z"/></svg>') center/cover;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .about-content h2 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: var(--spacing-md);
+        }
+
+        .feature-list li {
+            padding: var(--spacing-xs) 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .feature-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        /* Services Section */
+        .services {
+            background-color: var(--white);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+
+        .service-card {
+            text-align: center;
+            padding: var(--spacing-lg);
+            background-color: var(--off-white);
+            border-radius: 4px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover::before {
+            transform: translateX(0);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto var(--spacing-md);
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-lg);
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+            border-radius: 4px;
+            cursor: pointer;
+            background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+        }
+
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--overlay);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover::before {
+            opacity: 1;
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: var(--spacing-md);
+            color: var(--white);
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+
+        /* Pricing Section */
+        .pricing {
+            background-color: var(--white);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+
+        .pricing-card {
+            background-color: var(--off-white);
+            padding: var(--spacing-lg);
+            border-radius: 4px;
+            text-align: center;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .pricing-card.featured {
+            background-color: var(--primary-color);
+            color: var(--white);
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured p,
+        .pricing-card.featured .price-details li {
+            color: var(--white);
+            opacity: 0.9;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin: var(--spacing-md) 0;
+            color: var(--primary-color);
+        }
+
+        .pricing-card.featured .price {
+            color: var(--white);
+        }
+
+        .price-details {
+            list-style: none;
+            margin: var(--spacing-md) 0;
+        }
+
+        .price-details li {
+            padding: var(--spacing-xs) 0;
+            color: var(--text-light);
+        }
+
+        /* Testimonials Section */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+
+        .testimonial-card {
+            background-color: var(--white);
+            padding: var(--spacing-lg);
+            border-radius: 4px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: var(--spacing-sm);
+            left: var(--spacing-md);
+            font-size: 4rem;
+            color: var(--accent-color);
+            font-family: Georgia, serif;
+        }
+
+        .testimonial-text {
+            margin-bottom: var(--spacing-md);
+            padding-top: var(--spacing-md);
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .testimonial-role {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xl);
+            margin-top: var(--spacing-lg);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: var(--spacing-xs);
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(139, 115, 85, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-info {
+            padding: var(--spacing-lg);
+            background-color: var(--off-white);
+            border-radius: 4px;
+        }
+
+        .info-item {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .info-item h4 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-dark);
+            color: var(--white);
+            padding: var(--spacing-lg) 0 var(--spacing-md);
+            margin-top: var(--spacing-xl);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .footer-section h4 {
+            color: var(--secondary-color);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: var(--white);
+            opacity: 0.8;
+            display: block;
+            padding: 0.25rem 0;
+        }
+
+        .footer-section a:hover {
+            opacity: 1;
+            color: var(--secondary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: var(--spacing-md);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .social-links {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-sm);
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease forwards;
+            opacity: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            nav ul {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                padding: var(--spacing-md);
+                box-shadow: var(--shadow);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition);
+            }
+
+            nav.active ul {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .services-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 0 var(--spacing-sm);
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            header, footer, .btn, .gallery {
+                display: none;
+            }
+
+            body {
+                font-size: 12pt;
+                line-height: 1.5;
+                color: black;
+            }
+
+            .section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Willow Creek Barn</div>
+                <nav id="nav">
+                    <ul>
+                        <li><a href="#home" class="active">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#packages">Packages</a></li>
+                        <li><a href="#testimonials">Reviews</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="menu-toggle" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-subtitle">Where Love Stories Begin</div>
+            <h1>Willow Creek Barn</h1>
+            <p class="hero-description">
+                A breathtaking rustic wedding venue nestled in the rolling countryside, 
+                where timeless elegance meets natural beauty
+            </p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-light">Schedule a Tour</a>
+                <a href="#gallery" class="btn btn-outline" style="margin-left: 1rem;">View Gallery</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image fade-in"></div>
+                <div class="about-content">
+                    <h2>Your Dream Barn Wedding Awaits</h2>
+                    <p>
+                        Willow Creek Barn is a restored 1890s barn that combines rustic charm with modern amenities. 
+                        Set on 40 acres of pristine countryside, our venue offers the perfect backdrop for your special day.
+                    </p>
+                    <p>
+                        From intimate ceremonies to grand celebrations, we provide an enchanting setting where 
+                        memories are made and love stories unfold against the backdrop of weathered wood, 
+                        twinkling lights, and natural beauty.
+                    </p>
+                    <ul class="feature-list">
+                        <li>Historic barn with original architecture</li>
+                        <li>Accommodates up to 250 guests</li>
+                        <li>Climate-controlled comfort year-round</li>
+                        <li>Stunning outdoor ceremony sites</li>
+                        <li>Professional wedding coordination</li>
+                        <li>Ample parking and accessibility</li>
+                    </ul>
+                    <a href="#packages" class="btn" style="margin-top: 2rem;">View Packages</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section services">
+        <div class="container">
+            <h2 class="text-center">Complete Wedding Services</h2>
+            <p class="text-center" style="max-width: 600px; margin: 0 auto;">
+                Everything you need for your perfect day, all in one stunning location
+            </p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🏛️</div>
+                    <h3>Ceremony Spaces</h3>
+                    <p>Choose from our restored barn interior, garden gazebo, or meadow setting for your ceremony</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎉</div>
+                    <h3>Reception Hall</h3>
+                    <p>Our spacious barn features exposed beams, chandeliers, and a dance floor for up to 250 guests</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📸</div>
+                    <h3>Photo Locations</h3>
+                    <p>Stunning backdrops including rustic doors, wildflower fields, and a romantic willow grove</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🍽️</div>
+                    <h3>Catering Kitchen</h3>
+                    <p>Full commercial kitchen available for your catering team with modern equipment</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💐</div>
+                    <h3>Bridal Suite</h3>
+                    <p>Private getting-ready suite with comfortable seating, mirrors, and natural light</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎵</div>
+                    <h3>Event Coordination</h3>
+                    <p>Experienced coordinators to help plan and execute your perfect wedding day</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="section">
+        <div class="container">
+            <h2 class="text-center">Wedding Gallery</h2>
+            <p class="text-center" style="max-width: 600px; margin: 0 auto;">
+                Explore the magic of real weddings at Willow Creek Barn
+            </p>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="gallery-caption">
+                        <h4>Sarah & Michael</h4>
+                        <p>Summer Garden Wedding</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-caption">
+                        <h4>Emily & James</h4>
+                        <p>Autumn Barn Ceremony</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-caption">
+                        <h4>Jessica & David</h4>
+                        <p>Spring Outdoor Reception</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-caption">
+                        <h4>Amanda & Robert</h4>
+                        <p>Winter Wonderland Wedding</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-caption">
+                        <h4>Lauren & Christopher</h4>
+                        <p>Rustic Chic Celebration</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-caption">
+                        <h4>Rachel & Matthew</h4>
+                        <p>Sunset Ceremony</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="packages" class="section pricing">
+        <div class="container">
+            <h2 class="text-center">Wedding Packages</h2>
+            <p class="text-center" style="max-width: 600px; margin: 0 auto;">
+                Flexible packages designed to make your dream wedding a reality
+            </p>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Essentials</h3>
+                    <div class="price">$3,500</div>
+                    <p>Perfect for intimate celebrations</p>
+                    <ul class="price-details">
+                        <li>Up to 75 guests</li>
+                        <li>6-hour venue rental</li>
+                        <li>Ceremony & reception spaces</li>
+                        <li>Tables and chairs</li>
+                        <li>Basic lighting package</li>
+                        <li>Parking attendant</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline">Get Started</a>
+                </div>
+                <div class="pricing-card featured">
+                    <h3>Signature</h3>
+                    <div class="price">$5,500</div>
+                    <p>Our most popular package</p>
+                    <ul class="price-details">
+                        <li>Up to 150 guests</li>
+                        <li>10-hour venue rental</li>
+                        <li>All venue spaces included</li>
+                        <li>Premium decor package</li>
+                        <li>Bridal suite access</li>
+                        <li>Day-of coordinator</li>
+                        <li>Setup and cleanup crew</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-light">Most Popular</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Luxe</h3>
+                    <div class="price">$7,500</div>
+                    <p>The ultimate wedding experience</p>
+                    <ul class="price-details">
+                        <li>Up to 250 guests</li>
+                        <li>Full weekend access</li>
+                        <li>All premium amenities</li>
+                        <li>Custom lighting design</li>
+                        <li>Full planning assistance</li>
+                        <li>Rehearsal dinner space</li>
+                        <li>Complimentary extras</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section">
+        <div class="container">
+            <h2 class="text-center">Love Stories from Our Couples</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        "Willow Creek Barn was absolutely magical! The staff went above and beyond to make 
+                        our day perfect. The rustic charm combined with elegant touches created the exact 
+                        atmosphere we dreamed of."
+                    </p>
+                    <div class="testimonial-author">Sarah & Michael Thompson</div>
+                    <div class="testimonial-role">Married June 2024</div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        "From our first tour to our last dance, everything was flawless. The barn's natural 
+                        beauty meant we needed minimal decorations, and our photos are absolutely stunning!"
+                    </p>
+                    <div class="testimonial-author">Emily & James Martinez</div>
+                    <div class="testimonial-role">Married September 2024</div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        "We couldn't have asked for a better venue. The flexibility to have both our ceremony 
+                        and reception on-site was perfect, and our guests are still talking about how beautiful 
+                        everything was!"
+                    </p>
+                    <div class="testimonial-author">Jessica & David Chen</div>
+                    <div class="testimonial-role">Married April 2024</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h2 class="text-center">Start Planning Your Perfect Day</h2>
+            <p class="text-center" style="max-width: 600px; margin: 0 auto;">
+                We'd love to show you around and discuss how we can make your wedding dreams come true
+            </p>
+            <div class="contact-grid">
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Your Names</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Preferred Wedding Date</label>
+                        <input type="date" id="date" name="date">
+                    </div>
+                    <div class="form-group">
+                        <label for="guests">Estimated Guest Count</label>
+                        <select id="guests" name="guests">
+                            <option value="">Select guest count</option>
+                            <option value="50">Under 50</option>
+                            <option value="75">50-75</option>
+                            <option value="100">75-100</option>
+                            <option value="150">100-150</option>
+                            <option value="200">150-200</option>
+                            <option value="250">200-250</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Tell Us About Your Vision</label>
+                        <textarea id="message" name="message" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn">Schedule a Tour</button>
+                </form>
+                <div class="contact-info">
+                    <div class="info-item">
+                        <h4>Visit Our Venue</h4>
+                        <p>1847 Willow Creek Road<br>
+                        Meadowbrook Valley, CA 95460</p>
+                    </div>
+                    <div class="info-item">
+                        <h4>Get in Touch</h4>
+                        <p>Phone: (555) 123-4567<br>
+                        Email: hello@willowcreekbarn.com</p>
+                    </div>
+                    <div class="info-item">
+                        <h4>Tour Hours</h4>
+                        <p>Tuesday - Friday: 10am - 5pm<br>
+                        Saturday - Sunday: 11am - 4pm<br>
+                        Closed Mondays</p>
+                    </div>
+                    <div class="info-item">
+                        <h4>Follow Our Love Stories</h4>
+                        <div class="social-links">
+                            <a href="#" aria-label="Facebook">f</a>
+                            <a href="#" aria-label="Instagram">📷</a>
+                            <a href="#" aria-label="Pinterest">P</a>
+                            <a href="#" aria-label="YouTube">▶</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Willow Creek Barn</h4>
+                    <p style="color: rgba(255,255,255,0.8); margin-top: 1rem;">
+                        Creating unforgettable wedding experiences in the heart of California's countryside since 2010.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#packages">Packages</a></li>
+                        <li><a href="#testimonials">Reviews</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Virtual Tour</a></li>
+                        <li><a href="#">Preferred Vendors</a></li>
+                        <li><a href="#">Floor Plans</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:5551234567">(555) 123-4567</a></li>
+                        <li><a href="mailto:hello@willowcreekbarn.com">hello@willowcreekbarn.com</a></li>
+                        <li><a href="#">1847 Willow Creek Road</a></li>
+                        <li><a href="#">Meadowbrook Valley, CA</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Willow Creek Barn. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            const nav = document.getElementById('nav');
+            nav.classList.toggle('active');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 70;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+                
+                // Close mobile menu if open
+                const nav = document.getElementById('nav');
+                if (nav.classList.contains('active')) {
+                    nav.classList.remove('active');
+                }
+            });
+        });
+
+        // Active navigation highlighting
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Form submission handler
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your interest! We\'ll contact you within 24 hours to schedule your tour.');
+            this.reset();
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
